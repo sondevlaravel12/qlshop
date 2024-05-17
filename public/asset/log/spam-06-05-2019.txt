@@ -1,0 +1,8 @@
+06-05-2019 09:15:53 : {"type":"Form chat","user_ip":"113.176.145.99","hoten":"Dung eka","dienthoai":"0905997737","diachi":"Huyen eka daklak","sanphamdat":"2","masanpham":"0"} 
+
+06-05-2019 09:15:56 : {"type":"Form chat","user_ip":"113.176.145.99","hoten":"Dung eka","dienthoai":"0905997737","diachi":"Huyen eka daklak","sanphamdat":"2","masanpham":"0"} 
+
+06-05-2019 09:23:04 : {"type":"Form chat","user_ip":"113.176.145.99","hoten":"Nguyen duy phap","dienthoai":"0916234334","diachi":"Cumgar daklak","sanphamdat":"6","masanpham":"0"} 
+
+06-05-2019 09:23:05 : {"type":"Form chat","user_ip":"113.176.145.99","hoten":"Nguyen duy phap","dienthoai":"0916234334","diachi":"Cumgar daklak","sanphamdat":"6","masanpham":"0"} 
+

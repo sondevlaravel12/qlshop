@@ -1,0 +1,18 @@
+08-11-2018 06:26:23 : {"type":"Form chat","user_ip":"171.255.22.74","hoten":"h\u1ed3 th\u1ebf b\u1ea3o","dienthoai":"0334426356","diachi":"th\u00f4n kh\u00e1nh t\u00e2n, x\u00e3 nh\u01a1n h\u1ea3i, huy\u1ec7n ninh h\u1ea3i, t\u1ec9nh ninh thu\u1eadn","sanphamdat":"2 + gi\u1ed1ng nho lung ph\u00e1p F1","masanpham":"3416"} 
+
+08-11-2018 06:26:43 : {"type":"Form chat","user_ip":"171.255.22.74","hoten":"h\u1ed3 th\u1ebf b\u1ea3o","dienthoai":"0334426356","diachi":"th\u00f4n kh\u00e1nh t\u00e2n, x\u00e3 nh\u01a1n h\u1ea3i, huy\u1ec7n ninh h\u1ea3i, t\u1ec9nh ninh thu\u1eadn","sanphamdat":"2 + gi\u1ed1ng nho lung ph\u00e1p F1","masanpham":"3416"} 
+
+08-11-2018 06:26:51 : {"type":"Form chat","user_ip":"171.255.22.74","hoten":"h\u1ed3 th\u1ebf b\u1ea3o","dienthoai":"0334426356","diachi":"th\u00f4n kh\u00e1nh t\u00e2n, x\u00e3 nh\u01a1n h\u1ea3i, huy\u1ec7n ninh h\u1ea3i, t\u1ec9nh ninh thu\u1eadn","sanphamdat":"2 + gi\u1ed1ng nho lung ph\u00e1p F1","masanpham":"3416"} 
+
+08-11-2018 06:26:52 : {"type":"Form chat","user_ip":"171.255.22.74","hoten":"h\u1ed3 th\u1ebf b\u1ea3o","dienthoai":"0334426356","diachi":"th\u00f4n kh\u00e1nh t\u00e2n, x\u00e3 nh\u01a1n h\u1ea3i, huy\u1ec7n ninh h\u1ea3i, t\u1ec9nh ninh thu\u1eadn","sanphamdat":"2 + gi\u1ed1ng nho lung ph\u00e1p F1","masanpham":"3416"} 
+
+08-11-2018 06:26:54 : {"type":"Form chat","user_ip":"171.255.22.74","hoten":"h\u1ed3 th\u1ebf b\u1ea3o","dienthoai":"0334426356","diachi":"th\u00f4n kh\u00e1nh t\u00e2n, x\u00e3 nh\u01a1n h\u1ea3i, huy\u1ec7n ninh h\u1ea3i, t\u1ec9nh ninh thu\u1eadn","sanphamdat":"2 + gi\u1ed1ng nho lung ph\u00e1p F1","masanpham":"3416"} 
+
+08-11-2018 06:26:56 : {"type":"Form chat","user_ip":"171.255.22.74","hoten":"h\u1ed3 th\u1ebf b\u1ea3o","dienthoai":"0334426356","diachi":"th\u00f4n kh\u00e1nh t\u00e2n, x\u00e3 nh\u01a1n h\u1ea3i, huy\u1ec7n ninh h\u1ea3i, t\u1ec9nh ninh thu\u1eadn","sanphamdat":"2 + gi\u1ed1ng nho lung ph\u00e1p F1","masanpham":"3416"} 
+
+08-11-2018 06:27:03 : {"type":"Form chat","user_ip":"171.255.22.74","hoten":"h\u1ed3 th\u1ebf b\u1ea3o","dienthoai":"0334426356","diachi":"th\u00f4n kh\u00e1nh t\u00e2n, x\u00e3 nh\u01a1n h\u1ea3i, huy\u1ec7n ninh h\u1ea3i, t\u1ec9nh ninh thu\u1eadn","sanphamdat":"2 + gi\u1ed1ng nho lung ph\u00e1p F1","masanpham":"3416"} 
+
+08-11-2018 06:27:12 : {"type":"Form chat","user_ip":"171.255.22.74","hoten":"h\u1ed3 th\u1ebf b\u1ea3o","dienthoai":"0334426356","diachi":"th\u00f4n kh\u00e1nh t\u00e2n, x\u00e3 nh\u01a1n h\u1ea3i, huy\u1ec7n ninh h\u1ea3i, t\u1ec9nh ninh thu\u1eadn","sanphamdat":"2 + gi\u1ed1ng nho lung ph\u00e1p F1","masanpham":"3416"} 
+
+08-11-2018 06:58:02 : {"type":"Form chat","user_ip":"103.199.33.206","hoten":"Ph\u1ea1m Minh \u0110\u1ee9c","dienthoai":"0909508079","diachi":"106 Qu\u1ed1c l\u1ed9 1 A, Khu ph\u1ed1 4, P. Hi\u1ec7p B\u00ecnh Ph\u01b0\u1edbc, Q.Th\u1ee7 \u0111\u1ee9c, HCM - Cty CP Minh An Ph\u00e1t","sanphamdat":"01(m\u1ed9t)","masanpham":"328"} 
+

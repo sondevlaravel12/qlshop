@@ -1,0 +1,3 @@
+http://phplang.com/sanpham/tinymce-va-nhung-plugin-quan-ly-file-tien-dung-di-kem-mien-phi-329/1/
+
+https://blueimp.github.io/jQuery-File-Upload/index.html

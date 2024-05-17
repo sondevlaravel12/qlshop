@@ -1,0 +1,2 @@
+05-11-2018 08:25:34 : {"type":"Form chat","user_ip":"113.185.26.189","hoten":"Hu\u1ef3nh ng\u00e2n ","dienthoai":"0938458037","diachi":"\u0110\u1ed3ng Nai khu 4 x\u00e3 long ph\u01b0\u1edbc huy\u1ec7n long th\u00e0nh t\u1ec9nh \u0110\u1ed3ng Nai ","sanphamdat":"Tui mua m\u1ed9t c\u00e2y d\u00e2u t\u00e2y ch\u1ecbu nhi\u1ec7t t\u1ed1t nh\u1ea5t \n\n","masanpham":"2367"} 
+

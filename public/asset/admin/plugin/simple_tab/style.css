@@ -1,0 +1,40 @@
+div.container {
+width: 60%;
+margin: auto;
+}
+/* định dạng thẻ div chưa các a tab */
+div.tab {
+overflow: hidden;
+border: 1px solid #ccc;
+background-color: #f1f1f1;
+}
+
+/* định dạng các a tab */
+div.tab a {
+background-color: inherit;
+float: left;
+border: none;
+outline: none;
+cursor: pointer;
+padding: 14px 16px;
+transition: 0.3s;
+font-size: 17px;
+}
+
+/* đổi màu khi một a tab được hover */
+div.tab a:hover {
+background-color: #ddd;
+}
+
+/* đổi màu nền cho tab đang được hiển thị nội dung */
+div.tab a.active {
+background-color: #ccc;
+}
+
+/* định dạng nội dung hiển thị */
+.tabcontent {
+/*display: none;*/
+padding: 6px 12px;
+border: 1px solid #ccc;
+border-top: none;
+}

@@ -1,0 +1,258 @@
+14-03-2019 12:46:04 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"mguyen van hai","dienthoai":"0973743299","diachi":"Loc ninh- binh phuoc","sanphamdat":"Trong 1 ha","masanpham":"67"} 
+
+14-03-2019 01:46:32 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Nguy\u1ec5n Th\u00e0nh H\u1ea3i","dienthoai":"0985597681 ho\u0103c 0912818748","diachi":"36, \u1ea5p \u0110\u00f4ng H\u00f2a, x\u00e3 Song Thu\u1eadn, Ch\u00e2u Th\u00e0nh, Ti\u1ec1n Giang","sanphamdat":"2 h\u1ee7 keo li\u1ec1n da M\u1ef9 Ti\u1ebfn","masanpham":"4659"} 
+
+14-03-2019 05:47:55 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Tr\u1ecbnh Xu\u00e2n L\u00ean","dienthoai":"0987446579","diachi":"Th\u00f4n 6 - \u0110\u01b0\u1eddng 10 - B\u00f9 \u0111\u0103ng  - B\u00ecnh ph\u01b0\u1edbc  . ","sanphamdat":"01","masanpham":"3443"} 
+
+14-03-2019 05:47:56 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Tr\u1ecbnh Xu\u00e2n L\u00ean","dienthoai":"0987446579","diachi":"Th\u00f4n 6 - \u0110\u01b0\u1eddng 10 - B\u00f9 \u0111\u0103ng  - B\u00ecnh ph\u01b0\u1edbc  . ","sanphamdat":"01","masanpham":"3443"} 
+
+14-03-2019 07:57:51 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"L\u00ea th\u1ecb xu\u00e2n h\u01b0\u1eddng","dienthoai":"0935628885","diachi":"24 xu\u00e2n di\u1ec7u thu\u1eadn Ph\u01b0\u1edbc h\u1ea3i ch\u00e2u \u0110\u00e0 n\u1eb1ng ","sanphamdat":"01 b\u1ed9 sp ","masanpham":"5731"} 
+
+14-03-2019 08:08:47 : {"type":"Gio hang","user_ip":"120.72.98.133","user_name":"Nguy\u1ec5n th\u1ecb kim nguy\u1ec7t","user_email":"","user_phone":"0337978773","address":"61 l\u00ea l\u1ee3i th\u1ecb tr\u1ea5n khe sanh h\u01b0\u1edbng h\u00f3a qu\u00e3ng tr\u1ecb","total":165000} 
+
+14-03-2019 08:09:35 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"C\u00f4ng ch\u00e1nh","dienthoai":"0362602319","diachi":"L\u00f4 305\/1, \u0111\u01b0\u1eddng 7a, khu c\u00f4ng nghi\u1ec7p Amata, bi\u00ean ho\u00e0, \u0111\u1ed3ng nai","sanphamdat":"1 d\u00e2u t\u00e2y ch\u1ecbu nhi\u1ec7t","masanpham":"2367"} 
+
+14-03-2019 08:26:18 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Ho\u00e0ng v\u0103n t\u00e2m","dienthoai":"0919347998","diachi":"33 \u0111\u00e0o tr\u00ed, p. Ph\u00fa m\u1ef9. Q7 .tp.hcm","sanphamdat":"B\u1ed9 3 g\u00f3i h\u1ea1t gi\u1ed1ng sen sanh ng\u1ecdc,l\u00e1 ,sanh d\u01b0\u01a1ng","masanpham":"18"} 
+
+14-03-2019 08:31:21 : {"type":"Gio hang","user_ip":"120.72.98.133","user_name":"Nguy\u1ec5n M\u1ed9ng C\u1ea7m","user_email":"","user_phone":"0919621689","address":"B\u1ea3o hi\u1ec3m x\u00e3 h\u1ed9i huy\u1ec7n Ph\u00fa T\u00e2n, T\u1ec9nh C\u00e0 Mau","total":661000} 
+
+14-03-2019 08:44:19 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Tr\u01b0\u01a1ng th\u1ecb thu h\u01b0\u01a1ng","dienthoai":"0338886354","diachi":"X\u00f3m 5 x\u00e3 ph\u00fa ph\u00fac l\u00fd nh\u00e2n h\u00e0 nam","sanphamdat":"1 g\u00f3i nh\u1ecf","masanpham":"2392"} 
+
+14-03-2019 08:46:43 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Nguy\u1ec5n Th\u1ecb Thu\u1eadn","dienthoai":"0966100563","diachi":"23A \u0110\u01b0\u1eddng \u0110i\u1ec7n Bi\u00ean- tt C\u1ed5 L\u1ec5- Tr\u1ef1c Ninh- Nam \u0110\u1ecbnh","sanphamdat":"1 g\u00f3i h\u1ea1t gi\u00e1 165.000d","masanpham":"2367"} 
+
+14-03-2019 08:47:53 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Tr\u01b0\u01a1ng th\u1ecb thu h\u01b0\u01a1ng ","dienthoai":"0338886354","diachi":"X\u00f3m 5 x\u00e3 ph\u00fa ph\u00fac l\u00fd nh\u00e2n h\u00e0 nam","sanphamdat":"1 g\u00f3i h\u1ea1t t\u00e1o \u0111\u1ecf mi\u1ec5m sip \u1ea1","masanpham":"2392"} 
+
+14-03-2019 08:47:54 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Tr\u01b0\u01a1ng th\u1ecb thu h\u01b0\u01a1ng ","dienthoai":"0338886354","diachi":"X\u00f3m 5 x\u00e3 ph\u00fa ph\u00fac l\u00fd nh\u00e2n h\u00e0 nam","sanphamdat":"1 g\u00f3i h\u1ea1t t\u00e1o \u0111\u1ecf mi\u1ec5m sip \u1ea1","masanpham":"2392"} 
+
+14-03-2019 09:07:34 : {"type":"Gio hang","user_ip":"120.72.98.133","user_name":"L\u00ea Minh Kh\u00e1nh","user_email":"khanhlm79@gmail.com","user_phone":"0909448995","address":"Tr\u01b0\u1eddng Ti\u1ec3u h\u1ecdc Ph\u00fa H\u00f2a 2, Nguy\u1ec5n Th\u1ecb Minh Khai, Khu 8, Ph\u01b0\u1eddng Ph\u00fa H\u00f2a, TP Th\u1ee7 D\u1ea7u M\u1ed9t, B\u00ecnh D\u01b0\u01a1ng","total":675000} 
+
+14-03-2019 09:11:13 : {"type":"Gio hang","user_ip":"120.72.98.133","user_name":"Th\u00e8n V\u0103n D\u1ecbu","user_email":"","user_phone":"0365146607","address":"UBND X\u00c3 H\u1ed2 TH\u1ea6U - HUY\u1ec6N HO\u00c0NG SU PH\u00cc - T\u1ec8NH H\u00c0 GIANG","total":295000} 
+
+14-03-2019 09:24:40 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Tr\u00e0n H\u1eefu Hi\u1ebfu","dienthoai":"0988363777","diachi":"X\u00f3m 2, Th\u00f4n Ph\u00fac M\u1ef7, Xu\u00e2n Ninh, Qu\u1ea3ng Ninh, Qu\u1ea3ng B\u00ecnh","sanphamdat":"01 g\u00f3i","masanpham":"288"} 
+
+14-03-2019 09:55:05 : {"type":"Gio hang","user_ip":"120.72.98.133","user_name":"v\u0103n Ti\u1ebfn \u00c1nh","user_email":"","user_phone":"0987066257","address":"279 Ho\u00e0ng Di\u1ec7u \u0110\u00e0 n\u1eb5ng ","total":135000} 
+
+14-03-2019 10:13:53 : {"type":"Gio hang","user_ip":"120.72.98.133","user_name":"Ch\u1ecb T\u01b0\u01a1i","user_email":"hoanganh1005911@gmail.com","user_phone":"0949556169","address":"413\/56\/8\/23 L\u00ea V\u0103n Qu\u1edbi B\u00ecnh Tr\u1ecb \u0110\u00f4ng A B\u00ecnh T\u00e2n TPHCM","total":170000} 
+
+14-03-2019 10:37:03 : {"type":"Gio hang","user_ip":"120.72.98.133","user_name":"anh Ba\u0309y","user_email":"sevenbeersaigon1@gmail.com","user_phone":"0903162544","address":"E2\/53- qu\u00f4\u0301c l\u00f4\u0323 50- xa\u0303 \u0110a Ph\u01b0\u01a1\u0301c-Bi\u0300nh Cha\u0301nh","total":155000} 
+
+14-03-2019 10:39:16 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Phan trong hien","dienthoai":"0766778567","diachi":"F2\/15 ap6 vla b\u00ecnh Ch\u00e1nh tphcm","sanphamdat":"1\n","masanpham":"3416"} 
+
+14-03-2019 10:56:39 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Anh thu","dienthoai":"0988820988","diachi":"so 22 luong khanh thien ngo quyen hai phong","sanphamdat":"1bo ca chua leo gian","masanpham":"38"} 
+
+14-03-2019 11:22:35 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"B\u00f9i c\u00f4ng minh ","dienthoai":"0975789245","diachi":"T\u00e2n  h\u00f2a, t\u00e2n li\u00ean, h\u01b0\u1edbng h\u00f3a,qu\u1ea3ng tr\u1ecb ","sanphamdat":"T\u00f4i mua 01goi h\u1ea1t gi\u1ed1ng t\u00e1o \u0111\u1ecf l\u00f9n F1 gi\u00e1 155000,\u0111\u00f4ng\n","masanpham":"2392"} 
+
+14-03-2019 11:22:36 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"B\u00f9i c\u00f4ng minh ","dienthoai":"0975789245","diachi":"T\u00e2n  h\u00f2a, t\u00e2n li\u00ean, h\u01b0\u1edbng h\u00f3a,qu\u1ea3ng tr\u1ecb ","sanphamdat":"T\u00f4i mua 01goi h\u1ea1t gi\u1ed1ng t\u00e1o \u0111\u1ecf l\u00f9n F1 gi\u00e1 155000,\u0111\u00f4ng\n","masanpham":"2392"} 
+
+14-03-2019 11:22:37 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"B\u00f9i c\u00f4ng minh ","dienthoai":"0975789245","diachi":"T\u00e2n  h\u00f2a, t\u00e2n li\u00ean, h\u01b0\u1edbng h\u00f3a,qu\u1ea3ng tr\u1ecb ","sanphamdat":"T\u00f4i mua 01goi h\u1ea1t gi\u1ed1ng t\u00e1o \u0111\u1ecf l\u00f9n F1 gi\u00e1 155000,\u0111\u00f4ng\n","masanpham":"2392"} 
+
+14-03-2019 11:27:55 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Hu\u1ef3nh ph\u00fac Chuy\u1ec1n","dienthoai":"0909997978","diachi":"29\/24 Song h\u00e0nh qu\u1ed1c l\u1ed9 22, t\u00e2n H\u01b0ng thu\u1eadn","sanphamdat":"D\u00e2u T\u00e2y 1 bjcj","masanpham":"2367"} 
+
+14-03-2019 11:28:05 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Hu\u1ef3nh ph\u00fac Chuy\u1ec1n","dienthoai":"0909997978","diachi":"29\/24 Song h\u00e0nh qu\u1ed1c l\u1ed9 22, t\u00e2n H\u01b0ng thu\u1eadn","sanphamdat":"D\u00e2u T\u00e2y 1 bjcj","masanpham":"2367"} 
+
+14-03-2019 11:28:06 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Hu\u1ef3nh ph\u00fac Chuy\u1ec1n","dienthoai":"0909997978","diachi":"29\/24 Song h\u00e0nh qu\u1ed1c l\u1ed9 22, t\u00e2n H\u01b0ng thu\u1eadn","sanphamdat":"D\u00e2u T\u00e2y 1 bjcj","masanpham":"2367"} 
+
+14-03-2019 11:28:07 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Hu\u1ef3nh ph\u00fac Chuy\u1ec1n","dienthoai":"0909997978","diachi":"29\/24 Song h\u00e0nh qu\u1ed1c l\u1ed9 22, t\u00e2n H\u01b0ng thu\u1eadn","sanphamdat":"D\u00e2u T\u00e2y 1 bjcj","masanpham":"2367"} 
+
+14-03-2019 11:29:16 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Ph\u1ea1m thanh sang","dienthoai":"0976842892","diachi":"\u1ea4p 1xa th\u1ee7y t\u00e2y th\u1ea1nh hoa long an ","sanphamdat":"1\n\n","masanpham":"4659"} 
+
+14-03-2019 12:10:09 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Nguy\u1ec5n trung th\u00e0nh","dienthoai":"0987432686","diachi":"So nha 115 thi tran h\u01b0\u01a1ng kh\u00ea, huy\u1ec7n h\u01b0\u01a1ng kh\u00ea, t\u1ec9nh h\u00e0 t\u0129nh","sanphamdat":"01 tao \u0111\u1ecf l\u00f9n","masanpham":"2392"} 
+
+14-03-2019 12:27:33 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Hoang van Duc","dienthoai":"0985207536","diachi":"Xom n\u00f4i h\u00f4.th\u00f4n c\u00e2m trung.xa xu\u00e2m c\u00e2m.huy\u00ean hi\u00eap hoa.tinh b\u0103c giang.","sanphamdat":"2 b\u00f4 nho phap loai qua mau tim.","masanpham":"3416"} 
+
+14-03-2019 12:28:27 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Mai van locc","dienthoai":"0909934065","diachi":"630 to 13 l\u01b0u 4 \u00e1p 1 xa \u0103n hoa bi\u00ean hoa \u0111\u00f4ng nai","sanphamdat":"Giong de trong","masanpham":"2367"} 
+
+14-03-2019 12:42:50 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Nguy\u1ec5n tr\u1ecdng b\u1ea3o","dienthoai":"0347794295","diachi":"Th\u00f4n ph\u01b0\u1edbc h\u01b0ng x\u00e3 l\u1ed9c th\u1ee7y ,huy\u1ec7n ph\u00fa l\u1ed9c t\u0129nh tt hu\u1ebf","sanphamdat":"Hai g\u00f3i \u0111\u1ee7 m\u00e0u","masanpham":"3447"} 
+
+14-03-2019 12:49:28 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Nguy\u1ec5n \u0111\u1ee9c chung","dienthoai":"0965836047","diachi":"M\u1ef9 th\u1ea1nh ph\u01b0\u1eddng m\u1ef9 xu\u00e2n b\u00e0 r\u1ecba v\u0169ng t\u00e0u","sanphamdat":"S\u1ed1 l\u01b0\u1ee3ng 1+ d\u00e2u t\u00e2y ch\u1ecbu n\u1eafng f1","masanpham":"2367"} 
+
+14-03-2019 12:51:38 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"\u0110\u1eb7ng Qu\u1ed1c V\u01b0\u01a1ng","dienthoai":"0935704081","diachi":"UBND huy\u1ec7n Ph\u00f9 M\u1ef9, Th\u1ecb tr\u1ea5n Ph\u00f9 M\u1ef9, t\u1ec9nh B\u00ecnh \u0110\u1ecbnh","sanphamdat":"01 g\u00f3i h\u1ea1t mai \u0111\u1ecf","masanpham":"3443"} 
+
+14-03-2019 12:52:42 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Hoai Pham To","dienthoai":"0905886123","diachi":"K2\/32A Phan H\u00e0nh S\u01a1n, \u0110\u00e0 N\u1eb5ng","sanphamdat":"01 b\u1ed9 san ph\u1ea9m Gi\u1ed1ng Nho l\u00f9n  Ph\u00e1p","masanpham":"3416"} 
+
+14-03-2019 12:58:47 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Ph\u1ea1m th\u1ecb thu H\u01b0\u01a1ng","dienthoai":"0904466358","diachi":"Nh\u00e0 B127 khu t\u1eadp th\u1ec3 cty c\u01a1 kh\u00ed v\u00e0 x\u00e2y l\u1eafp s\u1ed1 7 lLi\u00ean Ninh Thanh tr\u00ec H\u00e0 n\u1ed9i","sanphamdat":"01 b\u1ed9 g\u1ed3m ANiSaf SH-01 v\u00e0 Bud BooStez","masanpham":"5731"} 
+
+14-03-2019 01:01:45 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Nguyen chi t\u00e2m","dienthoai":"0938911449","diachi":"Dc.duong so 8 nha so 9 phuong tan taoA quan binh tan tphcm","sanphamdat":"1","masanpham":"4639"} 
+
+14-03-2019 01:02:09 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Nguyen chi t\u00e2m","dienthoai":"0938911449","diachi":"Dc.duong so 8 nha so 9 phuong tan taoA quan binh tan tphcm","sanphamdat":"1","masanpham":"4639"} 
+
+14-03-2019 01:04:43 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Nguyen ng\u1ecdc t\u01b0\u1edfng","dienthoai":"0932492740","diachi":"Tdp 8 eadrang.eahleo.daklak","sanphamdat":"2","masanpham":"1340"} 
+
+14-03-2019 01:32:01 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Nguy\u00ean vu tr\u1ea7m h\u01b0\u01a1ng ","dienthoai":"0386898071","diachi":"\u1ea4p th\u1ecb t\u00ednh x\u00e3 long h\u00f2a huy\u1ec7n d\u1ea7u ti\u1ebfng t\u1ec9nh binh d\u01b0\u01a1ng dt ","sanphamdat":"1 b\u1ecbch h\u1ea1t gi\u1ed1ng dau t\u00e2y ","masanpham":"2367"} 
+
+14-03-2019 01:32:03 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Nguy\u00ean vu tr\u1ea7m h\u01b0\u01a1ng ","dienthoai":"0386898071","diachi":"\u1ea4p th\u1ecb t\u00ednh x\u00e3 long h\u00f2a huy\u1ec7n d\u1ea7u ti\u1ebfng t\u1ec9nh binh d\u01b0\u01a1ng dt ","sanphamdat":"1 b\u1ecbch h\u1ea1t gi\u1ed1ng dau t\u00e2y ","masanpham":"2367"} 
+
+14-03-2019 02:29:18 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"V\u00f5 Ni\u00ean","dienthoai":"0903504601","diachi":"45A Ch\u00e2u Th\u01b0\u1ee3ng V\u0103n,P.Ho\u00e0 C\u01b0\u1eddng B\u1eafc,Q.H\u1ea3i Ch\u00e2u,TP \u0110\u00e0 N\u1eb5ng","sanphamdat":"01 s\u1ea3n ph\u1ea9m","masanpham":"5731"} 
+
+14-03-2019 02:37:54 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Truong th\u1ecb Tuy\u1ec1n","dienthoai":"0937111113","diachi":"114 AN D\u01af\u01a0NG V\u01af\u01a0NG F16 Q8","sanphamdat":"1","masanpham":"3416"} 
+
+14-03-2019 02:46:23 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Ta thi hien","dienthoai":"0986038432","diachi":"Thanh tr\u00ed.minh ph\u00fa.SS.HN","sanphamdat":"H\u1ea1t gi\u1ed1ng d\u00e2u t\u00e2y","masanpham":"2367"} 
+
+14-03-2019 02:46:25 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Ta thi hien","dienthoai":"0986038432","diachi":"Thanh tr\u00ed.minh ph\u00fa.SS.HN","sanphamdat":"H\u1ea1t gi\u1ed1ng d\u00e2u t\u00e2y","masanpham":"2367"} 
+
+14-03-2019 02:48:53 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"nguyen van hung","dienthoai":"0762853485","diachi":"5\/9duong 297 phuoc longb q9","sanphamdat":"1bo","masanpham":"2367"} 
+
+14-03-2019 02:52:36 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Nguyen van hai","dienthoai":"O987o38533","diachi":"259 ap suoi nhat xuan dong cam my dong nai","sanphamdat":"O1 bo","masanpham":"5731"} 
+
+14-03-2019 02:56:55 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"h\u1ed3 ho\u00e0ng huy","dienthoai":"0971911248","diachi":"x\u00f3m 1 th\u00f4n h\u00f2a b\u00ecnh x\u00e3 ngh\u0129a h\u00f2a huy\u1ec7n t\u01b0 ngh\u0129a t\u1ec9nh qu\u1ea3ng ng\u00e3i","sanphamdat":"1","masanpham":"328"} 
+
+14-03-2019 03:04:20 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Nguy\u1ec5n h\u1ea3i \u0110\u0103ng","dienthoai":"0902069305","diachi":"T\u1ed5 1 ph\u00fac l\u1ee3i long bi\u00ean h\u00e0 n\u1ed9i","sanphamdat":"Hat gi\u1ed1ng mai \u0111\u1ecf","masanpham":"3443"} 
+
+14-03-2019 03:04:20 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Nguy\u1ec5n h\u1ea3i \u0110\u0103ng","dienthoai":"0902069305","diachi":"T\u1ed5 1 ph\u00fac l\u1ee3i long bi\u00ean h\u00e0 n\u1ed9i","sanphamdat":"Hat gi\u1ed1ng mai \u0111\u1ecf","masanpham":"3443"} 
+
+14-03-2019 03:32:36 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"  B\u00f9i th\u1ecb th\u1ee7y ","dienthoai":"0982788598 ","diachi":"Th\u00f4n 3 x\u00e3 nam dong huy\u1ec7n c\u01b0 j\u00fat t\u1ec9nh \u0111\u0103k n\u00f4ng ","sanphamdat":"1Dau tay,1tao \u0111\u1ecf, ","masanpham":"2367"} 
+
+14-03-2019 03:32:37 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"  B\u00f9i th\u1ecb th\u1ee7y ","dienthoai":"0982788598 ","diachi":"Th\u00f4n 3 x\u00e3 nam dong huy\u1ec7n c\u01b0 j\u00fat t\u1ec9nh \u0111\u0103k n\u00f4ng ","sanphamdat":"1Dau tay,1tao \u0111\u1ecf, ","masanpham":"2367"} 
+
+14-03-2019 03:33:12 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"D\u01b0\u01a1ng Thanh C\u1ea3nh","dienthoai":"0974912525","diachi":"B\u00ecnh Khang - Kh\u00e1nh Th\u01b0\u1ee3ng - Y\u00ean M\u00f4 - Ninh B\u00ecnh","sanphamdat":"1","masanpham":"5731"} 
+
+14-03-2019 03:39:28 : {"type":"Gio hang","user_ip":"120.72.98.133","user_name":"nguy\u1ec5n th\u00e0nh trung","user_email":"","user_phone":"0905102569","address":"190, nguy\u1ec5n hu\u1ec7, th\u1ecb tr\u1ea5n \u0111ak \u0111oa, gia lai","total":255000} 
+
+14-03-2019 03:44:16 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"nguy\u1ec5n th\u00e0nh trung","dienthoai":"0905102569","diachi":"190, nguy\u1ec5n hu\u1ec7, th\u1ecb tr\u1ea5n \u0111ak \u0111oa, gia lai","sanphamdat":"01 g\u00f3i h\u1ea1t hoa h\u1ed3ng ph\u00e1p","masanpham":"1331"} 
+
+14-03-2019 04:05:36 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"tuong ","dienthoai":"0362832234","diachi":"mo cay bentre","sanphamdat":"cay cam cara","masanpham":"222"} 
+
+14-03-2019 04:09:28 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Nguyen van chien ","dienthoai":"0903906767","diachi":"436\/1B \u0111uong 2\/3 F12Q10","sanphamdat":"D\u1ef1 ki\u1ebfn mua 200c\u00e2y cam cara ru\u1ed9t \u0111\u1ecf v\u00e0 10cay xo\u00e0i t\u00edm ","masanpham":"222"} 
+
+14-03-2019 04:14:58 : {"type":"Gio hang","user_ip":"120.72.98.133","user_name":"Kieu lam vo","user_email":"","user_phone":"*0942662907","address":"\u1ea4p t\u00e2n phong a x\u00e3 ta an kh\u01b0\u01a1ng \u0111\u00f4ng huy\u1ec7n \u0111\u1ea7m d\u01a1i t\u1ec9nh c\u00e0 mau","total":140000} 
+
+14-03-2019 04:18:46 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Tr\u01b0\u01a1ng v\u0103n tha","dienthoai":"0915622364","diachi":"V\u00e2n ti\u1ebfn x\u00e3 th\u00e0nh m\u1ef9 huy\u00ean th\u1ea1ch th\u00e0nh t\u1ec9nh thanh h\u00f3a","sanphamdat":"1 g\u00f3i","masanpham":"2392"} 
+
+14-03-2019 04:49:52 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Tr\u1ea7n th\u1ecb s\u00f4 ph\u00e1t","dienthoai":"0374761470","diachi":"\u1ea4p xo\u00e0i thum","sanphamdat":"1t\u00fai tr\u1ecb gi\u00e1 165","masanpham":"2367"} 
+
+14-03-2019 04:50:39 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Tr\u1ea7n th\u1ecb s\u00f4 ph\u00e1t","dienthoai":"0374761470","diachi":"\u1ea4p xo\u00e0i thum","sanphamdat":"1t\u00fai tr\u1ecb gi\u00e1 165","masanpham":"2367"} 
+
+14-03-2019 05:03:05 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"\u0110\u1eb7ng Thu Hoand","dienthoai":"0903256014","diachi":"S\u1ed1 nh\u00e0 12 d\u00e3y bi\u1ec7t th\u1ef1 T3, Khu \u0111\u00f4 th\u1ecb Ciputra, Xu\u00e2n \u0110\u1ec9nh, T\u1eeb Li\u00eam, H\u00e0 N\u1ed9i","sanphamdat":"03","masanpham":"5731"} 
+
+14-03-2019 05:33:45 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Nguyen van sung ","dienthoai":"0363456886","diachi":"Phu duong xa xuan thinh thi xa song cau tinh phu yen","sanphamdat":"Giong luu sieu lung chat luong cao\n","masanpham":"5696"} 
+
+14-03-2019 05:33:46 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Nguyen van sung ","dienthoai":"0363456886","diachi":"Phu duong xa xuan thinh thi xa song cau tinh phu yen","sanphamdat":"Giong luu sieu lung chat luong cao\n","masanpham":"5696"} 
+
+14-03-2019 05:33:47 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Nguyen van sung ","dienthoai":"0363456886","diachi":"Phu duong xa xuan thinh thi xa song cau tinh phu yen","sanphamdat":"Giong luu sieu lung chat luong cao\n","masanpham":"5696"} 
+
+14-03-2019 05:34:41 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Nguyen van sung ","dienthoai":"0363456886","diachi":"Phu duong xa xuan thinh thi xa song cau tinh phu yen","sanphamdat":"Giong luu sieu lung chat luong cao\n","masanpham":"5696"} 
+
+14-03-2019 05:35:09 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Nguyen van sung ","dienthoai":"0363456886","diachi":"Phu duong xa xuan thinh thi xa song cau tinh phu yen","sanphamdat":"Giong luu sieu lung chat luong cao\n","masanpham":"5696"} 
+
+14-03-2019 07:05:23 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"NGUYEN NGOC SANG","dienthoai":"0907386286","diachi":"DNTN CUCTAO , XA BINH TReal Eagle Attack Chicken Home - Brave Hen's Mother Protect and Save Her Baby Chickens From EagleHANH DONG , HUYEN PHU TAN , TINH AN GIANG","sanphamdat":"3goi","masanpham":"2367"} 
+
+14-03-2019 07:05:24 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"NGUYEN NGOC SANG","dienthoai":"0907386286","diachi":"DNTN CUCTAO , XA BINH TReal Eagle Attack Chicken Home - Brave Hen's Mother Protect and Save Her Baby Chickens From EagleHANH DONG , HUYEN PHU TAN , TINH AN GIANG","sanphamdat":"3goi","masanpham":"2367"} 
+
+14-03-2019 07:05:25 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"NGUYEN NGOC SANG","dienthoai":"0907386286","diachi":"DNTN CUCTAO , XA BINH TReal Eagle Attack Chicken Home - Brave Hen's Mother Protect and Save Her Baby Chickens From EagleHANH DONG , HUYEN PHU TAN , TINH AN GIANG","sanphamdat":"3goi","masanpham":"2367"} 
+
+14-03-2019 07:20:31 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Nguy\u1ec5n van loc ","dienthoai":"0914556108","diachi":"Th\u00f4n th\u01b0\u1ee3ng L\u00e0o x\u00e3 thu\u1eadn ho\u00e1 huy\u00ea\u0323n tuyen ho\u00e1 t\u1ec9nh qu\u1ea3ng b\u00ecnh","sanphamdat":"20 c\u00e2y","masanpham":"2392"} 
+
+14-03-2019 07:33:46 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Ph\u1ea1m Th\u1ecb H\u1ed3ng Xu\u00e2n","dienthoai":"0988246976","diachi":"khu 4 , tt Y\u00ean C\u00e1t , Nh\u01b0 Xu\u00e2n , Thanh Ho\u00e1","sanphamdat":"thu\u1ed1c tr\u1eeb s\u00e2u sh 01","masanpham":"5731"} 
+
+14-03-2019 07:41:36 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Nguyen Ty","dienthoai":"0385678312","diachi":"60 dao duy tu","sanphamdat":"Dau tay","masanpham":"2367"} 
+
+14-03-2019 07:44:19 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Tr\u1ea7n ph\u01b0\u01a1ng lan ","dienthoai":"0976262333","diachi":"Trang ph\u01b0\u01a1ng lan . Khu 5 . Th\u1ecb tr\u1ea5n s\u00f4ng thao . C\u1ea9m Kh\u00ea . Ph\u00fa th\u1ecd ","sanphamdat":"1 b\u1ed9","masanpham":"5731"} 
+
+14-03-2019 07:44:20 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Tr\u1ea7n ph\u01b0\u01a1ng lan ","dienthoai":"0976262333","diachi":"Trang ph\u01b0\u01a1ng lan . Khu 5 . Th\u1ecb tr\u1ea5n s\u00f4ng thao . C\u1ea9m Kh\u00ea . Ph\u00fa th\u1ecd ","sanphamdat":"1 b\u1ed9","masanpham":"5731"} 
+
+14-03-2019 07:51:36 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Vi\u1ebft ph\u01b0\u01a1ng","dienthoai":"0981151001","diachi":"H\u00f2a ninh. Tx ba \u0111\u1ed3n.qu\u1ea3ng b\u00ecnh","sanphamdat":"1 l\u1ecd B 1+ 2 l\u1ecd ph\u00e2n v\u00ec sinh","masanpham":"4663"} 
+
+14-03-2019 08:03:48 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Tran minh giau","dienthoai":"0327263077","diachi":"Ap 3 xa thanh phu vinh c\u01b0u dong nai ","sanphamdat":"1","masanpham":"2367"} 
+
+14-03-2019 08:07:06 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Nguy\u1ec5n  th\u1ecb  th\u00e0nh ","dienthoai":"0947596024","diachi":"Khu 3  ph\u00fa  minh   s\u00f3c S\u01a1n. H\u00e0 n\u1ed9i ","sanphamdat":"1 b\u1ed9  s\u1ea3n  ph\u1ea9m  \u0111u \u0111\u1ee7  v\u00e0ng  l\u00f9n  cao  s\u1ea3n  f1 c\u00e1nh  l\u00e1  t\u00edm  ","masanpham":"288"} 
+
+14-03-2019 08:08:47 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Nguy\u1ec5n lan trinh","dienthoai":"0916986431","diachi":"\u1ea4p c\u1ea3 h\u00e0ng x\u00e3 t\u00e2n H\u01b0ng \u0111\u00f4ng huy\u1ec7n c\u00e1i n\u01b0\u1edbc t\u1ec9nh c\u00e0 mau","sanphamdat":"D\u00e2u t\u00e2y 1kg","masanpham":"2367"} 
+
+14-03-2019 08:08:57 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Nguy\u1ec5n lan trinh","dienthoai":"0916986431","diachi":"\u1ea4p c\u1ea3 h\u00e0ng x\u00e3 t\u00e2n H\u01b0ng \u0111\u00f4ng huy\u1ec7n c\u00e1i n\u01b0\u1edbc t\u1ec9nh c\u00e0 mau","sanphamdat":"D\u00e2u t\u00e2y 1kg","masanpham":"2367"} 
+
+14-03-2019 08:27:52 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"\u0110inh van tu\u00e2\u0300n ","dienthoai":"0982152913","diachi":"521\/3 G. CMT8. P13. Q10. TP. HCM","sanphamdat":"2 cay ","masanpham":"3443"} 
+
+14-03-2019 08:30:50 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Mr Phong","dienthoai":"0987415555","diachi":"LK3-10 khu \u0111\u00f4 th\u1ecb an h\u01b0ng, d\u01b0\u01a1ng n\u1ed9i, h\u00e0 \u0111\u00f4ng, h\u00e0 n\u1ed9i","sanphamdat":"1 b\u1ed9","masanpham":"5731"} 
+
+14-03-2019 08:39:26 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"nguyen thi thoa","dienthoai":"0988392154","diachi":"cong ty co phan xuat nhap khau thuy san quang ninh.35 Ben Tau  ,Bach  Dang,Ha Long, Quang Ninh","sanphamdat":"1","masanpham":"171"} 
+
+14-03-2019 08:48:55 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Pham van tien","dienthoai":"0986199178","diachi":"Xom son dai bai gia binh bac ninh","sanphamdat":"1goi hat giong sen 7 mau","masanpham":"3422"} 
+
+14-03-2019 08:54:14 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Tr\u1ea7n Th\u1ecb Mai H\u1ea1nh","dienthoai":"0912388045","diachi":"75 \u0111inh ti\u00ean ho\u00e0ng, ho\u00e0n ki\u1ebfm, h\u00e0 n\u1ed9i","sanphamdat":"2 b\u1ed9 (2 chai tr\u1eeb s\u00e2u Anisaf + 2 ph\u00e2n b\u00f3n l\u00e1, hoa)","masanpham":"5731"} 
+
+14-03-2019 09:09:53 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"\u0110o\u00e0n thanh lam","dienthoai":"0944252110","diachi":"x\u00f3m2.th\u00f4n an s\u01a1n .ho\u00e0i ch\u00e2u.ho\u00e0i nh\u01a1n .b\u00ecnh \u0111\u1ecbnh.","sanphamdat":"1 g\u00f3i d\u00e2u t\u00e2y chi\u1ec7u nhi\u1ec7t","masanpham":"2367"} 
+
+14-03-2019 09:10:21 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"L\u00ea Th\u1ecb B\u00edch Chi ","dienthoai":"0388930604","diachi":"60, ngh\u0129a Th\u1ee5c, ph\u01b0\u1eddng 5, qu\u1eadn 5","sanphamdat":"1 d\u00e2u t\u00e2y ch\u1ecbu nhi\u1ec7t tochiotome","masanpham":"2367"} 
+
+14-03-2019 09:15:07 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Nguy\u1ec5n th\u1ecb h\u1ed3ng \u00e1nh","dienthoai":"0982002288","diachi":"Th\u1ecd gi\u00e1o t\u00e2n minh","sanphamdat":"1 g\u00f3i . H\u1ea1t gi\u1ed1ng d\u00e2u t\u00e2y ","masanpham":"2367"} 
+
+14-03-2019 09:17:26 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Tr\u1ecbnh Hung","dienthoai":"0945363683","diachi":"Th\u00f4n \u0110\u00f4ng Th\u01b0\u1ee3ng, x\u00e3 Ninh Ph\u00fac","sanphamdat":"1 b\u1ed9 s\u1ea3n ph\u1ea9m so\u00e0i t\u00edm Th\u00e1i lan","masanpham":"232"} 
+
+14-03-2019 09:17:54 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Nguy\u1ec5n Ch\u00ed D\u0169ng","dienthoai":"0903226406","diachi":"L\u00f4 38I khu CN Quang Minh, huy\u1ec7n M\u00ea Linh, TP H\u00e0 N\u1ed9i","sanphamdat":"02 b\u1ed9 s\u1ea3n ph\u1ea9m.","masanpham":"5731"} 
+
+14-03-2019 09:17:55 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Nguy\u1ec5n Ch\u00ed D\u0169ng","dienthoai":"0903226406","diachi":"L\u00f4 38I khu CN Quang Minh, huy\u1ec7n M\u00ea Linh, TP H\u00e0 N\u1ed9i","sanphamdat":"02 b\u1ed9 s\u1ea3n ph\u1ea9m.","masanpham":"5731"} 
+
+14-03-2019 09:23:03 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Nguy\u00ea\u0303n tr\u01b0\u01a1\u0300ng tho ","dienthoai":"0936484890","diachi":"63\/36ap dong hu\u1ebf xa tan Khanh dong tp sa d\u00ea\u0323t t dong thap","sanphamdat":"Tao do f1","masanpham":"2392"} 
+
+14-03-2019 09:23:23 : {"type":"Gio hang","user_ip":"120.72.98.133","user_name":"L\u00ea Th\u1ecb B\u00edch Chi ","user_email":"bichchi24041999@gmail.com","user_phone":"0388930604","address":"60, ngh\u0129a  Th\u1ee5c,  ph\u01b0\u1eddng  5, qu\u1eadn  5","total":165000} 
+
+14-03-2019 09:24:17 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"L\u00ea Phi L\u01b0 ","dienthoai":"0976717712","diachi":"Th\u00f4n 1 tr\u01b0\u1eddng xu\u00e2n dak song \u0110\u0103k n\u00f4ng ","sanphamdat":"30 c\u00e2y \u0111u \u0111\u1ee7 v\u00e0ng bao nhi\u00eau ti\u1ec1n m\u1ed9t c\u00e2y v\u1eady ","masanpham":"288"} 
+
+14-03-2019 09:24:18 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"L\u00ea Phi L\u01b0 ","dienthoai":"0976717712","diachi":"Th\u00f4n 1 tr\u01b0\u1eddng xu\u00e2n dak song \u0110\u0103k n\u00f4ng ","sanphamdat":"30 c\u00e2y \u0111u \u0111\u1ee7 v\u00e0ng bao nhi\u00eau ti\u1ec1n m\u1ed9t c\u00e2y v\u1eady ","masanpham":"288"} 
+
+14-03-2019 09:28:55 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Nguy\u1ec5n H\u1ea3i Minh","dienthoai":"0978 0660166","diachi":"Tr\u1ea7n Duy H\u01b0ng ng\u00f5 180 nh\u00e0 s\u1ed1 8","sanphamdat":"10 kg \n","masanpham":"2367"} 
+
+14-03-2019 09:28:56 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Nguy\u1ec5n H\u1ea3i Minh","dienthoai":"0978 0660166","diachi":"Tr\u1ea7n Duy H\u01b0ng ng\u00f5 180 nh\u00e0 s\u1ed1 8","sanphamdat":"10 kg \n","masanpham":"2367"} 
+
+14-03-2019 09:28:56 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Nguy\u1ec5n H\u1ea3i Minh","dienthoai":"0978 0660166","diachi":"Tr\u1ea7n Duy H\u01b0ng ng\u00f5 180 nh\u00e0 s\u1ed1 8","sanphamdat":"10 kg \n","masanpham":"2367"} 
+
+14-03-2019 09:28:57 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Nguy\u1ec5n H\u1ea3i Minh","dienthoai":"0978 0660166","diachi":"Tr\u1ea7n Duy H\u01b0ng ng\u00f5 180 nh\u00e0 s\u1ed1 8","sanphamdat":"10 kg \n","masanpham":"2367"} 
+
+14-03-2019 09:36:38 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Vu\u00f4ng S\u1ef9 viet","dienthoai":"0374274743","diachi":"So82 thon Nam ha xa Nam ha huy\u1ec1n lam  tinh lam dong","sanphamdat":"10 cay giao hang t\u1ea1i nha","masanpham":"224"} 
+
+14-03-2019 09:39:06 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Vu\u00f4ng S\u1ef9 viet","dienthoai":"0374274743","diachi":"So82 thon Nam ha xa Nam ha huy\u1ec1n lam  tinh lam dong","sanphamdat":"10 cay giao hang t\u1ea1i nha Giong cherry anh Dao ","masanpham":"224"} 
+
+14-03-2019 09:47:47 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"D\u01b0\u01a1ng Th\u1ecb Ph\u01b0\u01a1ng H\u1ed3ng","dienthoai":"0384647811","diachi":"05 \u0111\u01b0\u1eddng s\u1ed1 9 \u1ea5p 1 x\u00e3 t\u00e2n th\u1ea1nh t\u00e2y huy\u1ec7n c\u1ee7 chi tp.hcm","sanphamdat":"D\u00e2u t\u00e2y chi\u1ec7u nhi\u1ec7t m\u1ed9t b\u1ecbch","masanpham":"2367"} 
+
+14-03-2019 09:47:48 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"D\u01b0\u01a1ng Th\u1ecb Ph\u01b0\u01a1ng H\u1ed3ng","dienthoai":"0384647811","diachi":"05 \u0111\u01b0\u1eddng s\u1ed1 9 \u1ea5p 1 x\u00e3 t\u00e2n th\u1ea1nh t\u00e2y huy\u1ec7n c\u1ee7 chi tp.hcm","sanphamdat":"D\u00e2u t\u00e2y chi\u1ec7u nhi\u1ec7t m\u1ed9t b\u1ecbch","masanpham":"2367"} 
+
+14-03-2019 09:51:43 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Ph\u1ea1m Th\u1ecb Th\u1ee7y","dienthoai":"0941343345","diachi":"Th\u00f4n Di\u00ean Mai x\u00e3 A Ngo huy\u1ec7n A L\u01b0\u1edbi t\u1ec9nh Th\u1eeba Thi\u00ean Hu\u1ebf","sanphamdat":"2 g\u00f3i h\u1ea1t t\u00e1o redlove","masanpham":"67"} 
+
+14-03-2019 09:53:14 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Ph\u1ea1m Th\u1ecb Th\u1ee7y","dienthoai":"0941343345","diachi":"Th\u00f4n Di\u00ean Mai x\u00e3 A Ngo huy\u1ec7n A L\u01b0\u1edbi t\u1ec9nh Th\u1eeba Thi\u00ean Hu\u1ebf","sanphamdat":"2 g\u00f3i h\u1ea1t t\u00e1o redlove","masanpham":"67"} 
+
+14-03-2019 10:03:08 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"lechinh","dienthoai":"test","diachi":"test","sanphamdat":"test","masanpham":"0"} 
+
+14-03-2019 10:04:17 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"test","dienthoai":"test","diachi":"test","sanphamdat":"test","masanpham":"0"} 
+
+14-03-2019 10:06:35 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"5555","dienthoai":"6666","diachi":"555","sanphamdat":"666","masanpham":"232"} 
+
+14-03-2019 10:08:50 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"2222","dienthoai":"222","diachi":"2222","sanphamdat":"2222","masanpham":"232"} 
+
+14-03-2019 10:11:02 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"H\u00e0 duy ph\u01b0\u1edbc","dienthoai":"0386695705","diachi":" \u0110\u1ed3ng tr\u1ed1ng","sanphamdat":"50 h\u1ea1t","masanpham":"288"} 
+
+14-03-2019 10:11:05 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"test","dienthoai":"test","diachi":"test","sanphamdat":"test","masanpham":"232"} 
+
+14-03-2019 10:16:25 : {"type":"Gio hang","user_ip":"120.72.98.133","user_name":"bui van th\u00f4n chi linh xa nhan hue thanh pho chi linh tinh hai duong","user_email":"","user_phone":"0385296181","address":"thon chi linh xa nhan hue thanh ","total":140000} 
+
+14-03-2019 10:22:31 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"bui van dung ","dienthoai":"0385296181","diachi":"thon ","sanphamdat":"1 g\u00f3i hat tao v\u00f4 do ru\u1ed9t do","masanpham":"67"} 
+
+14-03-2019 10:24:37 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"L\u00ea ng\u1ecdc","dienthoai":"0976015866","diachi":"13A\/1F khu ph\u1ed1 \u0111\u1ed3ng an 2, ph\u01b0\u1eddng b\u00ecnh h\u00f2a, t x\u00e3 thu\u1eadn an, t\u1ec9nh b\u00ecnh d\u01b0\u01a1ng","sanphamdat":"2 g\u00f3i d\u01b0a chu\u1ed9t \u0111\u1ecf, 2 g\u00f3i \u0111\u00e2u v\u00e1n t\u00edm m\u1ef9, 4 g\u00f3i m\u01b0\u1edbp h\u01b0\u01a1ng,","masanpham":"0"} 
+
+14-03-2019 10:25:15 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"L\u00ea ng\u1ecdc","dienthoai":"0976015866","diachi":"13A\/1F khu ph\u1ed1 \u0111\u1ed3ng an 2, ph\u01b0\u1eddng b\u00ecnh h\u00f2a, t x\u00e3 thu\u1eadn an, t\u1ec9nh b\u00ecnh d\u01b0\u01a1ng","sanphamdat":"2 g\u00f3i d\u01b0a chu\u1ed9t \u0111\u1ecf, 2 g\u00f3i \u0111\u00e2u v\u00e1n t\u00edm m\u1ef9, 4 g\u00f3i m\u01b0\u1edbp h\u01b0\u01a1ng, 2 g\u00f3i c\u00e0 t\u00edm.","masanpham":"0"} 
+
+14-03-2019 10:26:19 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"L\u00ea ng\u1ecdc","dienthoai":"0976015866","diachi":"13A\/1F khu ph\u1ed1 \u0111\u1ed3ng an 2, ph\u01b0\u1eddng b\u00ecnh h\u00f2a, t x\u00e3 thu\u1eadn an, t\u1ec9nh b\u00ecnh d\u01b0\u01a1ng","sanphamdat":"2 g\u00f3i c\u00e0 chua kh\u1ed5ng l\u1ed3.","masanpham":"0"} 
+
+14-03-2019 10:29:06 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Ninh th\u1ecb th\u1ea3o","dienthoai":"0975805839","diachi":"Ch\u1ee3 n\u1ed9i tam h\u1ee3p b\u00ecnh xuy\u00ean v\u0129nh ph\u00fac","sanphamdat":"1 g\u00f3i","masanpham":"2367"} 
+
+14-03-2019 10:29:09 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Ninh th\u1ecb th\u1ea3o","dienthoai":"0975805839","diachi":"Ch\u1ee3 n\u1ed9i tam h\u1ee3p b\u00ecnh xuy\u00ean v\u0129nh ph\u00fac","sanphamdat":"1 g\u00f3i","masanpham":"2367"} 
+
+14-03-2019 10:29:10 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Ninh th\u1ecb th\u1ea3o","dienthoai":"0975805839","diachi":"Ch\u1ee3 n\u1ed9i tam h\u1ee3p b\u00ecnh xuy\u00ean v\u0129nh ph\u00fac","sanphamdat":"1 g\u00f3i","masanpham":"2367"} 
+
+14-03-2019 10:31:19 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"la huu dung","dienthoai":"0359573481","diachi":"Thon yen duong xa khanh duong huyen yen mo tinh ninhbinh","sanphamdat":"1 g\u00f3i h\u1ea1t  gi\u1ed1ng d\u00e2u t\u00e2y chiu nhiet","masanpham":"2367"} 
+
+14-03-2019 10:52:23 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"H\u1ed3ng v\u00e2n ","dienthoai":"0948827774","diachi":"Ph\u1ed1 trung ki\u00ean ng\u00f5 41 ph\u01b0\u1eddng t\u00e2y t\u1ef1u  b\u1eafc t\u1eeb li\u00eam ","sanphamdat":"Cho ch\u1ecb m\u00f4t g\u00f3i h\u1ea1t t\u00e1o v\u1ecf \u0111\u1ecf ru\u1ed9t \u0111\u1ecf nh\u00e9","masanpham":"67"} 
+
+14-03-2019 11:04:44 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Ho\u00e0ng Long","dienthoai":"0868835999","diachi":"C\u1ea9m ph\u1ea3 Qu\u1ea3ng Ninh","sanphamdat":"2 b\u00f4","masanpham":"5731"} 
+
+14-03-2019 11:06:45 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Nghiem hoang viet","dienthoai":"0948740008","diachi":"Bu dien xa phu hung thanh pho ca mau","sanphamdat":"1 bo san pham nho pha\u0301p lun","masanpham":"3416"} 
+
+14-03-2019 11:06:46 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Nghiem hoang viet","dienthoai":"0948740008","diachi":"Bu dien xa phu hung thanh pho ca mau","sanphamdat":"1 bo san pham nho pha\u0301p lun","masanpham":"3416"} 
+
+14-03-2019 11:15:50 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Van thanh dien","dienthoai":"0919280858","diachi":"Gia rai .bac lieu","sanphamdat":"1 cay","masanpham":"3443"} 
+
+14-03-2019 11:25:26 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Nguy\u00ea\u0303n thi\u0323 kim lan","dienthoai":"0909954847","diachi":"13.5b nguy\u00ea\u0303n a\u0309nh thu\u0309 h\u01b0ng l\u00e2n ba\u0300 \u0111i\u00ea\u0309m ","sanphamdat":"2goi ","masanpham":"288"} 
+
+14-03-2019 11:55:07 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Nguy\u1ec5n H\u1ea3i Ngh\u0129a ","dienthoai":"0984472769","diachi":"Tr\u01b0\u1eddng l\u00e2m Tinh gia thanh h\u00f3a ","sanphamdat":".......","masanpham":"3416"} 
+
+14-03-2019 11:55:09 : {"type":"Form chat","user_ip":"120.72.98.133","hoten":"Nguy\u1ec5n H\u1ea3i Ngh\u0129a ","dienthoai":"0984472769","diachi":"Tr\u01b0\u1eddng l\u00e2m Tinh gia thanh h\u00f3a ","sanphamdat":".......","masanpham":"3416"} 
+

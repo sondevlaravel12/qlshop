@@ -1,0 +1,14 @@
+04-11-2018 05:50:30 : {"type":"Form chat","user_ip":"123.16.170.133","hoten":"C\u00f4ng","dienthoai":"0983198443","diachi":"147 h\u00e0 tr\u00ec, h\u00e0 c\u1ea7u,  H\u00e0 \u0110\u00f4ng, hn","sanphamdat":"1 g\u00f3i","masanpham":"123"} 
+
+04-11-2018 05:53:55 : {"type":"Form chat","user_ip":"123.16.170.133","hoten":"C\u00f4ng","dienthoai":"0983198443","diachi":"147 h\u00e0 tr\u00ec, h\u00e0 c\u1ea7u,  H\u00e0 \u0110\u00f4ng, hn","sanphamdat":"1 g\u00f3i","masanpham":"0"} 
+
+04-11-2018 05:56:01 : {"type":"Form chat","user_ip":"123.16.170.133","hoten":"C\u00f4ng","dienthoai":"0983198443","diachi":"147 h\u00e0 tr\u00ec, h\u00e0 c\u1ea7u,  H\u00e0 \u0110\u00f4ng, hn","sanphamdat":"1 g\u00f3i","masanpham":"2370"} 
+
+04-11-2018 05:57:44 : {"type":"Form chat","user_ip":"123.16.170.133","hoten":"C\u00f4ng","dienthoai":"0983198443","diachi":"147 h\u00e0 tr\u00ec, h\u00e0 c\u1ea7u,  H\u00e0 \u0110\u00f4ng, hn","sanphamdat":"1 g\u00f3i","masanpham":"126"} 
+
+04-11-2018 06:02:14 : {"type":"Form chat","user_ip":"123.16.170.133","hoten":"C\u00f4ng","dienthoai":"0983198443","diachi":"147 h\u00e0 tr\u00ec, h\u00e0 c\u1ea7u,  H\u00e0 \u0110\u00f4ng, hn","sanphamdat":"1 g\u00f3i","masanpham":"275"} 
+
+04-11-2018 06:03:24 : {"type":"Form chat","user_ip":"123.16.170.133","hoten":"C\u00f4ng","dienthoai":"0983198443","diachi":"147 h\u00e0 tr\u00ec, h\u00e0 c\u1ea7u,  H\u00e0 \u0110\u00f4ng, hn","sanphamdat":"1 g\u00f3i","masanpham":"304"} 
+
+04-11-2018 10:14:37 : {"type":"Form chat","user_ip":"116.110.185.230","hoten":"Truong t\u1ea5n huy","dienthoai":"0963703261","diachi":"C\u00f4ng ty tnhh x\u00e2y d\u1ef1ng t\u00e2y tr\u00e0. \u0110c \u0111\u1ed9i 6 th\u00f4n g\u00f2 r\u00f4 x\u00e3 tr\u00e0 phong, huy\u1ec7n T\u00e2y tr\u00e0, t\u1ec9nh Qu\u1ea3ng Ng\u00e3i ","sanphamdat":"B\u1ed9 h\u1ea1t gi\u1ed1ng hoa h\u1ed3ng xu\u00e2n","masanpham":"142"} 
+

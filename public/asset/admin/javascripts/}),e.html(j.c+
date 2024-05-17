@@ -1,0 +1,13 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+  <HEAD><TITLE>Bad Request</TITLE></HEAD>
+  <BODY>
+    <H1>Bad Request</H1>
+    bad URI `/assets/javascripts/}),e.html(j.c+'.
+    <HR>
+    <ADDRESS>
+     WEBrick/1.3.1 (Ruby/2.0.0/2014-02-24) at
+     a5470c21-8726-48c3-b719-7a1e8e354d7a:56134
+    </ADDRESS>
+  </BODY>
+</HTML>

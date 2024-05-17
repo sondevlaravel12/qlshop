@@ -1,0 +1,8 @@
+05-12-2018 02:20:26 : {"type":"Form chat","user_ip":"58.187.175.72","hoten":"trung test","dienthoai":"093611004421sdf","diachi":"fsfs","sanphamdat":"fsfs","masanpham":"0"} 
+
+05-12-2018 08:20:33 : {"type":"Form chat","user_ip":"171.242.58.204","hoten":"luthithu","dienthoai":"0974057850","diachi":"bannamuahe","sanphamdat":"muahetcacloaihnnho","masanpham":"3416"} 
+
+05-12-2018 08:33:28 : {"type":"Form chat","user_ip":"171.242.58.204","hoten":"luthithu","dienthoai":"0974057850","diachi":"banna","sanphamdat":"muamotcayquatao","masanpham":"2392"} 
+
+05-12-2018 08:37:31 : {"type":"Form chat","user_ip":"171.242.58.204","hoten":"luthithu","dienthoai":"0974057850","diachi":"banna","sanphamdat":"muamotcaytao","masanpham":"2392"} 
+

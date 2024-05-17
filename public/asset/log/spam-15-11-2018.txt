@@ -1,0 +1,4 @@
+15-11-2018 04:23:11 : {"type":"Form chat","user_ip":"42.118.138.254","hoten":"Chinh Le","dienthoai":"test123","diachi":"test123","sanphamdat":"test123","masanpham":"0"} 
+
+15-11-2018 04:23:40 : {"type":"Form chat","user_ip":"42.118.138.254","hoten":"Chinh Le","dienthoai":"test 2","diachi":"test 2","sanphamdat":"test 2","masanpham":"0"} 
+

@@ -1,0 +1,8 @@
+29-09-2019 01:47:40 : {"type":"Form chat","user_ip":"116.111.179.15","hoten":"Nguyen thi tuyen","dienthoai":"0398325730","diachi":"Khu vuc 6","sanphamdat":"1","masanpham":"2392"} 
+
+29-09-2019 01:49:07 : {"type":"Form chat","user_ip":"116.111.179.15","hoten":"Nguen thi tuyen","dienthoai":"0398325730","diachi":"Khu vuc 6","sanphamdat":"1\n","masanpham":"3416"} 
+
+29-09-2019 01:53:05 : {"type":"Form chat","user_ip":"116.111.179.15","hoten":"Nguyen thi. Tuyren","dienthoai":"0398325730Tuyren","diachi":"Khu  vuc 6","sanphamdat":"1","masanpham":"2367"} 
+
+29-09-2019 01:57:15 : {"type":"Form chat","user_ip":"116.111.179.15","hoten":"Nguyen thi tuyen","dienthoai":"0398325730","diachi":"Khu buc 6 ","sanphamdat":"1\n","masanpham":"2367"} 
+

@@ -1,0 +1,45 @@
+.ui-autocomplete .list_item_container {
+    height: auto;
+    padding: 0;
+    overflow: hidden
+}
+
+.ui-autocomplete .image {
+    width: 45px;
+    float: left
+}
+
+.ui-autocomplete .description {
+    font-size: 1em;
+    color: gray;
+    float: left;
+    margin-left: 10px;
+    width: 80%;
+    margin-top: 10px
+}
+
+#name-list {
+    width: 300px
+}
+
+.search-hr {
+    margin: 0 !important
+}
+
+.ui-autocomplete .price {
+    margin-left: 10px;
+    float: left;
+    color: red;
+    margin-top: 10px
+}
+
+.ui-menu .ui-menu-item {
+    list-style-image: none !important;
+    padding: 4px 0 4px 4px !important
+}
+
+.ui-autocomplete {
+    z-index: 9999;
+    top: 108px !important;
+    width: 320px !important
+}

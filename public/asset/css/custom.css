@@ -1,0 +1,139 @@
+.error{
+    color:red;
+}
+
+.option2 .nav-top-menu {
+    background: #007FFF !important;
+}
+
+.option2 #main-menu .navbar .navbar-nav>li:hover, .option2 #main-menu .navbar .navbar-nav>li.active {
+    background-image: none;
+    background: #607D8B !important;
+}
+
+.option2 .product-featured .product-list li{
+    min-height: 300.05px !important;
+}
+
+.page-order .cart_navigation a.next-btn {
+    float: right;
+    background: #009688 !important;
+    color: #fff;
+    border: 1px solid #009688 !important;
+}
+
+.btn-add-cart {
+    background: #007FFF !important;
+}
+
+.option2 .main-header .header-search-box .form-inline .btn-search {
+    background-color: #009688 !important;
+}
+
+.option2 #mail-box .btn {
+    background: #009688;
+}
+
+.option2 .cart-block .cart-block-content .cart-buttons a.btn-check-out {
+    background: #009688;
+}
+
+.btn-hotline {
+    height: 35px;
+    width: auto;
+    line-height: 35px;
+    font-size: 14px;
+    color: #fff;
+    display: inline-block;
+    margin: 0px auto;
+    text-align: center;
+    clear: both;
+    padding-left: 15px;
+    padding-right: 15px;
+    background: #F36;
+}
+
+.rating_box{
+    margin-top:10px;
+}
+
+.register-form {
+    border: 1px solid #eaeaea;
+    padding: 30px;
+    min-height: 320px;
+}
+
+.vertical-menu-list li{
+    text-transform: uppercase;
+}
+
+/*css số lượng sản phẩm*/
+#product .pb-right-column .form-option .product-qty {
+    background: 0 0;
+    width: 114px
+}
+
+#product .pb-right-column .form-option .attributes input {
+    width: 100%;
+    float: left
+}
+
+#product .pb-right-column .form-option .qty {
+    width: 100%;
+}
+
+.attribute-label {
+    width: 110px !important
+}
+
+#product_qty, .add-btn, .ajax_mess, .btn-hotline, .sub-btn {
+    text-align: center;
+}
+
+.add-btn, .sub-btn {
+    float: left;
+    background: #eaeaea;
+    width: 31px;
+    height: 30px;
+    line-height: 26px;
+    font-size: 16px;
+    color: #666;
+    cursor: pointer
+}
+/*end css số lượng sản phẩm*/
+
+.error{
+    color:red;
+}
+
+.rating_box{
+    margin-top:10px;
+}
+
+.product-list .product-container{
+    /*min-height:350px !important;*/
+}
+
+/*dàn lại khung sản phẩm home*/
+.option2 .product-featured .product-list li {
+    /*min-height: 350px !important;*/
+}
+
+iframe{
+    max-width: 100%;
+}
+
+/*** Hình tin tức trên dt **/
+@media only screen and (max-width: 768px) {
+    .salepage_ajax img, article img{
+        height: auto !important;
+        max-width: 100%;
+    }
+}
+
+/**Định hình lại khung hình sản phẩm***/
+@media only screen and (min-width: 600px) {
+ .product-list li {
+   height: 350px !important;
+}
+}

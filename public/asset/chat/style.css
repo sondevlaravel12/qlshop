@@ -1,0 +1,74 @@
+#popup_chat{
+    position:fixed;
+    z-index: 10000;
+    bottom: 0px;
+    right: 20px;
+    width: 310px;
+    border-radius: 5px 5px 0 0;
+}
+
+.popup_open{
+    height:390px;
+}
+
+.popup_close{
+    height:32px;
+}
+
+#popup_chat .popup_body{
+    width:100%;
+    height:100%;
+    box-shadow: 0 2px 25px rgba(0,0,0,.2);
+    border: 1px solid #e4dede;
+    background-color: white;
+}
+
+.offline_heading {
+    position: relative;
+    width: 100%;
+    padding: 7px;
+    color: #FFF;
+    cursor: pointer;
+    background-color: #da4b38;
+    font-size: 13px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.offline_heading label{
+    margin-bottom: 0px !important;
+    cursor: pointer;
+}
+
+#widget_expand .button_chat_offline_text {
+    max-width: 80%;
+}
+
+.toggle_popup {
+    color: #FFF;
+    font-size: 17px;
+    padding-right: 12px;
+    position: absolute;
+    top: 5px;
+    right: 0px;
+}
+
+.popup_body{
+    padding:8px;
+}
+
+.popup_body .info{
+    padding:5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+label.error{
+    color:red;
+    font-size:9px;
+    margin-bottom: 0px;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}

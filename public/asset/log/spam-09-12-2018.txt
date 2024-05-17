@@ -1,0 +1,6 @@
+09-12-2018 02:14:00 : {"type":"Form chat","user_ip":"14.250.5.253","hoten":"Tran thi thanh kieu","dienthoai":"0984328669","diachi":"4\/9nguyen van linh","sanphamdat":"29 luong","masanpham":"0"} 
+
+09-12-2018 02:17:06 : {"type":"Form chat","user_ip":"14.250.5.253","hoten":"Tran thi thanh kieu","dienthoai":"0984328669","diachi":"4\/9nguyen van linh","sanphamdat":"49luong","masanpham":"2410"} 
+
+09-12-2018 02:20:22 : {"type":"Form chat","user_ip":"14.250.5.253","hoten":"Tran thi thanh kieu","dienthoai":"0984328669","diachi":"4\/9 nguen van linh","sanphamdat":"67luong","masanpham":"0"} 
+
