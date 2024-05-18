@@ -6,9 +6,9 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/dashboard', function () {
+Route::get('/dashboardcenter', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified'])->name('center.dashboard');
 
 
 Route::middleware('auth')->group(function () {

@@ -18,7 +18,7 @@
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
                 <li>
-                    {{-- <a href="{{route('dashboard')}}" class="waves-effect"> --}}
+                        <a href="{{route('app.index')}}" class="waves-effect">
                         <i class="ri-dashboard-line"></i><span class="badge rounded-pill bg-success float-end"></span>
                         <span>Dashboard</span>
                     </a>
@@ -27,10 +27,10 @@
                 <li>
                     <a href="#" class="has-arrow waves-effect">
                         <i class="ri-mail-send-line"></i>
-                        <span>Tenant Manager </span>
+                        <span>User Manager </span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('tenants.index') }}">Tenant list</a></li>
+                        <li><a href="{{ route('tenants.index') }}">User list</a></li>
                         <li><a href="{{ route('tenants.off') }}">Delete Tenant</a></li>
                     </ul>
                 </li>
