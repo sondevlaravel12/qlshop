@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use App\Http\Controllers\App\ProfileController;
 use App\Http\Controllers\AppController;
+use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TenantController;
 use Illuminate\Support\Facades\Route;
@@ -27,6 +28,8 @@ Route::middleware([
     InitializeTenancyByDomain::class,
     PreventAccessFromCentralDomains::class,
 ])->group(function () {
+
+    Route::get('create-permission', [PermissionController::class,'createTest']);
 
     // Route::get('tenants/create', [TenantController::class,'create'])->name('tenants.create');
     // Route::post('tenants/store', [TenantController::class,'store'])->name('tenants.store');
