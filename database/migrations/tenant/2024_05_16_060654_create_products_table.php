@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('price')->nullable();
             $table->integer('original_price')->nullable();
             $table->string('sale_unit')->nullable();
-            $table->bigInteger('parent_id')->unsigned();
+            $table->bigInteger('parent_id')->unsigned()->nullable();
             $table->text('description')->nullable();
 
             $table->softDeletes();

@@ -42,8 +42,8 @@
                         <span>Product </span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        {{-- <li><a href="{{ route('users.index') }}">User list</a></li> --}}
-                        <li><a href="#">Delete Tenant</a></li>
+                        <li><a href="{{ route('products.index') }}">Sản phẩm</a></li>
+                        <li><a href="{{ route('products.create') }}">Thêm mới sản phẩm</a></li>
                     </ul>
                 </li>
 

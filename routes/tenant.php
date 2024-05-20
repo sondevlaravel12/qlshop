@@ -32,11 +32,6 @@ Route::middleware([
 
     Route::get('create-permission', [PermissionController::class,'createTest']);
 
-    // Route::get('tenants/create', [TenantController::class,'create'])->name('tenants.create');
-    // Route::post('tenants/store', [TenantController::class,'store'])->name('tenants.store');
-    // Route::get('tenants/offf', [TenantController::class,'offTenant'])->name('tenants.off');
-    // Route::get('tenants/{tenants}', [TenantController::class,'show'])->name('tenants.show');
-    Route::resource('products',ProductController::class);
 
     // make this temperary, should delete this route
     Route::get('/dashboard', function () {
@@ -60,13 +55,11 @@ Route::middleware([
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-        // tenant  CRUID
-        // Route::get('tenants/all', [TenantController::class,'index'])->name('tenants.index');
-        // Route::get('tenants/create', [TenantController::class,'create'])->name('tenants.create');
-        // Route::post('tenants/store', [TenantController::class,'store'])->name('tenants.store');
-        // Route::get('tenants/offf', [TenantController::class,'offTenant'])->name('tenants.off');
-        // // Route::get('tenants/{tenants}', [TenantController::class,'show'])->name('tenants.show');
-        // Route::get('tenants/{tenant}', [TenantController::class,'gotoTenant'])->name('gototenant');
+        // for inventory product
+        Route::resource('products',ProductController::class);
+
+
+
 
     });
 
