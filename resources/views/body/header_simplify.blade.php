@@ -56,13 +56,13 @@
                     <a class="dropdown-item" href="#"><i class="ri-lock-unlock-line align-middle me-1"></i> Lock screen</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item text-danger" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="ri-shut-down-line align-middle me-1 text-danger"></i> Logout</a>
-                    <form method="POST" action="{{ route('logout') }}" id="logout-form">
+                    <form method="POST" action="{{ route('center.logout') }}" id="logout-form">
                         @csrf
                     </form>
-                    <form method="POST" action="{{ route('logout') }}">
+                    <form method="POST" action="{{ route('center.logout') }}">
                         @csrf
 
-                        <x-dropdown-link :href="route('logout')"
+                        <x-dropdown-link :href="route('center.logout')"
                                 onclick="event.preventDefault();
                                             this.closest('form').submit();">
                             {{ __('Log Out') }}

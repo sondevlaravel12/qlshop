@@ -24,14 +24,26 @@
                     </a>
                 </li>
 
+                @role('superadmin')
                 <li>
                     <a href="#" class="has-arrow waves-effect">
                         <i class="ri-mail-send-line"></i>
                         <span>User Manager </span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('tenants.index') }}">User list</a></li>
-                        <li><a href="{{ route('tenants.off') }}">Delete Tenant</a></li>
+                        <li><a href="{{ route('users.index') }}">User list</a></li>
+                        <li><a href="#">Delete Tenant</a></li>
+                    </ul>
+                </li>
+                @endrole
+                <li>
+                    <a href="#" class="has-arrow waves-effect">
+                        <i class="ri-mail-send-line"></i>
+                        <span>Product </span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        {{-- <li><a href="{{ route('users.index') }}">User list</a></li> --}}
+                        <li><a href="#">Delete Tenant</a></li>
                     </ul>
                 </li>
 

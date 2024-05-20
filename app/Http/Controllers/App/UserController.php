@@ -1,28 +1,34 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\App;
 
-use App\Models\Tenant;
+use App\Http\Controllers\Controller;
+use App\Models\User;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
-class TenantController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $tenants = Tenant::all();
-        return view('index', compact('tenants'));
+        // $users = User::with('roles')->get();
+        $users = User::whereHas('roles', function (Builder $query) {
+            $query->where('name', '!=', 'superadmin');
+        })->get();
+
+        return view('app.users.index', compact('users'));
     }
 
     public function ajaxChangeStatus(Request $request){
-        $tenant = Tenant::findOrFail($request->id);
-        if($tenant){
-            $tenant->status = $request->status;
-            $tenant->save();
+        $user = User::findOrFail($request->id);
+        if($user){
+            $user->status = $request->status;
+            $user->save();
             $response = [
-                'message'=>'cập nhật trạng thái tenant thành công',
+                'message'=>'cập nhật trạng thái user thành công',
                 'alert-type'=>'success',
             ];
             return response()->json($response);
@@ -34,7 +40,7 @@ class TenantController extends Controller
      */
     public function create()
     {
-        return view('tenant.create');
+        return view('user.create');
     }
 
     /**
@@ -49,37 +55,37 @@ class TenantController extends Controller
         ]);
         $input = $request->except(['domain']);
 
-        if($tenant = Tenant::create($input)){
+        if($user = User::create($input)){
             // link domain
             // if($domain = $request->domain){
             //     $fullnameDomain = $domain . '.' . $request->getHost();
-            //     $tenant->domains()->create(['domain' => $fullnameDomain]);
+            //     $user->domains()->create(['domain' => $fullnameDomain]);
             // }
             if($domain = $request->domain){
                 $fullnameDomain = $domain . '.' . $request->getHost();
-                $tenant->domains()->create(['domain' => $fullnameDomain]);
+                $user->domains()->create(['domain' => $fullnameDomain]);
             }
             $notifycation = [
-                'message' => 'Thêm mới Tenant thành công',
+                'message' => 'Thêm mới User thành công',
                 'alert-type' =>'success'
             ];
 
-            return redirect()->route('tenants.index')->with($notifycation);
+            return redirect()->route('users.index')->with($notifycation);
         }
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Tenant $tenant)
+    public function show(TenUserant $user)
     {
-        return 'This is your multi-tenant application. The id of the current tenant is ' . $tenant->id;
+        return 'This is your multi-user application. The id of the current user is ' . $user->id;
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Tenant $tenant)
+    public function edit(User $user)
     {
         //
     }
@@ -87,7 +93,7 @@ class TenantController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Tenant $tenant)
+    public function update(Request $request, User $user)
     {
         //
     }
@@ -95,52 +101,52 @@ class TenantController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Tenant $tenant)
+    public function destroy(User $user)
     {
         //
     }
     public function ajaxRemove(Request $request){
-        $tenant = Tenant::find($request->id);
+        $user = User::find($request->id);
         // soft delete
-        if($tenant->delete()){
+        if($user->delete()){
             $response = [
-                'message'=>'softdelete tenant thành công',
+                'message'=>'softdelete user thành công',
                 'alert-type'=>'success'
             ];
             return response()->json($response);
         }
     }
-    public function offTenant(){
-        $offTenants = Tenant::where('status','=','off')->get();
-        return view('tenant_trashed', compact('offTenants'));
+    public function offUser(){
+        $offUsers = User::where('status','=','off')->get();
+        return view('user_trashed', compact('offUsers'));
     }
     public function ajaxRemovePermanently(Request $request){
-        $trashedTenants = Tenant::findOrFail($request->id);
-        if($trashedTenants->delete()){
+        $trashedUsers = User::findOrFail($request->id);
+        if($trashedUsers->delete()){
             $response = [
-                'message'=>'delete tenant thành công',
+                'message'=>'delete user thành công',
                 'alert-type'=>'success'
             ];
             return response()->json($response);
         }
 
     }
-    public function gotoTenant(Tenant $tenant){
-        $tenantFullDomain = 'http://' . $tenant->domains()->first()->domain;
-        // dd($tenantFullDomain);
-        return redirect($tenantFullDomain);
+    public function gotoUser(User $user){
+        $userFullDomain = 'http://' . $user->domains()->first()->domain;
+        // dd($userFullDomain);
+        return redirect($userFullDomain);
     }
     // public function ajaxRestore(Request $request){
-    //     $trashedTenants = Tenant::onlyTrashed()->where('id','=',$request->id)->first();
-    //     if($trashedTenants->restore()){
+    //     $trashedUsers = User::onlyTrashed()->where('id','=',$request->id)->first();
+    //     if($trashedUsers->restore()){
     //         $response = [
-    //             'message'=>'restore tenant thành công',
+    //             'message'=>'restore user thành công',
     //             'alert-type'=>'success'
     //         ];
     //         return response()->json($response);
     //     }
     // }
     public function dashboard(){
-        return view('tenant.dashboard');
+        return view('user.dashboard');
     }
 }

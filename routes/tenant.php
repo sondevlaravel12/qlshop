@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Http\Controllers\App\ProfileController;
+use App\Http\Controllers\App\UserController;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProductController;
@@ -43,10 +44,16 @@ Route::middleware([
         return redirect()->route('app.index');
     })->middleware(['auth'])->name('app.dashboard');
 
+    // only for superadmin role user
+    Route::middleware('auth', 'role:superadmin')->group(function () {
+        Route::get('/users',[AppController::class,'index'])->name('app.index');
+        Route::resource('users',UserController::class);
+    });
 
-
+    // for login user
     Route::middleware('auth')->group(function () {
         Route::get('/',[AppController::class,'index'])->name('app.index');
+
 
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         // Route::get('/profile', function(){dd('hi');})->name('profile.edit');
