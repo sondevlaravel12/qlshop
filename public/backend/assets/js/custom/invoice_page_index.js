@@ -35,6 +35,7 @@ var $start = moment().subtract(6, 'days');
 var $end = moment();
 var $table = $('#datatable_with_daterange');
 
+// set data and call fetch data when load page
 cb($start, $end);
 
 // fill date in input or div place holder
@@ -98,10 +99,10 @@ function fetch_data(start_date = '', end_date = ''){
 
         ],
 
-        // stateSave: true,
+        stateSave: true,
         "ajax" : {
             type: "GET",
-            url: "/admin/invoices/ajax-filter-invoices",
+            url: "/api/invoices/filter-invoices",
             data:{start_date:start_date, end_date:end_date},
             dataSrc: 'data'
         },
@@ -170,7 +171,7 @@ function fetch_data(start_date = '', end_date = ''){
         });
         $.ajax({
             type: "DELETE",
-            url: "/admin/invoices/ajax-delete",
+            url: "/invoices/ajax-delete",
             data: {invoiceID:$invoiceId},
             dataType: "json",
             success: function (response) {

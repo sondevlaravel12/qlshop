@@ -14,7 +14,7 @@ use Spatie\Sluggable\SlugOptions;
 class Product extends Model implements HasMedia
 {
     use HasFactory;
-    protected $guared =['id'];
+    protected $guarded =['id'];
     use InteractsWithMedia;
     use HasSlug;
 
@@ -70,6 +70,9 @@ class Product extends Model implements HasMedia
     }
     ////  ------------------ End Relationship--------------------------------- ////
 
+    public function getImage(){
+        return $this->getFirstMediaUrl('products','medium')? $this->getFirstMediaUrl('products','medium'):'noimage.png';
+    }
     public static function getMainProducts(){
         return Product::where('parent_id',null)->latest()->get();
     }
@@ -101,8 +104,8 @@ class Product extends Model implements HasMedia
 
     }
     public function getFirstImage($size='thumb'){
-        if($this->getFirstMedia('inventory_product')){
-            return $this->getFirstMedia('inventory_product')->getUrl($size);
+        if($this->getFirstMedia('products')){
+            return $this->getFirstMedia('products')->getUrl($size);
         }else{
             return asset('asset/noimage.jpeg');
         }

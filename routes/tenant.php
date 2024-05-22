@@ -5,6 +5,7 @@ declare(strict_types=1);
 use App\Http\Controllers\App\ProfileController;
 use App\Http\Controllers\App\UserController;
 use App\Http\Controllers\AppController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TenantController;
@@ -57,6 +58,19 @@ Route::middleware([
 
         // for inventory product
         Route::resource('products',ProductController::class);
+        // invoice
+        Route::resource('invoices',InvoiceController::class);
+        Route::get('invoices/deleted',[InvoiceController::class,'deleted' ] )->name('invoices.deleted');
+
+
+
+
+        // ------------for api route but not set yet----------------//
+        Route::get('api/invoices/filter-invoices',[InvoiceController::class,'ajaxFilterInvoicesByDateRange' ] );
+
+        // end------------ for api route but not set yet----------------//
+
+
 
 
 

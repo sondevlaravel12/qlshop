@@ -13,8 +13,14 @@ return new class extends Migration
     {
         Schema::create('sale_units', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->bigInteger('sale_unit_group_id')->unsigned()->nullable();
+            $table->string('title');
             $table->timestamps();
+            $table->foreign('sale_unit_group_id')
+            ->references('id')
+            ->on('sale_unit_groups')
+            ->onDelete('cascade');
+            $table->softDeletes();
         });
     }
 

@@ -28,7 +28,7 @@
                 <h4 class="card-title">All Inventory Products</h4>
                 {{-- <a href="{{ route('products.create') }}">create</a> --}}
 
-                <table id="datatable" class="table table-bordered dt-responsive nowrap dataTable no-footer dtr-inline" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                <table id="datatable-default" class="table table-bordered dt-responsive nowrap dataTable no-footer dtr-inline" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                     <thead>
                     <tr>
 
@@ -40,8 +40,8 @@
                         <th>Giá Bán</th>
                         <th>Giá Nhập</th>
                         <th>Action</th>
-                        <th>Ngày Tạo</th>
-                        <th>Ngày Cập Nhật</th>
+                        {{-- <th>Ngày Tạo</th> --}}
+                        {{-- <th>Ngày Cập Nhật</th> --}}
 
 
                     </tr>
@@ -64,7 +64,7 @@
 
                                 @foreach ($product->children as $child)
 
-                                <span class="badge bg-info">{{ $child->sale_unit }} : {{ $child->price }}</span>
+                                <span class="badge bg-info">{{ $child->sale_unit }} : {{ $child->price }}</span><br>
 
                                 @endforeach
 
@@ -72,17 +72,17 @@
                             <td>{{$product->price}}</td>
                             <td>{{$product->original_price}}</td>
                             <td>
-                                <form action="{{route('admin.inventory_products.destroy', $product)}}" method="POST" id="confirm_delete">
+                                <form action="{{route('products.destroy', $product)}}" method="POST" id="confirm_delete">
                                     @method('DELETE')
-                                    <a href="" class="popup-youtube btn btn-link mb-2"><i class="fas fa-eye"></i> Preview</a>
-                                    <a href="{{route('admin.inventory_products.edit',  $product)}}" class="btn btn-sm btn-link"><i class="far fa-edit"></i> Edit</a>
-                                    <button type="submit" class="btn btn-sm btn-link" ><i class="far fa-trash-alt"></i> Delete</button>
+                                    <a href="{{ route('products.show', $product) }}" class="popup-youtube btn btn-link mb-2"><i class="fas fa-eye"></i></a>
+                                    <a href="{{route('products.edit',  $product)}}" class="btn btn-sm btn-link"><i class="far fa-edit"></i></a>
+                                    <button type="submit" class="btn btn-sm btn-link" ><i class="far fa-trash-alt"></i></button>
                                     @csrf
                                 </form>
                             </td>
 
-                            <td>{{$product->created_at ? \Carbon\Carbon::parse($product->created_at)->diffForHumans() : ''}}</td>
-                            <td>{{$product->updated_at ? \Carbon\Carbon::parse($product->updated_at)->diffForHumans() : ''}}</td>
+                            {{-- <td>{{$product->created_at ? \Carbon\Carbon::parse($product->created_at)->diffForHumans() : ''}}</td> --}}
+                            {{-- <td>{{$product->updated_at ? \Carbon\Carbon::parse($product->updated_at)->diffForHumans() : ''}}</td> --}}
 
 
                         </tr>
@@ -99,7 +99,20 @@
 @push('scripts')
 
 <script>
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+ $.ajax({
+        type: "get",
+        url: "/test/ajax",
+        data: {data:'datane'},
+        dataType: "json",
+        success: function (response) {
 
+        }
+    });
 // $(document).ready( function () {
 //     $('#datatable').DataTable({
 

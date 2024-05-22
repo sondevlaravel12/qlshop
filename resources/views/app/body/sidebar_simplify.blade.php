@@ -46,6 +46,18 @@
                         <li><a href="{{ route('products.create') }}">Thêm mới sản phẩm</a></li>
                     </ul>
                 </li>
+                <li>
+                    <a href="#" class="has-arrow waves-effect">
+                        <i class="ri-mail-send-line"></i>
+                        <span>Hóa đơn</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{route('invoices.create')}}">Thêm mới</a></li>
+                        <li><a href="{{route('invoices.index')}}">Danh sách Hóa đơn</a></li>
+                        <li><a href="{{route('invoices.deleted')}}">Hóa đơn đã xóa</a></li>
+
+                    </ul>
+                </li>
 
             </ul>
 
