@@ -123,25 +123,7 @@
 
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
-        <script>
-         @if(Session::has('message'))
-         var type = "{{ Session::get('alert-type','info') }}"
-         switch(type){
-            case 'info':
-            toastr.info(" {{ Session::get('message') }} ");
-            break;
-            case 'success':
-            toastr.success(" {{ Session::get('message') }} ");
-            break;
-            case 'warning':
-            toastr.warning(" {{ Session::get('message') }} ");
-            break;
-            case 'error':
-            toastr.error(" {{ Session::get('message') }} ");
-            break;
-         }
-         @endif
-        </script>
+
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
         <script src="{{ global_asset('backend/assets/js/sweetalert.js') }}"></script>
@@ -192,6 +174,44 @@
 
             }
         </script>
+        {{-- toastr notify  --}}
+        @if (Session::has('message'))
+        <script>
+            $message = '{{Session::get('message')}}';
+            $type = '{{Session::get('alert-type')}}';
+            // displayNotification($message);
+            displayNotification($message, $type );
+
+
+        </script>
+        @endif
+
+        @if (Session::has('notification'))
+        <script>
+            $notification = '{{Session::get('notification')}}';
+            $message = $notification['message'];
+            // displayNotification($message);
+            displayNotification($message, 'success' );
+
+
+        </script>
+
+        @endif
+
+        {{-- @if(Session::has('message'))
+            <script>
+            $message = {{ Session::get('message') }};
+            $type = {{ Session::get('alert-type','info') }};
+
+
+            </script>
+        @endif --}}
+        @if($errors->any())
+            <script>
+                displayNotification({{$errors->first()}}, 'error' );
+            </script>
+        @endif
+         {{-- end displayNotification  --}}
         {{-- characters count live function  --}}
         <script>
             function titleCharCountLive(str, range='50-100'){
@@ -212,6 +232,7 @@
         <script>
             const money = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'VND' });
         </script>
+
         @stack('scripts')
     </body>
 

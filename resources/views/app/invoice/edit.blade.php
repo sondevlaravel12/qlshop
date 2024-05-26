@@ -1,10 +1,10 @@
-@extends('backend.layouts.master')
+@extends('app.master')
 @push('stylesheets')
-<link rel="stylesheet" href="{{ asset('asset/lib/jquery-ui/jquery-ui.css') }}">
+<link rel="stylesheet" href="{{ global_asset('asset/lib/jquery-ui/jquery-ui.css') }}">
 <!-- Image-Uploader -->
 <!--Material Design Iconic Font-->
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="{{asset('asset/admin/stylesheets/image-uploader.min.css')}}">
+<link rel="stylesheet" href="{{global_asset('asset/admin/stylesheets/image-uploader.min.css')}}">
 <style>
 /*Change text in autofill textbox*/
 input:-webkit-autofill{
@@ -156,7 +156,7 @@ input:-webkit-autofill{
                             <input class="InputAddOn-field " id="product_search" placeholder="Tìm sản phẩm">
                             {{-- modal create product  --}}
                             <div id="modal_insert_product" class="modal fade bs-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
-                                <form method="post" enctype="multipart/form-data" action="{{route('admin.invoices.ajaxCreateProduct')}}" id="productForm">
+                                <form method="post" enctype="multipart/form-data" action="{{route('invoices.ajaxCreateProduct')}}" id="productForm">
                                     @csrf
                                     <div class="modal-dialog modal-xl">
                                         <div class="modal-content">
@@ -282,8 +282,9 @@ input:-webkit-autofill{
                 </div>
                 <br>
                 {{-- holder product info --}}
-                <form method="post" action="{{ route('admin.invoices.update', $invoice) }} " id="invoice_form">
+                <form method="post" action="{{ route('invoices.update', $invoice) }} " id="invoice_form">
                     @csrf
+                    @method('PATCH')
                     <input type="hidden" value="{{ $invoice->invoice_no }}" name="invoice_no_holder" type="text"  id="invoice_no" >
                     <input type="hidden"  name="invoice_date_holder" value="{{ date('Y-m-d H:i:s') }}">
                     <input type="hidden" class="customer_id" name="customer_id" value="{{ $invoice->customer->id }}">
@@ -417,6 +418,7 @@ input:-webkit-autofill{
 
 @endsection
 @push('scripts')
+
 {{-- jquery validate  --}}
 <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.12.0/jquery.validate.js"></script>
 <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.12.0/additional-methods.js"></script>
@@ -425,10 +427,10 @@ input:-webkit-autofill{
         imagePreview.src=URL.createObjectURL(event.target.files[0]);
 }
 </script>
-<script src="{{ asset('backend/assets/libs/jquery-ui/jquery-ui.js') }}"></script>
-<script type="text/javascript" src="{{asset('asset/admin/javascripts/image-uploader.min.js')}}"></script>
-<script src="{{ asset('backend/assets/js/custom/invoice_page.js') }}"></script>
-<script src="{{ asset('backend/assets/js/custom/auto_formatting_input_value.js') }}"></script>
+<script src="{{ global_asset('backend/assets/libs/jquery-ui/jquery-ui.js') }}"></script>
+<script type="text/javascript" src="{{global_asset('asset/admin/javascripts/image-uploader.min.js')}}"></script>
+<script src="{{ global_asset('backend/assets/js/custom/invoice_page.js') }}"></script>
+<script src="{{ global_asset('backend/assets/js/custom/auto_formatting_input_value.js') }}"></script>
 <script>
 
 jQuery().ready(function () {

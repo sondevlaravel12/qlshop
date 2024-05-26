@@ -107,7 +107,7 @@ class Product extends Model implements HasMedia
         if($this->getFirstMedia('products')){
             return $this->getFirstMedia('products')->getUrl($size);
         }else{
-            return asset('asset/noimage.jpeg');
+            return global_asset('asset/noimage.jpeg');
         }
     }
 }

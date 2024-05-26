@@ -1,4 +1,4 @@
-@extends('backend.layouts.master')
+@extends('app.master')
 @section('title')
 {{ Request::getHost(); }} - giao dịch - hóa đơn
 @endsection
@@ -23,7 +23,7 @@
                         <div class="row">
                             <div class="col-6">
                                 <h3>
-                                    <img src="{{  App\Models\Webinfo::first()->getFirstMediaUrl('logo'); }}" alt="logo" height="42"/>
+                                    <img src="{{  App\Models\Webinfo::first()->getFirstMediaUrl('logo') }}" alt="logo" height="42"/>
                                 </h3>
 
                             </div>

@@ -1,10 +1,10 @@
-@extends('backend.layouts.master')
+@extends('app.master')
 @push('stylesheets')
-<link rel="stylesheet" href="{{ asset('asset/lib/jquery-ui/jquery-ui.css') }}">
+<link rel="stylesheet" href="{{ global_asset('asset/lib/jquery-ui/jquery-ui.css') }}">
 <!-- Image-Uploader -->
 <!--Material Design Iconic Font-->
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="{{asset('asset/admin/stylesheets/image-uploader.min.css')}}">
+<link rel="stylesheet" href="{{global_asset('asset/admin/stylesheets/image-uploader.min.css')}}">
 <style>
 /*Change text in autofill textbox*/
 input:-webkit-autofill{
@@ -77,7 +77,7 @@ input:-webkit-autofill{
                 <div class="row">
                     <div class="col-md-12 mb-3">
                         <div class="InputAddOn">
-                            <button class="InputAddOn-item" data-bs-toggle="modal" data-bs-target=".bs-example-modal-center">Thêm</button>
+                            <button class="InputAddOn-item" data-bs-toggle="modal" data-bs-target="#modal_insert_customer">Thêm</button>
                             <input class="InputAddOn-field " id="customer_search" placeholder="Tìm khách hàng">
                             <div id="modal_insert_customer" class="modal fade bs-example-modal-center" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
                                 {{-- modal form create customer --}}
@@ -142,12 +142,11 @@ input:-webkit-autofill{
                 <div class="row">
                     <div class="col-md-12">
                         <div class="InputAddOn">
-                            <button class="InputAddOn-item" data-bs-toggle="modal" data-bs-target=".bs-example-modal-xl">Thêm</button>
+                            <button class="InputAddOn-item" data-bs-toggle="modal" data-bs-target="#modal_insert_product">Thêm</button>
                             <input class="InputAddOn-field " id="product_search" placeholder="Tìm sản phẩm">
                             {{-- modal create product  --}}
-                            <div id="modal_insert_customer" class="modal fade bs-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
-                                <form method="post" enctype="multipart/form-data" action="" id="productForm">
-                                    @csrf
+                            <div id="modal_insert_product" class="modal fade bs-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+                                <form enctype="multipart/form-data" id="productForm">
                                     <div class="modal-dialog modal-xl">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -272,7 +271,7 @@ input:-webkit-autofill{
                 </div>
                 <br>
                 {{-- holder product info --}}
-                <form method="post" action="{{ route('admin.invoices.store') }}" id="invoice_form">
+                <form method="post" action="{{ route('invoices.store') }}" id="invoice_form">
                     @csrf
                     <input type="hidden" value="{{ $invoiceNumber }}" name="invoice_no_holder" type="text"  id="invoice_no" >
                     <input type="hidden"  name="invoice_date_holder" value="{{ date('Y-m-d') }}">
@@ -376,11 +375,11 @@ input:-webkit-autofill{
         imagePreview.src=URL.createObjectURL(event.target.files[0]);
 }
 </script>
-<script src="{{ asset('backend/assets/libs/jquery-ui/jquery-ui.js') }}"></script>
-<script type="text/javascript" src="{{asset('asset/admin/javascripts/image-uploader.min.js')}}"></script>
+<script src="{{ global_asset('backend/assets/libs/jquery-ui/jquery-ui.js') }}"></script>
+<script type="text/javascript" src="{{global_asset('asset/admin/javascripts/image-uploader.min.js')}}"></script>
 
-<script src="{{ asset('backend/assets/js/custom/invoice_page.js') }}"></script>
-<script src="{{ asset('backend/assets/js/custom/auto_formatting_input_value.js') }}"></script>
+<script src="{{ global_asset('backend/assets/js/custom/invoice_page.js') }}"></script>
+<script src="{{ global_asset('backend/assets/js/custom/auto_formatting_input_value.js') }}"></script>
 <script>
 
 </script>

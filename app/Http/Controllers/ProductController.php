@@ -110,4 +110,10 @@ class ProductController extends Controller
     {
         //
     }
+
+    // -----------------ajax function--------------------//
+    public function ajaxStore(Request $request){
+        return response()->json(['ok'=>'pk']);
+    }
+    // end-----------------ajax function--------------------//
 }

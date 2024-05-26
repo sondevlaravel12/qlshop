@@ -60,13 +60,41 @@ Route::middleware([
         Route::resource('products',ProductController::class);
         // invoice
         Route::resource('invoices',InvoiceController::class);
-        Route::get('invoices/deleted',[InvoiceController::class,'deleted' ] )->name('invoices.deleted');
-
+        Route::get('invoices/deleted/index',[InvoiceController::class,'deleted' ] )->name('invoices.deleted');
+        Route::get('invoices/{invoiceId}/print', [InvoiceController::class,'print'])->name('invoices.print');
+        // Route::get('invoices/create', 'create')->name('admin.invoices.create');
 
 
 
         // ------------for api route but not set yet----------------//
         Route::get('api/invoices/filter-invoices',[InvoiceController::class,'ajaxFilterInvoicesByDateRange' ] );
+        Route::post('api/invoices/search-product', [InvoiceController::class,'ajaxSearchProduct']);
+        Route::post('api/invoices/search-customer', [InvoiceController::class,'ajaxSearchCustomer']);
+        Route::post('api/invoices/create-customer', [InvoiceController::class,'ajaxCreateCustomer']);
+        Route::post('api/invoices/update-customer', [InvoiceController::class,'ajaxUpdateCustomer']);
+
+        Route::post('api/invoices/create-product', [InvoiceController::class,'ajaxCreateProduct'])->name('invoices.ajaxCreateProduct');
+        Route::delete('api/invoices/destroy', [InvoiceController::class,'ajaxDelete']);
+
+        Route::get('api/invoices/filter-deleted-ivoices',[InvoiceController::class,'ajaxFilterDeletedInvoicesByDateRange']);
+        Route::post('api/invoices/restore', [InvoiceController::class,'ajaxRestore']);
+        Route::post('api/invoices/delete-permanently', [InvoiceController::class,'ajaxDestroyPermanently']);
+        // Route::post('admin/ajax-restore', 'ajaxRestore')->name('admin.invoices.ajaxrestore');
+        // Route::post('admin/ajax-delete-permanently', 'ajaxDestroyPermanently');
+
+
+
+
+
+
+
+
+
+
+        // Route::get('admin/invoices/ajax-filter-deleted-ivoices','ajaxFilterDeletedInvoicesByDateRange');
+        // Route::delete('admin/invoices/ajax-delete', 'ajaxDelete');
+        // Route::post('admin/invoices/ajax-create-product', 'ajaxCreateProduct')->name('admin.invoices.ajaxCreateProduct');
+
 
         // end------------ for api route but not set yet----------------//
 

@@ -9,6 +9,7 @@ use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
 // 1) Web routes, are used when we want to return views.
 // 2) Api routes, are used when we want to return json ( Api resource/collection ).
 // By default, the web.php uses web middleware, whereas the api.php uses the api middleware.
+//https://pineco.de/frequently-asked-questions-about-laravel-based-apis/
 
 Route::get('/user', function (Request $request) {
     return $request->user();

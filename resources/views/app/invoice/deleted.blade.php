@@ -1,4 +1,4 @@
-@extends('backend.layouts.master')
+@extends('app.master')
 @push('stylesheets')
 {{-- daterangepicker --}}
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
@@ -12,7 +12,7 @@
 
             <div class="page-title-right">
                 <div >
-                    <a href="{{route('admin.invoices.create')}}" class="btn btn-primary waves-effect waves-light" ><span ><i class="fas fa-plus"></i> Add invoice</span></a>
+                    <a href="{{route('invoices.create')}}" class="btn btn-primary waves-effect waves-light" ><span ><i class="fas fa-plus"></i> Add invoice</span></a>
                 </div>
             </div>
 
@@ -69,7 +69,7 @@
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-<script src="{{ asset('backend/assets/js/custom/invoice_page_deleted.js') }}"></script>
+<script src="{{ global_asset('backend/assets/js/custom/invoice_page_deleted.js') }}"></script>
 
 @endpush
 

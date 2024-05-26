@@ -9,11 +9,11 @@
 <div class="row">
     <div class="col-12">
         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-            <h4 class="mb-sm-0">Inventory Product</h4>
+            <h4 class="mb-sm-0">Sản phẩm</h4>
 
             <div class="page-title-right">
                 <div >
-                    <a href="{{route('products.create')}}" class="btn btn-primary waves-effect waves-light" ><span ><i class="fas fa-plus"></i> Add inventory product</span></a>
+                    <a href="{{route('products.create')}}" class="btn btn-primary waves-effect waves-light" ><span ><i class="fas fa-plus"></i> Thêm sản phẩm</span></a>
                 </div>
             </div>
 
@@ -25,7 +25,7 @@
         <div class="card">
             <div class="card-body">
 
-                <h4 class="card-title">All Inventory Products</h4>
+                <h4 class="card-title">Sản phẩm</h4>
                 {{-- <a href="{{ route('products.create') }}">create</a> --}}
 
                 <table id="datatable-default" class="table table-bordered dt-responsive nowrap dataTable no-footer dtr-inline" style="border-collapse: collapse; border-spacing: 0; width: 100%;">

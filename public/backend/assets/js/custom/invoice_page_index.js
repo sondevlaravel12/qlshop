@@ -123,9 +123,9 @@ function fetch_data(start_date = '', end_date = ''){
                 "orderable":false,
                 "width": "5%",
                 'render': function(data){
-                    return `<a href="/admin/invoices/invoiceId/edit" class="btn btn-sm btn-link"><i class="far fa-edit"></i>&nbsp;&nbsp;Sửa</a>
+                    return `<a href="invoices/invoiceId/edit" class="btn btn-sm btn-link"><i class="far fa-edit"></i>&nbsp;&nbsp;Sửa</a>
                     <button type="submit" class="btn btn-sm btn-link btn_invoice_delete" data-orderid="invoiceId" ><i class="far fa-trash-alt"></i>&nbsp;Xóa</button>
-                    <a target="_blank" href="/admin/invoices/invoiceId/print" class="btn btn-sm btn-success waves-effect waves-light"><i class="fa fa-print"></i>&nbsp;In</a>`
+                    <a target="_blank" href="/invoices/invoiceId/print" class="btn btn-sm btn-success waves-effect waves-light"><i class="fa fa-print"></i>&nbsp;In</a>`
                     .replace(/invoiceId/g,data);
                 }
             },
@@ -145,7 +145,7 @@ function fetch_data(start_date = '', end_date = ''){
         // event.preventDefault();
         Swal.fire({
             title: 'Bạn có chắc muốn?',
-            text: "Xóa xóa hóa đơn này không?",
+            text: "Xóa hóa đơn này không?",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -153,6 +153,7 @@ function fetch_data(start_date = '', end_date = ''){
             confirmButtonText: 'Vâng, xóa hóa đơn!'
             }).then((result) => {
             if (result.isConfirmed) {
+                // console.log('xoa');
                 var $row = $dataTable.row($(this).parents('tr'));
                 var $invoiceId = $(this).attr('data-orderid');
                 deleteInvoice($invoiceId, $row)
@@ -164,14 +165,14 @@ function fetch_data(start_date = '', end_date = ''){
 
 
     function deleteInvoice($invoiceId, $row){
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
+        // $.ajaxSetup({
+        //     headers: {
+        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //     }
+        // });
         $.ajax({
             type: "DELETE",
-            url: "/invoices/ajax-delete",
+            url: "/api/invoices/destroy",
             data: {invoiceID:$invoiceId},
             dataType: "json",
             success: function (response) {

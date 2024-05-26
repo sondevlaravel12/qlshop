@@ -40,7 +40,10 @@ $("input[name='invoice_date']").on('change', function(){
     $("input[name='invoice_date_holder']").val($("input[name='invoice_date']").val());
 })
 
-// validate form before submit///only put it in page need it or it may cause some error
+/* ---------------------------------------------
+validate form before submit
+--------------------------------------------- */
+//only put it in page need it or it may cause some error
 $.validator.setDefaults({ ignore: [''] }); // not ignore hidden field// should put in if hasClass to prevent error if page do not have form validate
 $(function(){
     $("#invoice_form").validate({
@@ -92,11 +95,32 @@ $(function(){
             },
         },
     });
+    $("#productForm").validate({
+        // Specify validation rules
+        rules: {
+            name: {
+                required: true
+            },
+            price: {
+                required: true
+            },
+        },
+        messages: {
+            name: {
+                required: "Tên sản phẩm không được bỏ trống",
+            },
+            price: {
+                required: "vui lòng điền giá bán sản phẩm",
+            },
+        },
+    });
     // another form if need
 });
 
 
-
+/* ---------------------------------------------
+End validate form before submit
+--------------------------------------------- */
 
 /* ---------------------------------------------
 Autocomplete search product
@@ -105,7 +129,7 @@ Autocomplete search product
         $("#product_search").length > 0 && ($("#product_search").autocomplete({
             source: function (request, response) {
                 $.ajax({
-                    url: "/admin/invoices/ajax-search-product",
+                    url: "/api/invoices/search-product",
                     data: {_token: CSRF_TOKEN, term: request.term, maxResults: 10},
                     dataType: "json",
                     method:'post',
@@ -210,7 +234,7 @@ Autocomplete search customer
         $("#customer_search").length > 0 && ($("#customer_search").autocomplete({
             source: function (request, response) {
                 $.ajax({
-                    url: "/admin/invoices/ajax-search-customer",
+                    url: "/api/invoices/search-customer",
                     data: {_token: CSRF_TOKEN, term: request.term, maxResults: 10},
                     dataType: "json",
                     method:'post',
@@ -260,7 +284,7 @@ Create new customer
         var $customerPhone = $('#customer_phone').val();
         $.ajax({
             type: "POST",
-            url: "/admin/invoices/ajax-create-customer",
+            url: "/api/invoices/create-customer",
             data: {_token: CSRF_TOKEN, customerName: $customerName, customerAddress:$customerAddress, customerPhone:$customerPhone},
             dataType: "json",
             success: function( response ) {
@@ -298,7 +322,7 @@ $("#customerHolder").on('submit','form#updateCutomerForm', function(e){
     });
     $.ajax({
         type: "POST",
-        url: "/admin/invoices/ajax-update-customer",
+        url: "/api/invoices/update-customer",
         data: {customerID: $customerID, customerName: $customerName, customerAddress:$customerAddress, customerPhone:$customerPhone},
         dataType: "json",
         success: function( response ) {
@@ -397,16 +421,13 @@ End Fill html customer row
 /* ---------------------------------------------
 Create new product
 --------------------------------------------- */
-    function preview() {
-        imagePreview.src=URL.createObjectURL(event.target.files[0]);
-    };
 
     $('.input-images-1').imageUploader({
         imagesInputName: 'photos',
 
         extensions: ['.jpg','.jpeg','.png','.gif','.svg'],
         mimes: ['image/jpeg','image/png','image/gif','image/svg+xml'],
-        maxSize: 10000,
+        // maxSize: 10000,For a maximum size of 2 megabytes, you can set this option as 2 * 1024 * 1024 bytes.
         maxFiles: 1,
 
 
@@ -451,6 +472,101 @@ Create new product
                                     </div>`;
         $('#show_item').append($newrow);
     });
+    // submit create product form
+    $('#productForm').on('submit', function(e) {
+        e.preventDefault();
+        var formData = new FormData(this);
+        // $(this).find('.input-images-1').html('');
+        // $('.input-images-1').imageUploader({
+        //                 imagesInputName: 'photos',
+
+        //                 extensions: ['.jpg','.jpeg','.png','.gif','.svg'],
+        //                 mimes: ['image/jpeg','image/png','image/gif','image/svg+xml'],
+        //                 // maxSize: 10000,For a maximum size of 2 megabytes, you can set this option as 2 * 1024 * 1024 bytes.
+        //                 maxFiles: 1,
+
+
+        //             });
+        // console.log('done');
+
+
+
+        $.ajax({
+            type: "POST",
+            url: "/api/invoices/create-product",
+            processData: false, contentType: false,
+            data: formData,
+            dataType: "json",
+            success: function( response ) {
+
+                var $newrow = fillHtmlProductRow(response);
+
+                $('#productItemsHolder').append($newrow);
+                // delete message
+                $('.no_product_error').html('');
+                updateProductCount()
+                updateTotal();
+                //erase input field and hide modal
+                document.getElementById("productForm").reset();
+                $('#productForm .input-images-1').empty();
+                $('#productForm #show_item').empty();
+                $('.input-images-1').imageUploader({
+                    imagesInputName: 'photos',
+
+                    extensions: ['.jpg','.jpeg','.png','.gif','.svg'],
+                    mimes: ['image/jpeg','image/png','image/gif','image/svg+xml'],
+                    // maxSize: 10000,For a maximum size of 2 megabytes, you can set this option as 2 * 1024 * 1024 bytes.
+                    maxFiles: 1,
+
+
+                });
+                $('#modal_insert_product').modal('hide');
+            }
+        });
+    })
+    /* ---------------------------------------------
+    Fill html product row
+    --------------------------------------------- */
+    function fillHtmlProductRow(response){
+        var $newrow = `<tr style="background-color: #e2f6e7;">
+                                    <td>
+                                        <input  class="form-control"  id="product_id" name="product_id[]"  value="` +  response.id + `" type="hidden">
+                                        <input  class="form-control"  id="product_sku" name="product_sku[]"  value="` +  response.SKU + `" type="hidden">
+                                        `+ response.SKU +`
+                                    </td>
+                                    <td style="width:25%; ">
+                                        `+ response.name +`
+                                    </td>
+                                    <td>
+                                    <input  class="form-control"  type="hidden" id="product_sale_unit[]" name="product_sale_unit[]"  value="` + response.sale_unit + `">
+                                    ` + response.sale_unit + `
+                                    </td>
+                                    <td ><input class="form-control product_quantity" id="" name="product_quantity[]" type="number" value="1" min="1"></td>
+                                    <td>
+                                        <input type="hidden" class="form-control product_price" readonly name="product_price[]"  value="` +  response.price + `">
+                                        ` +  response.price + `
+                                    </td>
+                                    <td ><input style="color:red;" class="form-control product_amount_off auto_formatting_input_value" name="product_amount_off[]" type="text" value=""></td>
+                                    <td >
+                                        <input type="readonly" class="form-control selling_price" readonly name="selling_price[]"  value="` +  response.price + `">
+
+                                    </td>
+                                    <td >
+                                        <input class="form-control product_line_total"  readonly  name="product_line_total[]"  value="  ` + response.price + `" style="width:100%">
+
+                                    </td>
+                                    <td >
+                                        <button type="button" class="btn btn-outline-danger waves-effect waves-light remove_item_btn">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </td>
+                                </tr>`;
+
+        return $newrow;
+    };
+    /* ---------------------------------------------
+    End Fill html customer row
+    --------------------------------------------- */
 /* ---------------------------------------------
 End Create new product
 --------------------------------------------- */

@@ -13,9 +13,6 @@ use PDF;
 
 class InvoiceController extends Controller
 {
-    public function testAjax(Request $request){
-        return response()->json(['ok' => 'ok']);
-    }
     /**
      * Display a listing of the resource.
      */
@@ -37,7 +34,7 @@ class InvoiceController extends Controller
         $now = date('d-m-Y H:i:s');
         $saleUnits = SaleUnit::all('title');
         $invoiceNumber = 'HD-'.strtoupper(uniqid());
-        return view('backend.invoice.create', compact('invoiceNumber','saleUnits','now'));
+        return view('app.invoice.create', compact('invoiceNumber','saleUnits','now'));
     }
 
     /**
@@ -97,7 +94,7 @@ class InvoiceController extends Controller
             'message'=>'Tạo thành công hóa đơn',
             'alert-type'=>'success'
         ]);
-        return redirect()->route('admin.invoices.index')->with($notification);
+        return redirect()->route('invoices.index')->with($notification);
 
     }
 
@@ -118,11 +115,12 @@ class InvoiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request)
+    public function edit(Invoice $invoice)
     {
-        $invoice = Invoice::findOrFail($request->invoiceId);
+        // // $invoice = Invoice::findOrFail($request->invoiceId);
+        // dd($invoice->id);
         $saleUnits = SaleUnit::all('title');
-        return view('backend.invoice.edit', compact('invoice', 'saleUnits'));
+        return view('app.invoice.edit', compact('invoice', 'saleUnits'));
     }
     public function ajaxCreateProduct(Request $request){
         $validated = $request->validate([
@@ -133,17 +131,22 @@ class InvoiceController extends Controller
             //     'mimes:jpg,jpeg,png,gif',
             // ]
         ]);
+        // $product =[];
+        // $product['name'] = converPriceStringToInt($request->name);
+        // $product['price'] = converPriceStringToInt($request->price);
+        // $product['original_price'] = converPriceStringToInt($request->original_price);
+        // $lastSKU = Product::latest()->first()->SKU;
+        // $product['SKU'] = Product::generateSKU($lastSKU);
 
-        $inventoryProduct = $request->except(['_token','su_name','su_price','su_original_price','photos','price','original_price']);
-        $pattern = '/\s+/';
-        $inventoryProduct['price'] =converPriceStringToInt($request->price);
-        $inventoryProduct['original_price'] =converPriceStringToInt($request->original_price);
+        $product = $request->except(['_token','su_name','su_price','su_original_price','photos','price','original_price']);
+        $product['price'] =converPriceStringToInt($request->price);
+        $product['original_price'] =converPriceStringToInt($request->original_price);
         $lastSKU = Product::latest()->first()->SKU;
-        $inventoryProduct['SKU'] = Product::generateSKU($lastSKU);
-        if($product = Product::create($inventoryProduct)){
+        $product['SKU'] = Product::generateSKU($lastSKU);
+        if($product = Product::create($product)){
             if($request->filled('su_name')){
                 $numberOfSaleUnit = count($request->su_name);
-                $skuList = Product::generateMultipleSKUs($inventoryProduct['SKU'], $numberOfSaleUnit);
+                $skuList = Product::generateMultipleSKUs($product['SKU'], $numberOfSaleUnit);
                 foreach($request->su_name as $key=>$value){
                     $sale_unit = [];
                     $sale_unit['name']= $product->name;
@@ -220,7 +223,11 @@ class InvoiceController extends Controller
             'message'=>'Cập nhật hóa đơn thành công',
             'alert-type'=>'success'
         ]);
-        return redirect()->route('admin.invoices.index')->with($notification);
+        // use the session to pass a message on the next request not the current one
+        // When returning a view just pass the data directly
+        return redirect()->route('invoices.index')->with(['message'=>'Cập nhật hóa đơn thành công',
+        'alert-type'=>'success' ]);
+        // return redirect()->route('invoices.index')->with($notification);
     }
 
     /**
@@ -243,7 +250,7 @@ class InvoiceController extends Controller
         $invoice = Invoice::findOrFail($request->invoiceId);
         $customer = $invoice->customer;
         $invoiceDetails = $invoice->invoiceDetails;
-        return view('backend.invoice.print', compact(['invoice','customer','invoiceDetails']));
+        return view('app.invoice.print', compact(['invoice','customer','invoiceDetails']));
     }
 
 
@@ -257,8 +264,9 @@ class InvoiceController extends Controller
 
     }
     public function deleted(){
+        // dd('hihih');
         $invoices = Invoice::onlyTrashed()->get();
-        return view('backend.invoice.deleted', compact('invoices'));
+        return view('app.invoice.deleted', compact('invoices'));
     }
     // public function destroyPermanently(Request $request)
     // {

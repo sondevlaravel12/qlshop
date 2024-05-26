@@ -44,7 +44,7 @@ $(document).ready(function() {
             stateSave: true,
             "ajax" : {
                 type: "GET",
-                url: "/admin/invoices/ajax-filter-deleted-ivoices",
+                url: "/api/invoices/filter-deleted-ivoices",
                 data:{start_date:start_date, end_date:end_date},
                 dataSrc: 'data'
             },
@@ -74,14 +74,9 @@ $(document).ready(function() {
         $('#datatable_with_daterange').on('click','.btn_invoice_recovery', function(){
             var $row = dataTable.row($(this).parents('tr'));
             var $invoiceId = $(this).attr('data-orderid');
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
             $.ajax({
                 type: "POST",
-                url: "/admin/ajax-restore",
+                url: "/api/invoices/restore",
                 data: {invoiceID:$invoiceId},
                 dataType: "json",
                 success: function (response) {
@@ -128,7 +123,7 @@ $(document).ready(function() {
             });
             $.ajax({
                 type: "POST",
-                url: "/admin/ajax-delete-permanently",
+                url: "/api/invoices/delete-permanently",
                 data: {invoiceID:$invoiceId},
                 dataType: "json",
                 success: function (response) {
