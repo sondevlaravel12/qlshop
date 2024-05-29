@@ -12,9 +12,7 @@ class InvoiceDetail extends Model
 {
     use HasFactory;
     protected $guarded =[];
-    public function product(){
-        return $this->hasOne(Product::class,'id','product_id');
-    }
+
     ////  ------------------ Accessor and multator--------------------------------- ////
     protected function amountOff(): Attribute
     {
@@ -40,4 +38,13 @@ class InvoiceDetail extends Model
 
 
      ////  ------------------ End Accessor and multator--------------------------------- ////
+    //  ----------------------relationship -----------------------------------------------//
+    // public function product(): HasOne
+    // {
+    //     return $this->hasOne(Product::class);
+    // }
+    public function product(){
+        return $this->hasOne(Product::class,'id','product_id');
+    }
+    //  ----------------------end relationship -----------------------------------------------//
 }

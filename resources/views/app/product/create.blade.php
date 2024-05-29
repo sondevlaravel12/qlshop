@@ -132,7 +132,7 @@
                         <button type="submit" class="btn btn-success waves-effect waves-light">
                             <i class="fas fa-save"></i> Lưu
                         </button>
-                        <a href="/admin/products" class="btn btn-light waves-effect waves-light"><span class="fas fa-ban"></span> &nbsp;Bỏ qua</a>
+                        <a href="{{ route('products.index') }}" class="btn btn-light waves-effect waves-light"><span class="fas fa-ban"></span> &nbsp;Bỏ qua</a>
                     </div>
                 </form>
             </div>

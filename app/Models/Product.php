@@ -38,13 +38,14 @@ class Product extends Model implements HasMedia
             ;
 
     }
-    public function registerMediaConversions(Media $media = null): void
+    public function registerMediaConversions(?Media $media = null): void
     {
 
         $this
             ->addMediaConversion('thumb')
             ->width(200)
-            ->height(200);
+            ->height(200)
+            ->nonQueued();
     }
     // -------------------End Spatie Media ---------------------------//
     ////  ------------------ Accessor--------------------------------- ////
@@ -104,8 +105,8 @@ class Product extends Model implements HasMedia
 
     }
     public function getFirstImage($size='thumb'){
-        if($this->getFirstMedia('products')){
-            return $this->getFirstMedia('products')->getUrl($size);
+        if($this->getFirstMedia('inventory_product')){
+            return $this->getFirstMedia('inventory_product')->getUrl($size);
         }else{
             return global_asset('asset/noimage.jpeg');
         }

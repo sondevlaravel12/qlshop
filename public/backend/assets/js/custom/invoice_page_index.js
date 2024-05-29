@@ -121,11 +121,14 @@ function fetch_data(start_date = '', end_date = ''){
                 "targets":[7],
                 'searchable':false,
                 "orderable":false,
-                "width": "5%",
+                "width": "10%",
                 'render': function(data){
-                    return `<a href="invoices/invoiceId/edit" class="btn btn-sm btn-link"><i class="far fa-edit"></i>&nbsp;&nbsp;Sửa</a>
-                    <button type="submit" class="btn btn-sm btn-link btn_invoice_delete" data-orderid="invoiceId" ><i class="far fa-trash-alt"></i>&nbsp;Xóa</button>
-                    <a target="_blank" href="/invoices/invoiceId/print" class="btn btn-sm btn-success waves-effect waves-light"><i class="fa fa-print"></i>&nbsp;In</a>`
+                    return `<input type="hidden" name="invoice_id" value="invoiceId">
+                    <button href="#" class="btn btn-sm btn-link btn_show_invoice"><i class="fas fa-eye"></i></button>
+                    <a href="invoices/invoiceId/edit" class="btn btn-sm btn-link"><i class="far fa-edit"></i></a>
+                    <a target="_blank" href="/invoices/invoiceId/print" class="btn btn-sm btn-success waves-effect waves-light"><i class="fa fa-print"></i></a>
+                    <button type="submit" class="btn btn-sm btn-danger btn_invoice_delete" data-orderid="invoiceId" ><i class="far fa-trash-alt"></i></button>
+                    `
                     .replace(/invoiceId/g,data);
                 }
             },
@@ -139,7 +142,12 @@ function fetch_data(start_date = '', end_date = ''){
         ]
     });
 
+    // show invoice
+    // $table.on('click','.btn_show_invoice', function(){
+    //     // event.preventDefault();
+    //     alert('hi');
 
+    // });
     // delete invoice
     $table.on('click','.btn_invoice_delete', function(){
         // event.preventDefault();

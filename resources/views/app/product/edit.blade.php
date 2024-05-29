@@ -14,7 +14,7 @@
 
             <div class="page-title-right">
                 <div >
-                    <a href="{{route('admin.products.index')}}" class="btn btn-info waves-effect waves-light" ><span ><i class="fas fa-arrow-left"></i> Xem danh sách sản phẩm</span></a>
+                    <a href="{{route('products.index')}}" class="btn btn-info waves-effect waves-light" ><span ><i class="fas fa-arrow-left"></i> Xem danh sách sản phẩm</span></a>
                 </div>
             </div>
 
@@ -26,8 +26,9 @@
         <div class="card">
             <div class="card-body">
 
-                <form action="{{route('admin.inventory_products.update', $product)}}" method="post" enctype="multipart/form-data">
+                <form action="{{route('products.update', $product)}}" method="post" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
                     <div class="row mb-3">
                         <label for="example-text-input" class="col-sm-2 col-form-label">Tên</label>
                         <div class="col-sm-10">

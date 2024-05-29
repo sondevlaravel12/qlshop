@@ -81,7 +81,10 @@ div.dt-button-collection button.dt-button:active:not(.disabled), div.dt-button-c
 </div> <!-- end row -->
 
 
-
+{{-- modal  --}}
+{{-- modal show invoice  --}}
+@include('app.invoice.modal.show_invoice')
+{{-- end modal  --}}
 
 @endsection
 @push('scripts')
@@ -133,5 +136,125 @@ div.dt-button-collection button.dt-button:active:not(.disabled), div.dt-button-c
 
     } );
 </script>
+<script>
+    $('table').on('click','.btn_show_invoice', function(){
+        // event.preventDefault();
+        // get product id
+        // var $invoiceId = $(this).siblings("input[name='invoice_id']").val();
+        var $invoiceId = $(this).siblings("input[name='invoice_id']").val();
+        // call ajax to load data and show modal
+        getInvoiceInfo($invoiceId).done(function(data){
+            $modal_show_invoice = $('#modal_show_invoice');
+            // $modal_show_invoice.find(".modal-title").html('Số hóa đơn: #'+data.invoice_no);
+            $modal_show_invoice.find("#invoice_no").html(data.invoice_no);
+            $modal_show_invoice.find("#date").html(data.date);
+            $customer = $modal_show_invoice.find("#customerHolder");
+            $customer.find('#name').html(data.customer.name);
+            $customer.find('#phone').html(data.customer.phone);
+            $customer.find('#address').html(data.customer.address);
+
+            $invoice_details_holder =  "";
+            $modal_show_invoice.find('#invoice_details_holder').html('');
+            $.each(data.invoice_details, function(key, detail){
+                $row = `<tr>
+                            <td>`+ data.products[key].name +`</td>
+                            <td class="text-center">`+ detail.selling_price +`</td>
+                            <td class="text-center">`+ detail.quantity +`</td>
+                            <td class="text-end">`+ detail.line_total +`</td>
+                        </tr>`;
+
+                $invoice_details_holder += $row;
+            })
+            $summaryInvoice = `<tr>
+                                    <td class="thick-line"></td>
+                                    <td class="thick-line"></td>
+                                    <td class="thick-line text-center">
+                                        <strong >Tổng Tiền hàng</strong>
+                                    </td>
+                                    <td id="subtotal" class="thick-line text-end"></td>
+                                </tr>
+                                <tr>
+                                    <td class="no-line"></td>
+                                    <td class="no-line"></td>
+                                    <td class="no-line text-center">
+                                        <strong >Phí vận chuyển</strong></td>
+                                    <td id="shipping" class="no-line text-end"></td>
+                                </tr>
+                                {{-- @if ($invoice->amount_off>0) --}}
+                                <tr id="amount_off_tr">
+                                    <td class="no-line"></td>
+                                    <td class="no-line"></td>
+                                    <td class="no-line text-center">
+                                        <strong >Chiết khấu</strong></td>
+                                    <td id="amount_off" class="no-line text-end"></td>
+                                </tr>
+                                {{-- @endif --}}
+
+                                <tr>
+                                    <td class="no-line"></td>
+                                    <td class="no-line"></td>
+                                    <td class="no-line text-center">
+                                        <strong >Tổng thanh toán</strong></td>
+                                    <td  class="no-line text-end"><h4 id="total" class="m-0"></h4></td>
+                                </tr>`;
+
+            $invoice_details_holder += $summaryInvoice;
+            $modal_show_invoice.find('#invoice_details_holder').prepend($invoice_details_holder);
+            $modal_show_invoice.find('#subtotal').html(data.subtotal);
+            $modal_show_invoice.find('#shipping').html(data.shipping);
+            if(data.amount_off>0){
+                $modal_show_invoice.find('#amount_off_tr').show();
+                $modal_show_invoice.find('#amount_off').html(data.amount_off);
+            }else{
+                $modal_show_invoice.find('#amount_off_tr').hide();
+            }
+            $modal_show_invoice.find('#total').html(data.total);
+
+            $modal_show_invoice.modal('show');
+        })
+
+
+
+
+    });
+    function getInvoiceInfo(invoice){
+    return $.ajax({
+            type: "get",
+            url: '/invoices/' + invoice,
+            data: {invoice:invoice},
+            dataType: "json",
+        });
+}
+    // $('.btn_show_invoice').on('click', function(e){
+    // e.preventDefault();
+    // get product id
+    // var $productId = $(this).siblings("input[name='product_id']").val();
+    // call ajax to load data and show modal
+    // getProductInfo($productId).done(function(data){
+    // console.log($productId);
+    // $modal_show_invoice = $('#modal_show_invoice');
+    // $modal_show_product.find("#sale_unit_holder").hide();
+
+    // // fill in modal data
+    // $modal_show_product.find(".modal-title").html(data.name);
+    // $modal_show_product.find("input[name='price']").val(data.price);
+    // $modal_show_product.find("input[name='original_price']").val(data.original_price);
+    // $modal_show_product.find("input[name='sale_unit']").val(data.sale_unit);
+    // $modal_show_product.find("input[name='created_at']").val(data.created_at);
+    // $modal_show_product.find("input[name='SKU']").val(data.SKU);
+
+
+    // // $modal_show_product.find("#sale_unit_holder").hide();
+
+    // // $modal_show_product.find("#imagePreview").attr('scr','hihi');
+
+    // // disabled input field
+    // $modal_show_invoice.find('input').attr('disabled','disabled');
+
+    // $modal_show_invoice.modal('show');
+    // console.log('hi');
+    // });
+</script>
+
 @endpush
 

@@ -117,7 +117,6 @@
 
         <script src="{{global_asset('backend/assets/js/pages/dashboard.init.js')}}"></script>
 
-        <!-- App js -->
         <script src="{{global_asset('backend/assets/js/app.js')}}"></script>
 
 
@@ -137,6 +136,7 @@
          <script src="https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.min.js" ></script>
          <script src="{{global_asset('backend/assets/js/typeahead.bundle.js')}}"></script>
          {{-- setup ajax header  --}}
+
          <script>
             $.ajaxSetup({
                     headers: {
@@ -145,6 +145,33 @@
                 });
          </script>
         {{--datatable innitialize  --}}
+        <script>
+            $(window).on('load', function(){
+                let $vertical_menu = Boolean(localStorage.getItem("vertical_menu"));
+                $("#vertical-menu-btn").on( "click" , function(){
+                    // if $vertical_menu = true means not empty so we set it empty
+                    $vertical_menu?$vertical_menu='':'true';
+                    // // Save to localStorage
+                    // localStorage.setItem("vertical_menu", $vertical_menu?"true":"false");
+                    localStorage.setItem("vertical_menu", $vertical_menu);
+                });
+                $("#btn-fullscreen").on( "click" , function(){
+                    // if $vertical_menu = true means not empty so we set it empty
+                    $fullscreen_enable?$fullscreen_enable='':'true';
+                    // // Save to localStorage
+                    // localStorage.setItem("vertical_menu", $vertical_menu?"true":"false");
+                    localStorage.setItem("fullscreen_enable", $fullscreen_enable);
+
+                });
+
+                if($vertical_menu){
+                    $("body").toggleClass("sidebar-enable"), 992 <= $(window).width() ? $("body").toggleClass("vertical-collpsed") : $("body").removeClass("vertical-collpsed")
+                }
+                //You cannot force your webpage to display in fullscreen mode for security reasons. User interaction is required for that.
+
+            });
+
+         </script>
         <script>
         var $table = $('table');
         var $dataTable = $('#datatable').DataTable({
@@ -232,6 +259,28 @@
         <script>
             const money = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'VND' });
         </script>
+        <script>
+            // let $vertical_menu = Boolean(localStorage.getItem("vertical_menu"));
+
+            // $("#vertical-menu-btn").on( "click" , function(){
+            //     // if $vertical_menu = true means not empty so we set it empty
+            //     $vertical_menu?$vertical_menu='':'true';
+            //     // // Save to localStorage
+            //     // localStorage.setItem("vertical_menu", $vertical_menu?"true":"false");
+            //     localStorage.setItem("vertical_menu", $vertical_menu);
+            //     // localStorage.setItem("vertical_menu", 'false');
+            //     // localStorage.setItem("vertical_menu", '');
+
+            // });
+
+            // if($vertical_menu){
+            //     // $("#vertical-menu-btn").trigger( "click" );
+            //     $("body").toggleClass("sidebar-enable"), 992 <= $(window).width() ? $("body").toggleClass("vertical-collpsed") : $("body").removeClass("vertical-collpsed")
+            // }
+            // console.log($vertical_menu);
+
+        </script>
+
 
         @stack('scripts')
     </body>

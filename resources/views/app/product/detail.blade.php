@@ -37,7 +37,7 @@
                                 <td>
                                     <strong>Hình ảnh:</strong>
                                 </td>
-                                <td><img src="{{$product->getFirstImage('products')}}" class="img-fluid" alt="Responsive image"></td>
+                                <td><img src="{{$product->getFirstImage()}}" class="img-fluid" alt="Responsive image"></td>
                             </tr>
                             {{-- <tr>
                                 <td>
@@ -89,15 +89,7 @@
                             </tr>
                             <tr>
                                 <td><strong>Actions</strong></td>
-                                <td>
-                                    <form action="{{route('products.destroy', $product)}}" method="PRODUCT" id="confirm_delete">
-                                        @method('DELETE')
-                                        @csrf
-                                        <a href="{{route('products.edit',$product)}}" class="btn btn-sm btn-link"><i class="far fa-edit"></i>
-                                            Edit</a>
-                                        <button type="submit" class="btn btn-sm btn-link" ><i class="far fa-trash-alt"></i> Delete</button>
-                                    </form>
-                                </td>
+
                             </tr>
                         </tbody>
                     </table>

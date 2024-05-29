@@ -23,7 +23,7 @@
                         <div class="row">
                             <div class="col-6">
                                 <h3>
-                                    <img src="{{  App\Models\Webinfo::first()->getFirstMediaUrl('logo') }}" alt="logo" height="42"/>
+                                    <img src="{{  App\Models\Webinfo::first()?App\Models\Webinfo::first()->getFirstMediaUrl('logo'):'noimage' }}" alt="logo" height="42"/>
                                 </h3>
 
                             </div>

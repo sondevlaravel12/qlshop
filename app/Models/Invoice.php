@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Invoice extends Model
@@ -17,6 +18,16 @@ class Invoice extends Model
     }
     public function invoiceDetails(){
         return $this->hasMany(InvoiceDetail::class);
+    }
+    // public function products(){
+    //     return $this->through('invoiceDetails')->hasOne('product');
+    // }
+    /**
+     * The roles that belong to the user.
+     */
+    public function products(): BelongsToMany
+    {
+        return $this->belongsToMany(Product::class,'invoice_details','invoice_id','product_id');
     }
      ////  ------------------ Accessor and multator--------------------------------- ////
      protected function subtotal(): Attribute
