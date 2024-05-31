@@ -141,7 +141,11 @@ class InvoiceController extends Controller
         $product = $request->except(['_token','su_name','su_price','su_original_price','photos','price','original_price']);
         $product['price'] =converPriceStringToInt($request->price);
         $product['original_price'] =converPriceStringToInt($request->original_price);
-        $lastSKU = Product::latest()->first()->SKU;
+        if(Product::all()->count()>0){// have atleast 1 product
+            $lastSKU = Product::latest()->first()->SKU;
+        }else{
+            $lastSKU = 000001;
+        }
         $product['SKU'] = Product::generateSKU($lastSKU);
         if($product = Product::create($product)){
             if($request->filled('su_name')){

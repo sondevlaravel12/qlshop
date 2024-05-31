@@ -16,16 +16,16 @@ return new class extends Migration
             $table->string('invoice_no')->uniqid();
             $table->integer('customer_id');
 
-            $table->integer('subtotal');
-            $table->integer('amount_off');
-            $table->integer('percentage_off');
-            $table->integer('subtotal_discounted');
-            $table->integer('shipping');
+            $table->integer('subtotal')->nullable();
+            $table->integer('amount_off')->nullable();
+            $table->integer('percentage_off')->nullable();
+            $table->integer('subtotal_discounted')->nullable();
+            $table->integer('shipping')->nullable();
             $table->integer('total');
 
 
-            $table->string('status'); // should be enum
-            $table->string('note');
+            $table->string('status')->nullable(); // should be enum
+            $table->string('note')->nullable();
             $table->date('date')->nullable();
             $table->timestamps();
             $table->softDeletes();

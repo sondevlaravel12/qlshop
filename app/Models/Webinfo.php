@@ -39,40 +39,41 @@ class Webinfo extends Model implements HasMedia
     }
 
     ////  ------------------ Accessor--------------------------------- ////
-    protected function address(): Attribute
-    {
-        return Attribute::make(
-            get: function ($value){
-                if( !empty($value) && strpos($value,':') !== FALSE ){
-                    $get_option = explode(':',$value);
 
-                    //Build html
-                    $result = "<div> <b>{$get_option[0]}</b>: {$get_option[1]} </div>";
+    // protected function address(): Attribute
+    // {
+    //     return Attribute::make(
+    //         get: function ($value){
+    //             if( !empty($value) && strpos($value,':') !== FALSE ){
+    //                 $get_option = explode(':',$value);
 
-                    return $result;
+    //                 //Build html
+    //                 $result = "<div> <b>{$get_option[0]}</b>: {$get_option[1]} </div>";
 
-                }
-                return FALSE;
-            },
-        );
-    }
-    protected function address2(): Attribute
-    {
-        return Attribute::make(
-            get: function ($value){
-                if( !empty($value) && strpos($value,':') !== FALSE ){
-                    $get_option = explode(':',$value);
+    //                 return $result;
 
-                    //Build html
-                    $result = "<div> <b>{$get_option[0]}</b>: {$get_option[1]} </div>";
+    //             }
+    //             return FALSE;
+    //         },
+    //     );
+    // }
+    // protected function address2(): Attribute
+    // {
+    //     return Attribute::make(
+    //         get: function ($value){
+    //             if( !empty($value) && strpos($value,':') !== FALSE ){
+    //                 $get_option = explode(':',$value);
 
-                    return $result;
+    //                 //Build html
+    //                 $result = "<div> <b>{$get_option[0]}</b>: {$get_option[1]} </div>";
 
-                }
-                return FALSE;
-            },
-        );
-    }
+    //                 return $result;
+
+    //             }
+    //             return FALSE;
+    //         },
+    //     );
+    // }
 
     protected function phone(): Attribute
     {
@@ -96,4 +97,21 @@ class Webinfo extends Model implements HasMedia
     // {
     //     return $this->morphOne(MetaTag::class, 'model');
     // }
+    // --------------------- other functions -----------------------------//
+    public function beautify_address($address_number=1):string{
+        if($address_number==1){
+            $address = $this->address;
+        }else{
+            $address = $this->address_2;
+        }
+        if( !empty($address) && strpos($address,':') !== FALSE ){
+            $get_option = explode(':',$address);
+            //Build html
+            $result = "<div> <b>{$get_option[0]}</b>: <a href='tel:{$get_option[1]}' style='color:red'> {$get_option[1]} </a> </div>";
+
+            return $result;
+        }
+            return FALSE;
+    }
+    //end --------------------- other functions -----------------------------//
 }

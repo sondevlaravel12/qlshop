@@ -31,11 +31,11 @@
 
                                 <div>
                                     <strong>Địa chỉ: </strong>
-                                    407/2 phan chu trinh, phường lộc tiến, bảo lộc lâm đồng
+                                    {{ App\Models\Webinfo::first()?App\Models\Webinfo::first()->address_2:'' }}
                                 </div>
                                 <div>
                                     <strong>Điện thoại: </strong>
-                                    0862.572.752
+                                    {{ App\Models\Webinfo::first()?App\Models\Webinfo::first()->phonebase:'' }}
                                 </div>
                                 <div>
                                     <strong>Website: </strong>

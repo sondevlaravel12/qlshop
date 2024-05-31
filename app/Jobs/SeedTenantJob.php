@@ -4,6 +4,7 @@ namespace App\Jobs;
 
 use App\Models\Tenant;
 use App\Models\User;
+use App\Models\Webinfo;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -63,8 +64,28 @@ class SeedTenantJob implements ShouldQueue
             $admin->assignRole($adminRole);
             $superAdmin->assignRole($spARole);
 
-
-
+            // tenant information
+            Webinfo::create([
+                'name' => 'cty abc',
+                'phonebase' => '111111111',
+                'address' => '123 duong 3.2, tp hcm',
+            ]);
+            // $table->string('name')->nullable();
+            // $table->string('title')->nullable();
+            // $table->string('keyword')->nullable();
+            // $table->string('description')->nullable();
+            // $table->string('logo')->nullable();
+            // $table->string('icon')->nullable();
+            // $table->longText('google_map')->nullable();
+            // $table->string('email')->nullable();
+            // $table->string('email2')->nullable();
+            // $table->string('phone')->nullable();
+            // $table->string('phone2')->nullable();
+            // $table->text('phonebase')->nullable();
+            // $table->string('address')->nullable();
+            // $table->string('address_2')->nullable();
+            // $table->string('zalo_url')->nullable();
+            // $table->string('facebook_url')->nullable();
         return "done";
 
         });
