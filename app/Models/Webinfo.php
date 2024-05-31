@@ -107,7 +107,7 @@ class Webinfo extends Model implements HasMedia
         if( !empty($address) && strpos($address,':') !== FALSE ){
             $get_option = explode(':',$address);
             //Build html
-            $result = "<div> <b>{$get_option[0]}</b>: <a href='tel:{$get_option[1]}' style='color:red'> {$get_option[1]} </a> </div>";
+            $result = "<div> <b>{$get_option[0]}</b>: > {$get_option[1]} </a> </div>";
 
             return $result;
         }

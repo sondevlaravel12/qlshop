@@ -70,6 +70,7 @@ class SeedTenantJob implements ShouldQueue
                 'phonebase' => '111111111',
                 'address' => '123 duong 3.2, tp hcm',
             ]);
+            Webinfo::first()->addMediaFromUrl('https://hatgionglamson.com/asset/upload/image/logotuychinh.png?v=20190410')->toMediaCollection('logo');
             // $table->string('name')->nullable();
             // $table->string('title')->nullable();
             // $table->string('keyword')->nullable();
