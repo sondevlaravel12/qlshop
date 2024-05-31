@@ -31,7 +31,7 @@
 
                                 <div>
                                     <strong>Địa chỉ: </strong>
-                                    {{ App\Models\Webinfo::first()?App\Models\Webinfo::first()->address_2:'' }}
+                                    {{ App\Models\Webinfo::first()?App\Models\Webinfo::first()->address:'' }}
                                 </div>
                                 <div>
                                     <strong>Điện thoại: </strong>
