@@ -12,7 +12,7 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
 // Route::middleware('guest')->group(function () {
-Route::domain('banhang.test')->middleware('centerGuest')->group(function () {
+Route::domain($domain)->middleware('centerGuest')->group(function () {
     // Route::get('center/register', [RegisteredUserController::class, 'create'])
     //             ->name('register');
 
@@ -37,7 +37,7 @@ Route::domain('banhang.test')->middleware('centerGuest')->group(function () {
 });
 
 // Route::middleware('auth')->group(function () {
-Route::domain('banhang.test')->middleware('centerAuth')->group(function () {
+Route::domain($domain)->middleware('centerAuth')->group(function () {
     Route::get('verify-email', EmailVerificationPromptController::class)
                 ->name('verification.notice');
 

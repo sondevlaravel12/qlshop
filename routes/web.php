@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('dashboard');
 // })->name('center.home');
+$domain = config('tenancy.central_domains')[0];
 Route::get('/home', function () {
     return view('welcome');
 })->name('center.home');
@@ -23,7 +24,7 @@ Route::middleware('centerAuth')->group(function () {
 
 });
 // foreach (config('tenancy.central_domains') as $domain) {
-    Route::domain('banhang.test')->middleware('centerAuth','verified')->group(function () {
+    Route::domain($domain)->middleware('centerAuth','verified')->group(function () {
         Route::get('/', function () {
             return view('dashboard');
         })->name('center.dashboard');
