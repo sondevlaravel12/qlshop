@@ -41,7 +41,7 @@ Route::middleware([
 
     // only for superadmin role user
     Route::middleware('auth', 'role:superadmin')->group(function () {
-        Route::get('/users',[AppController::class,'index'])->name('app.index');
+        Route::get('/users',[AppController::class,'index']);
         Route::resource('users',UserController::class);
     });
 
@@ -50,12 +50,12 @@ Route::middleware([
 
         // Route::get('/',[AppController::class,'index'])->name('app.index');
         Route::get('/',function(){
-            return redirect()->route('app.index');
+            return "index";
         })->name('app.index');
-        Route::get('/dashboard', function () {
-            // return view('app.dashboard');
-            return redirect()->route('app.index');
-        })->name('app.dashboard');
+        // Route::get('/dashboard', function () {
+        //     // return view('app.dashboard');
+        //     return redirect()->route('app.index');
+        // })->name('app.dashboard');
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         // Route::get('/profile', function(){dd('hi');})->name('profile.edit');
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
