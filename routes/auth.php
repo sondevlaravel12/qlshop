@@ -12,7 +12,7 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
 // Route::middleware('guest')->group(function () {
-Route::middleware('centerGuest')->group(function () {
+Route::domain('banhang.test')->middleware('centerGuest')->group(function () {
     // Route::get('center/register', [RegisteredUserController::class, 'create'])
     //             ->name('register');
 
@@ -37,7 +37,7 @@ Route::middleware('centerGuest')->group(function () {
 });
 
 // Route::middleware('auth')->group(function () {
-Route::middleware('centerAuth')->group(function () {
+Route::domain('banhang.test')->middleware('centerAuth')->group(function () {
     Route::get('verify-email', EmailVerificationPromptController::class)
                 ->name('verification.notice');
 
@@ -56,6 +56,7 @@ Route::middleware('centerAuth')->group(function () {
 
     Route::put('password', [PasswordController::class, 'update'])->name('password.update');
 
-    Route::post('center/logout', [AuthenticatedSessionController::class, 'destroy'])
+    Route::post('logout1', [AuthenticatedSessionController::class, 'destroy'])
                 ->name('center.logout');
+    // should not change route path, can change route name, because <x-responsive-nav-link :href="route('center.logout')" not understand
 });

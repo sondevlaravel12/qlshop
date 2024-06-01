@@ -31,14 +31,13 @@ Route::middleware([
     PreventAccessFromCentralDomains::class,
 ])->group(function () {
 
+
+
     Route::get('create-permission', [PermissionController::class,'createTest']);
 
 
     // make this temperary, should delete this route
-    Route::get('/dashboard', function () {
-        // return view('app.dashboard');
-        return redirect()->route('app.index');
-    })->middleware(['auth'])->name('app.dashboard');
+
 
     // only for superadmin role user
     Route::middleware('auth', 'role:superadmin')->group(function () {
@@ -48,9 +47,15 @@ Route::middleware([
 
     // for login user
     Route::middleware('auth')->group(function () {
-        Route::get('/',[AppController::class,'index'])->name('app.index');
 
-
+        // Route::get('/',[AppController::class,'index'])->name('app.index');
+        Route::get('/',function(){
+            return redirect()->route('app.index');
+        })->name('app.index');
+        Route::get('/dashboard', function () {
+            // return view('app.dashboard');
+            return redirect()->route('app.index');
+        })->name('app.dashboard');
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         // Route::get('/profile', function(){dd('hi');})->name('profile.edit');
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
