@@ -52,7 +52,7 @@ class InvoiceController extends Controller
             );
             return redirect()->back()->with($notification);
         }
-        // dd($request->all());
+        // dd($request->invoice_date_holder);
         $invoice = new Invoice();
         $invoice->date = $request->invoice_date_holder;
         $invoice->invoice_no = $request->invoice_no_holder;
@@ -213,7 +213,10 @@ class InvoiceController extends Controller
                   // each product
                   $invoiceDetail->product_id = $request->product_id[$i];
                   $invoiceDetail->quantity = $request->product_quantity[$i];
-                  $invoiceDetail->amount_off = $request->product_amount_off[$i];// does it need?
+                  if($request->product_amount_off[$i]){
+                    $invoiceDetail->amount_off = $request->product_amount_off[$i];// does it need?
+                  }
+                //   $invoiceDetail->amount_off = $request->product_amount_off[$i];// does it need?
                   $invoiceDetail->selling_price = $request->selling_price[$i];
                   $invoiceDetail->line_total = $request->product_line_total[$i];
 
@@ -450,12 +453,13 @@ class InvoiceController extends Controller
      public function ajaxFilterInvoicesByDateRange(Request $request){
         $startDate = date('Y-m-d',strtotime($request->start_date));
         $endDate = date('Y-m-d',strtotime($request->end_date));
-        $invoices = Invoice::whereDate('created_at', '>=', $startDate)->whereDate('created_at', '<=', $endDate)->latest()->get();
+        $invoices = Invoice::whereDate('date', '>=', $startDate)->whereDate('date', '<=', $endDate)->latest()->get();
         if($invoices->count()>0){
 
             $data = array();
             foreach($invoices as $invoice){
-                $editedInvoice['date'] = date('d-m-Y',strtotime($invoice->created_at));
+                // $editedInvoice['date'] = date('d-m-Y',strtotime($invoice->date));
+                $editedInvoice['date'] = $invoice->date;
                 $editedInvoice['invoice_no'] = $invoice->invoice_no;
                 $editedInvoice['customer_name'] = $invoice->customer->name;
                 $editedInvoice['customer_phone'] = $invoice->customer->phone;

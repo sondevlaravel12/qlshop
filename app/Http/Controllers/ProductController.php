@@ -169,7 +169,9 @@ class ProductController extends Controller
             // work with image
             if($request->hasFile('image') && $request->file('image')->isValid()){
                 // delete old image
-                $product->getFirstMedia('inventory_product')->delete();
+                if($product->getFirstMedia('inventory_product')){
+                    $product->getFirstMedia('inventory_product')->delete();
+                }
                 // add new image
                 $product->addMediaFromRequest('image')->toMediaCollection('inventory_product');
             }

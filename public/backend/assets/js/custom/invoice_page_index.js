@@ -78,7 +78,7 @@ function fetch_data(start_date = '', end_date = ''){
         // "processing" : true,
         // "serverSide" : true,
         // "order": [2,'desc'],
-        "order": [],
+        "order": [0,'desc'],
         dom: 'Bfrtip',
         buttons: [
             {
@@ -131,6 +131,10 @@ function fetch_data(start_date = '', end_date = ''){
                     `
                     .replace(/invoiceId/g,data);
                 }
+            },
+            {
+                'targets': 0,
+                type: 'date-euro',
             },
             // {"targets":[2],
             // "width": "10%"

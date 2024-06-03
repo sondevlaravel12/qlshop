@@ -39,10 +39,10 @@
                 <li>
                     <a href="#" class="has-arrow waves-effect">
                         <i class="ri-mail-send-line"></i>
-                        <span>Product </span>
+                        <span>Sản phẩm </span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('products.index') }}">Sản phẩm</a></li>
+                        <li><a href="{{ route('products.index') }}">Danh sách Sản phẩm</a></li>
                         <li><a href="{{ route('products.create') }}">Thêm mới sản phẩm</a></li>
                     </ul>
                 </li>

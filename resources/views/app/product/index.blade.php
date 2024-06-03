@@ -36,7 +36,8 @@
                         <th>Mã Hàng</th>
                         <th>Tên</th>
                         <th>Hình ảnh</th>
-                        <th>DVT</th>
+                        <th>DVT cb</th>
+                        <th>DVT Khác</th>
                         <th>Giá Bán</th>
                         <th>Giá Nhập</th>
                         <th>Action</th>
@@ -59,6 +60,9 @@
                             </td>
                             <td>
                                 <img src="{{$product->getFirstImage()  }}" class="img-thumbnail" alt="200x200" width="200" data-holder-rendered="true">
+                            </td>
+                            <td>
+                                {{ $product->sale_unit }}
                             </td>
                             <td>
 
