@@ -45,7 +45,11 @@ class ProductController extends Controller
         $pattern = '/\s+/';
         $inventoryProduct['price'] =converPriceStringToInt($request->price);
         $inventoryProduct['original_price'] =converPriceStringToInt($request->original_price);
-        $lastSKU = Product::latest()->first()->SKU;
+        if(Product::count()>0){
+            $lastSKU = Product::latest()->first()->SKU;
+        }else{
+            $lastSKU = '0';
+        }
         $inventoryProduct['SKU'] = Product::generateSKU($lastSKU);
         if($product = Product::create($inventoryProduct)){
             if($request->filled('su_name')){
