@@ -49,7 +49,7 @@ Route::middleware([
     Route::middleware('auth')->group(function () {
 
         Route::get('/',function(){
-            return "index";
+            return view('app.master');
         })->name('app.index');
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         // Route::get('/profile', function(){dd('hi');})->name('profile.edit');
