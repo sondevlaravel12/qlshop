@@ -83,6 +83,7 @@
         <!-- Right bar overlay-->
         <div class="rightbar-overlay"></div>
 
+    </body>
         <!-- JAVASCRIPT -->
 
         <script src="{{global_asset('backend/assets/libs/jquery/jquery.min.js')}}"></script>
@@ -283,6 +284,6 @@
 
 
         @stack('scripts')
-    </body>
+
 
 </html>

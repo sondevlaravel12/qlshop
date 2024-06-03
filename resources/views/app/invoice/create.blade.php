@@ -368,8 +368,11 @@ input:-webkit-autofill{
 @endsection
 @push('scripts')
 {{-- jquery validate  --}}
-<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.12.0/jquery.validate.js"></script>
-<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.12.0/additional-methods.js"></script>
+{{-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.12.0/jquery.validate.js"></script> --}}
+{{-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.12.0/additional-methods.js"></script> --}}
+<script type="text/javascript" src="{{ global_asset('asset/js/jquery.validate.js') }}"></script>
+<script type="text/javascript" src="{{ global_asset('asset/js/additional-methods.js') }}"></script>
+
 <script>
     function preview() {
         imagePreview.src=URL.createObjectURL(event.target.files[0]);
