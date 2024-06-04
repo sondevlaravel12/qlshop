@@ -58,6 +58,11 @@ Route::middleware([
 
         // for inventory product
         Route::resource('products',ProductController::class);
+        Route::get('products/deleted/index',[ProductController::class,'deleted' ] )->name('products.deleted');
+        // Route::post('products/restore',[ProductController::class,'restore' ] )->name('products.restore');
+        Route::get('products/{product}/restore',[ProductController::class,'restore' ] )->name('products.restore')->withTrashed();;
+
+
         // invoice
         Route::resource('invoices',InvoiceController::class);
         Route::get('invoices/deleted/index',[InvoiceController::class,'deleted' ] )->name('invoices.deleted');

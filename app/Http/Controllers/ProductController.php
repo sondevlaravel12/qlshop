@@ -188,7 +188,24 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        $notification = [
+            'message' => 'xóa sản phẩm thành công',
+            'alert-type' =>'success'
+        ];
+        return redirect(route('products.index'))->with($notification);
+    }
+    public function deleted(){
+        $products = Product::onlyTrashed()->get();
+        return view('app.product.deleted', compact('products'));
+    }
+    public function restore(Product $product){
+        $product->restore();
+        $notifycation = [
+            'message' => 'Khôi phục sản phẩm thành công',
+            'alert-type' =>'success'
+        ];
+        return redirect()->back()->with($notifycation);
     }
 
     // -----------------ajax function--------------------//

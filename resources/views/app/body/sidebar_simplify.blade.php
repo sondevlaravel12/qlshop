@@ -44,6 +44,7 @@
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('products.index') }}">Danh sách Sản phẩm</a></li>
                         <li><a href="{{ route('products.create') }}">Thêm mới sản phẩm</a></li>
+                        <li><a href="{{ route('products.deleted') }}">Sản phẩm Đã xóa</a></li>
                     </ul>
                 </li>
                 <li>
