@@ -39,7 +39,8 @@
                                 </div>
                                 <div>
                                     <strong>Website: </strong>
-                                    {{ Request::getHost(); }}
+                                    {{-- {{ Request::getHost(); }} --}}
+                                    {{ App\Models\Webinfo::first()->website }}
                                 </div>
 
                             </div>
@@ -150,7 +151,7 @@
                 <hr>
                 <div class="row">
                     <div class="col-12 text-end">
-                        <p>Quý khách được kiểm hàng trước khi nhận. Mọi thắc mắc vui lòng liên hệ {{ App\Models\Webinfo::first()->phonebase }}</p>
+                        <p>Quý khách được kiểm hàng trước khi nhận. Mọi thắc mắc vui lòng liên hệ: {{ App\Models\Webinfo::first()->phonebase }}</p>
                         <p>Cảm ơn và hẹn gặp lại!</p>
                     </div>
                 </div>

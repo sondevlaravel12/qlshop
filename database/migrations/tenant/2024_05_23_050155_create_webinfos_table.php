@@ -27,6 +27,7 @@ return new class extends Migration
             $table->text('phonebase')->nullable();
             $table->string('address')->nullable();
             $table->string('address_2')->nullable();
+            $table->string('website')->nullable();
             $table->string('zalo_url')->nullable();
             $table->string('facebook_url')->nullable();
             $table->timestamps();
