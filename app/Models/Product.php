@@ -10,13 +10,14 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model implements HasMedia
 {
     use HasFactory;
     protected $guarded =['id'];
     use InteractsWithMedia;
-    use HasSlug;
+    use HasSlug, SoftDeletes;
 
     // ------------------- Spatie Slug ---------------------------//
     public function getSlugOptions() : SlugOptions
