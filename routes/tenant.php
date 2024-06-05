@@ -9,7 +9,9 @@ use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TenantController;
+use App\Models\Invoice;
 use Illuminate\Support\Facades\Route;
+use Mccarlosen\LaravelMpdf\Facades\LaravelMpdf;
 use Stancl\Tenancy\Middleware\InitializeTenancyByDomain;
 use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
 
@@ -86,6 +88,14 @@ Route::middleware([
         Route::post('api/invoices/delete-permanently', [InvoiceController::class,'ajaxDestroyPermanently']);
         // Route::post('admin/ajax-restore', 'ajaxRestore')->name('admin.invoices.ajaxrestore');
         // Route::post('admin/ajax-delete-permanently', 'ajaxDestroyPermanently');
+
+        Route::get('/in', function(){
+            $invoice = Invoice::findOrFail(11);
+            $customer = $invoice->customer;
+            $invoiceDetails = $invoice->invoiceDetails;
+            $pdf = LaravelMpdf::loadView('app.invoice.print2', compact(['invoice','customer','invoiceDetails']));
+            return $pdf->stream('document.pdf');
+        });
 
 
 
