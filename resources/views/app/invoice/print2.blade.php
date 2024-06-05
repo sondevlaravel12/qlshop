@@ -3,8 +3,17 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>hatgionglamson invoices</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <style>
+        .bold{
+            font-weight:bold;
+        }
+        table {
+           border-collapse: separate;
+           border-spacing: 3px;
+        }
+    </style>
   </head>
   <body>
     <div class="row" id='content'>
@@ -20,16 +29,16 @@
                                     <br>
 
 
-                                    <div>
-                                        <strong>Địa chỉ: </strong>
+                                    <div >
+                                        <span >Địa chỉ:</span>
                                         {{ App\Models\Webinfo::first()?App\Models\Webinfo::first()->address:'' }}
                                     </div>
                                     <div>
-                                        <strong>Điện thoại: </strong>
+                                        <strong >Điện thoại: </strong>
                                         {{ App\Models\Webinfo::first()?App\Models\Webinfo::first()->phonebase:'' }}
                                     </div>
                                     <div>
-                                        <strong>Website: </strong>
+                                        <strong >Website: </strong>
                                         {{-- {{ Request::getHost(); }} --}}
                                         {{ App\Models\Webinfo::first()->website }}
                                     </div>
@@ -38,16 +47,16 @@
 
                         </div>
                     </div>
-                    <hr>
+                    <hr style="border-top: dotted">
                     <div class="row ">
-                        <div class="col-12 text-center" style="font-size: 10px">
-                            <h6>Hóa Đơn Bán Hàng</h6>
+                        <div class="col-12 text-center" style="font-size: 8px">
+                            <h6 class="bold">Hóa Đơn Bán Hàng</h6>
                             <div>
-                                <strong>Số HD: </strong>
+                                <strong >Số HD: </strong>
                                 #{{ $invoice->invoice_no }}
                             </div>
                             <div>
-                                <strong>Ngày: </strong>
+                                <strong >Ngày: </strong>
                                 {{ $invoice->date }}
                             </div>
 
@@ -55,16 +64,16 @@
                     </div>
                     <div class="row" style="font-size: 8px">
                         <div class="col-12">
-                            <div>
-                                <strong>Khách hàng: </strong>
+                            <div class="bold">
+                                <strong >Khách hàng: </strong>
                                 {{ $customer->name }}
                             </div>
                             <div>
-                                <strong>SDT: </strong>
+                                <strong >SDT: </strong>
                                 {{ $customer->phone }}
                             </div>
                             <div>
-                                <strong>Địa chỉ: </strong>
+                                <strong >Địa chỉ: </strong>
                                 {{ $customer->address }}
                             </div>
                         </div>
@@ -74,66 +83,68 @@
                         <div class="col-12" >
                             <div>
                                 <div class="p-2">
-                                    <h6 ><strong>Thông tin hàng đặt</strong></h6>
+                                    <h6 ><strong class="bold">Thông tin hàng đặt</strong></h6>
                                 </div>
-                                <div class="" >
-                                    <div class="table-responsive">
-                                        <table class="table" style="font-size: 8px">
-                                            <thead>
-                                            <tr>
-                                                <td><strong>Tên hàng</strong></td>
-                                                <td class="text-center"><strong>Giá</strong></td>
-                                                <td class="text-center"><strong>Số lượng</strong>
-                                                </td>
-                                                <td class="text-end"><strong>Thành tiền</strong></td>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <!-- foreach ($order->lineItems as $line) or some such thing here -->
-                                            @foreach ($invoiceDetails as $line)
-                                            <tr>
-                                                <td>{{ $line->product->name }}</td>
-                                                <td class="text-center">{{ $line->selling_price }}</td>
-                                                <td class="text-center">{{ $line->quantity }}</td>
-                                                <td class="text-end">{{ $line->line_total }}</td>
-                                            </tr>
-                                            @endforeach
-                                            <tr>
-                                                <td class="thick-line"></td>
-                                                <td class="thick-line"></td>
-                                                <td class="thick-line text-center">
-                                                    <strong>Tổng Tiền hàng</strong></td>
-                                                <td class="thick-line text-end">{{ $invoice->subtotal }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="no-line"></td>
-                                                <td class="no-line"></td>
-                                                <td class="no-line text-center">
-                                                    <strong>Phí vận chuyển</strong></td>
-                                                <td class="no-line text-end">{{ $invoice->shipping }}</td>
-                                            </tr>
-                                            @if ($invoice->amount_off>0)
-                                            <tr>
-                                                <td class="no-line"></td>
-                                                <td class="no-line"></td>
-                                                <td class="no-line text-center">
-                                                    <strong>Chiết khấu</strong></td>
-                                                <td class="no-line text-end">{{ $invoice->amount_off }}</td>
-                                            </tr>
-                                            @endif
+                                <div>
+                                    <table class="table table-bordered " style="font-size: 6px;">
+                                        <thead>
+                                        <tr style="margin: 1.5 !important;">
+                                            <td ><strong class="bold">Tên hàng</strong></td>
+                                            <td class="text-center bold"><strong>Giá</strong></td>
+                                            <td class="text-center bold"><strong>Số lượng</strong>
+                                            </td>
+                                            <td class="text-end bold"><strong>Thành tiền</strong></td>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <!-- foreach ($order->lineItems as $line) or some such thing here -->
+                                        @foreach ($invoiceDetails as $line)
+                                        <tr>
+                                            <td>{{ $line->product->name }}</td>
+                                            <td class="text-center">{{ $line->selling_price }}</td>
+                                            <td class="text-center">{{ $line->quantity }}</td>
+                                            <td class="text-end">{{ $line->line_total }}</td>
+                                        </tr>
+                                        @endforeach
+                                        <tr>
+                                            <td class="thick-line"></td>
+                                            <td class="thick-line"></td>
+                                            <td class="thick-line text-center bold">
+                                                <strong class="bold">Tổng Tiền hàng</strong>
+                                            </td>
+                                            <td class="thick-line text-end bold">{{ $invoice->subtotal }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="no-line"></td>
+                                            <td class="no-line"></td>
+                                            <td class="no-line text-center">
+                                                <strong class="bold">Phí vận chuyển</strong>
+                                            </td>
+                                            <td class="no-line text-end bold">{{ $invoice->shipping }}</td>
+                                        </tr>
+                                        @if ($invoice->amount_off>0)
+                                        <tr>
+                                            <td class="no-line"></td>
+                                            <td class="no-line"></td>
+                                            <td class="no-line text-center">
+                                                <strong class="bold">Chiết khấu</strong>
+                                            </td>
+                                            <td class="no-line text-end bold">{{ $invoice->amount_off }}</td>
+                                        </tr>
+                                        @endif
 
-                                            <tr>
-                                                <td class="no-line"></td>
-                                                <td class="no-line"></td>
-                                                <td class="no-line text-center">
-                                                    <strong>Tổng thanh toán</strong></td>
-                                                <td class="no-line text-end"><h4 class="m-0">{{ $invoice->total }}</h4></td>
-                                            </tr>
+                                        <tr>
+                                            <td class="no-line"></td>
+                                            <td class="no-line"></td>
+                                            <td class="no-line ">
+                                                <strong class="bold">Tổng thanh toán</strong>
+                                            </td>
+                                            <td class="no-line text-end bold"><h4 class="m-0"><strong>{{ $invoice->total }}</strong></h4></td>
+                                        </tr>
 
 
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
 
