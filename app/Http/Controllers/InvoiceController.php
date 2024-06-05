@@ -9,6 +9,7 @@ use App\Models\Product;
 use App\Models\SaleUnit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Mccarlosen\LaravelMpdf\Facades\LaravelMpdf;
 use PDF;
 
 class InvoiceController extends Controller
@@ -257,7 +258,9 @@ class InvoiceController extends Controller
         $invoice = Invoice::findOrFail($request->invoiceId);
         $customer = $invoice->customer;
         $invoiceDetails = $invoice->invoiceDetails;
-        return view('app.invoice.print', compact(['invoice','customer','invoiceDetails']));
+        $pdf = LaravelMpdf::loadView('app.invoice.print2', compact(['invoice','customer','invoiceDetails']));
+        return $pdf->stream('document.pdf');
+        // return view('app.invoice.print', compact(['invoice','customer','invoiceDetails']));
     }
 
 

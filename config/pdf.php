@@ -2,11 +2,11 @@
 
 return [
     'mode'                     => '',
-    'format'                   => 'A6',
+    'format'                   => 'a6',
     'default_font_size'        => '12',
     'default_font'             => 'sans-serif',
-    'margin_left'              => 3,
-    'margin_right'             => 3,
+    'margin_left'              => 10,
+    'margin_right'             => 10,
     'margin_top'               => 1,
     'margin_bottom'            => 1,
     'margin_header'            => 0,
