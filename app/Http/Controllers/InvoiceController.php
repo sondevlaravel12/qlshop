@@ -196,7 +196,11 @@ class InvoiceController extends Controller
         //dd($request->all());
 
         $invoice->subtotal = $request->invoice_subtotal;
-        $invoice->shipping = $request->shipping_fee;
+        if($request->shipping_fee){
+            $invoice->shipping = $request->shipping_fee;
+        }else{
+            $invoice->shipping = 0;
+        }
         $invoice->amount_off = $request->invoice_amount_off;
         $invoice->total = $request->product_total;
         $invoice->status ='0';
