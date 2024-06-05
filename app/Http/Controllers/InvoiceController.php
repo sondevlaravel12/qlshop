@@ -259,6 +259,7 @@ class InvoiceController extends Controller
         $customer = $invoice->customer;
         $invoiceDetails = $invoice->invoiceDetails;
         $pdf = LaravelMpdf::loadView('app.invoice.print2', compact(['invoice','customer','invoiceDetails']));
+        // use this package: https://github.com/mccarlosen/laravel-mpdf
         return $pdf->stream('document.pdf');
         // return view('app.invoice.print', compact(['invoice','customer','invoiceDetails']));
     }
@@ -364,11 +365,15 @@ class InvoiceController extends Controller
         }
 
         $key = $request['term'];
-
-        $customers = Customer::where('name','like','%' .$key .'%')->limit(10)->get();
+        if(is_numeric($key)){
+            $customers = Customer::where('phone','like','%' .$key .'%')->limit(10)->get();
+        }else{
+            $customers = Customer::where('name','like','%' .$key .'%')->limit(10)->get();
+        }
         if( !$customers ){
             exit;
         }
+        // dd($customers);
 
         foreach($customers as $customer){
             $result[] =
