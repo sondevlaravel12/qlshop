@@ -142,39 +142,40 @@ Autocomplete search product
             },
             select: function (event, ui) {
                 // var $newrow = '<p>' + ui.item.label +'</p>';
-                var $newrow = `<tr style="background-color: #e2f6e7;">
-                                    <td>
-                                        <input  class="form-control"  id="product_id" name="product_id[]"  value="` +  ui.item.id + `" type="hidden">
-                                        <input  class="form-control"  id="product_sku" name="product_sku[]"  value="` +  ui.item.SKU + `" type="hidden">
-                                        `+ ui.item.SKU +`
-                                    </td>
-                                    <td style="width:25%; ">
-                                        `+ ui.item.name +`
-                                    </td>
-                                    <td>
-                                        <input  class="form-control"  type="hidden" id="product_sale_unit[]" name="product_sale_unit[]"  value="` + ui.item.sale_unit + `">
-                                        ` + ui.item.sale_unit + `
-                                    </td>
-                                    <td ><input class="form-control product_quantity" id="" name="product_quantity[]" type="number" value="1" min="1"></td>
-                                    <td>
-                                        <input type="hidden" class="form-control product_price" readonly name="product_price[]"  value="` +  ui.item.price + `">
-                                        ` +  ui.item.price + `
-                                    </td>
-                                    <td ><input style="color:red;" class="form-control product_amount_off auto_formatting_input_value" name="product_amount_off[]" type="text" value=""></td>
-                                    <td >
-                                        <input type="readonly" class="form-control selling_price" readonly name="selling_price[]"  value="` +  ui.item.price + `">
+                // var $newrow = `<tr style="background-color: #e2f6e7;">
+                //                     <td>
+                //                         <input  class="form-control"  id="product_id" name="product_id[]"  value="` +  ui.item.id + `" type="hidden">
+                //                         <input  class="form-control"  id="product_sku" name="product_sku[]"  value="` +  ui.item.SKU + `" type="hidden">
+                //                         `+ ui.item.SKU +`
+                //                     </td>
+                //                     <td style="width:25%; ">
+                //                         `+ ui.item.name +`
+                //                     </td>
+                //                     <td>
+                //                         <input  class="form-control"  type="hidden" id="product_sale_unit[]" name="product_sale_unit[]"  value="` + ui.item.sale_unit + `">
+                //                         ` + ui.item.sale_unit + `
+                //                     </td>
+                //                     <td ><input class="form-control product_quantity" id="" name="product_quantity[]" type="number" value="1" min="1"></td>
+                //                     <td>
+                //                         <input type="hidden" class="form-control product_price" readonly name="product_price[]"  value="` +  ui.item.price + `">
+                //                         ` +  ui.item.price + `
+                //                     </td>
+                //                     <td ><input style="color:red;" class="form-control product_amount_off auto_formatting_input_value" name="product_amount_off[]" type="text" value=""></td>
+                //                     <td >
+                //                         <input type="readonly" class="form-control selling_price" readonly name="selling_price[]"  value="` +  ui.item.price + `">
 
-                                    </td>
-                                    <td >
-                                        <input class="form-control product_line_total"  readonly  name="product_line_total[]"  value="  ` + ui.item.price + `" style="width:100%">
+                //                     </td>
+                //                     <td >
+                //                         <input class="form-control product_line_total"  readonly  name="product_line_total[]"  value="  ` + ui.item.price + `" style="width:100%">
 
-                                    </td>
-                                    <td >
-                                        <button type="button" class="btn btn-outline-danger waves-effect waves-light remove_item_btn">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </button>
-                                    </td>
-                                </tr>`;
+                //                     </td>
+                //                     <td >
+                //                         <button type="button" class="btn btn-outline-danger waves-effect waves-light remove_item_btn">
+                //                             <i class="fas fa-trash-alt"></i>
+                //                         </button>
+                //                     </td>
+                //                 </tr>`;
+                var $newrow = fillHtmlProductRow(ui.item);
                 $('#productItemsHolder').append($newrow);
                 // delete message
                 $('.no_product_error').html('');
@@ -196,20 +197,35 @@ Autocomplete search product
         })
     })
     // each product item row changed
-    $("table#productTable").on('keyup change','.product_quantity, .product_amount_off', function(){
-
+    $("table#productTable").on('keyup change','.product_quantity, .product_amount_off, .selling_price', function(){
+        $class = $(this).attr('class');
         var $row = $(this).closest('tr');
-
-        //var $quantity = parseInt($(this).val());
-
         var $quantity = $row.find("input.product_quantity").val()
 
         var $price = parseInt($row.find("input.product_price").val().replace(/\./g,''));
-        var $product_amount_off = $row.find("input.product_amount_off").val()!=''? parseInt($row.find("input.product_amount_off").val().replace(/\./g,'')) : 0;
-        var $selling_price = $price - $product_amount_off;
-        // fill in saleing_price
-        $row.find("input.selling_price").val($selling_price.toLocaleString( "es-AR" ));
-        var $product_line_total = ($price - $product_amount_off)*$quantity;
+        if($class.indexOf('product_amount_off')>=0){
+            console.log($class);
+            // changed on giamgia
+            // var $product_amount_off = $row.find("input.product_amount_off").val()!=''? parseInt($row.find("input.product_amount_off").val().replace(/\./g,'')) : 0;
+            $product_amount_off = $(this).val()!=''?parseInt($(this).val().replace(/\./g,'')) : 0;
+            $selling_price = $price - $product_amount_off;
+            // fill in saleing_price
+            $row.find("input.selling_price").val($selling_price.toLocaleString( "es-AR" ));
+            $product_line_total = ($price - $product_amount_off)*$quantity;
+
+        }else if($class.indexOf('selling_price')>=0){
+            // changed on gia ban
+            $selling_price = $(this).val()!=''?parseInt($(this).val().replace(/\./g,'')) : 0;
+            if($selling_price >= $price ){
+                $row.find("input.product_amount_off").val('');
+
+            }else{
+                $product_amount_off = $price-$selling_price;
+                $row.find("input.product_amount_off").val($product_amount_off.toLocaleString( "es-AR" ));
+            }
+        }
+
+        $product_line_total = $selling_price*$quantity;
         // fill in line total
         $row.find("input.product_line_total").val($product_line_total.toLocaleString( "es-AR" ));
         updateProductCount()
@@ -527,7 +543,7 @@ Create new product
     /* ---------------------------------------------
     Fill html product row
     --------------------------------------------- */
-    function fillHtmlProductRow(response){
+    function fillHtmlProductRowOld(response){
         var $newrow = `<tr style="background-color: #e2f6e7;">
                                     <td>
                                         <input  class="form-control"  id="product_id" name="product_id[]"  value="` +  response.id + `" type="hidden">
@@ -549,6 +565,43 @@ Create new product
                                     <td ><input style="color:red;" class="form-control product_amount_off auto_formatting_input_value" name="product_amount_off[]" type="text" value=""></td>
                                     <td >
                                         <input type="readonly" class="form-control selling_price" readonly name="selling_price[]"  value="` +  response.price + `">
+
+                                    </td>
+                                    <td >
+                                        <input class="form-control product_line_total"  readonly  name="product_line_total[]"  value="  ` + response.price + `" style="width:100%">
+
+                                    </td>
+                                    <td >
+                                        <button type="button" class="btn btn-outline-danger waves-effect waves-light remove_item_btn">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </td>
+                                </tr>`;
+
+        return $newrow;
+    };
+    function fillHtmlProductRow(response){
+        var $newrow = `<tr style="background-color: #e2f6e7;">
+                                    <td>
+                                        <input  class="form-control"  id="product_id" name="product_id[]"  value="` +  response.id + `" type="hidden">
+                                        <input  class="form-control"  id="product_sku" name="product_sku[]"  value="` +  response.SKU + `" type="hidden">
+                                        `+ response.SKU +`
+                                    </td>
+                                    <td style="width:25%; ">
+                                        `+ response.name +`
+                                    </td>
+                                    <td>
+                                    <input  class="form-control"  type="hidden" id="product_sale_unit[]" name="product_sale_unit[]"  value="` + response.sale_unit + `">
+                                    ` + response.sale_unit + `
+                                    </td>
+                                    <td ><input class="form-control product_quantity" id="" name="product_quantity[]" type="number" value="1" min="1"></td>
+                                    <td>
+                                        <input type="hidden" class="form-control product_price" readonly name="product_price[]"  value="` +  response.price + `">
+                                        ` +  response.price + `
+                                    </td>
+                                    <td ><input style="color:red;" class="form-control product_amount_off auto_formatting_input_value" name="product_amount_off[]" type="text" value=""></td>
+                                    <td >
+                                        <input type="text" class="form-control selling_price auto_formatting_input_value" name="selling_price[]"  value="` +  response.price + `">
 
                                     </td>
                                     <td >

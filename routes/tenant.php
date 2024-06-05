@@ -32,15 +32,9 @@ Route::middleware([
     InitializeTenancyByDomain::class,
     PreventAccessFromCentralDomains::class,
 ])->group(function () {
-
-
-
-    Route::get('create-permission', [PermissionController::class,'createTest']);
-
-
-    // make this temperary, should delete this route
-
-
+    Route::get('testview', function(){
+        return view('app.test');
+    })->name('testview');
     // only for superadmin role user
     Route::middleware('auth', 'role:superadmin')->group(function () {
         Route::get('/users',[AppController::class,'index']);
