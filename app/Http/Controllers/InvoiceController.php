@@ -59,7 +59,11 @@ class InvoiceController extends Controller
         $invoice->invoice_no = $request->invoice_no_holder;
         $invoice->customer_id = $request->customer_id;
         $invoice->subtotal = $request->invoice_subtotal;
-        $invoice->shipping = $request->shipping_fee;
+        if($request->shipping_fee){
+            $invoice->shipping = $request->shipping_fee;
+        }else{
+            $invoice->shipping = 0;
+        }
         if($request->invoice_amount_off){
             $invoice->amount_off = $request->invoice_amount_off;
         }
