@@ -201,7 +201,10 @@ class InvoiceController extends Controller
         }else{
             $invoice->shipping = 0;
         }
-        $invoice->amount_off = $request->invoice_amount_off;
+        // $invoice->amount_off = $request->invoice_amount_off;
+        if($request->invoice_amount_off){
+            $invoice->amount_off = $request->invoice_amount_off;
+        }
         $invoice->total = $request->product_total;
         $invoice->status ='0';
         $invoice->note = $request->note;
@@ -216,7 +219,8 @@ class InvoiceController extends Controller
                for ($i=0; $i < $productCount ; $i++) {
 
                   $invoiceDetail = new InvoiceDetail();
-                  $invoiceDetail->date = $request->invoice_date_holder;
+                //   $invoiceDetail->date = $request->invoice_date_holder;
+                    $invoiceDetail->date = date('Y-m-d H:i:s',strtotime($request->invoice_date_holder));
                   $invoiceDetail->invoice_id = $invoice->id;
 
                   // each product
