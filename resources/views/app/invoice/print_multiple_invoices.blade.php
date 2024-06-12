@@ -27,9 +27,9 @@
             <p class="text-start" style="font-size: 6px">{{ date('d/m/Y, H:i:s') }}</p>
         </htmlpageheader>
 
-        <htmlpagefooter name="page-footer">
+        {{-- <htmlpagefooter name="page-footer">
             <p class="text-end" style="font-size: 6px">trang: {PAGENO} / {nbpg}</p>
-        </htmlpagefooter>
+        </htmlpagefooter> --}}
         <div class="invoice">
                     <div class="row">
                         <div class="col-12" style="font-size: 8px">
@@ -60,7 +60,7 @@
                     <hr style="border-top: dotted">
                     <div class="row ">
                         <div class="col-12 text-center" style="font-size: 8px">
-                            <h6 class="bold">Hóa Đơn Bán Hàng</h6>
+                            <h6 class="">Hóa Đơn Bán Hàng</h6>
                             <div>
                                 <strong >Số HD: </strong>
                                 #{{ $invoice->invoice_no }}
@@ -93,17 +93,17 @@
                         <div class="col-12" >
                             <div>
                                 <div class="p-2">
-                                    <h6 ><strong class="bold">Thông tin hàng đặt</strong></h6>
+                                    <h6 ><strong class="">Thông tin hàng đặt</strong></h6>
                                 </div>
                                 <div>
                                     <table class="table table-bordered " style="font-size: 6px;">
                                         <thead>
                                         <tr style="margin: 1.5 !important;">
-                                            <td ><strong class="bold">Tên hàng</strong></td>
-                                            <td class="text-center bold"><strong>Giá</strong></td>
-                                            <td class="text-center bold"><strong>Số lượng</strong>
+                                            <td ><strong class="">Tên hàng</strong></td>
+                                            <td class="text-center "><strong>Giá</strong></td>
+                                            <td class="text-center "><strong>Số lượng</strong>
                                             </td>
-                                            <td class="text-end bold"><strong>Thành tiền</strong></td>
+                                            <td class="text-end "><strong>Thành tiền</strong></td>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -120,27 +120,27 @@
                                         <tr>
                                             <td class="thick-line"></td>
                                             <td class="thick-line"></td>
-                                            <td class="thick-line text-center bold">
-                                                <strong class="bold">Tổng Tiền hàng</strong>
+                                            <td class="thick-line text-center ">
+                                                <strong class="">Tổng Tiền hàng</strong>
                                             </td>
-                                            <td class="thick-line text-end bold">{{ $invoice->subtotal }}</td>
+                                            <td class="thick-line text-end ">{{ $invoice->subtotal }}</td>
                                         </tr>
                                         <tr>
                                             <td class="no-line"></td>
                                             <td class="no-line"></td>
                                             <td class="no-line text-center">
-                                                <strong class="bold">Phí vận chuyển</strong>
+                                                <strong class="">Phí vận chuyển</strong>
                                             </td>
-                                            <td class="no-line text-end bold">{{ $invoice->shipping }}</td>
+                                            <td class="no-line text-end ">{{ $invoice->shipping }}</td>
                                         </tr>
                                         @if ($invoice->amount_off>0)
                                         <tr>
                                             <td class="no-line"></td>
                                             <td class="no-line"></td>
                                             <td class="no-line text-center">
-                                                <strong class="bold">Chiết khấu</strong>
+                                                <strong class="">Chiết khấu</strong>
                                             </td>
-                                            <td class="no-line text-end bold">{{ $invoice->amount_off }}</td>
+                                            <td class="no-line text-end ">{{ $invoice->amount_off }}</td>
                                         </tr>
                                         @endif
 

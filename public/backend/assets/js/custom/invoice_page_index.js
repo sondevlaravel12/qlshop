@@ -49,10 +49,10 @@ function cb($start, $end) {
 $('#reportrange').daterangepicker({
     startDate: $start,
     endDate: $end,
-    dom: 'Bfrtip',
-        buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ],
+    // dom: 'Bfrtip',
+    //     buttons: [
+    //         'copy', 'csv', 'excel', 'pdf', 'print'
+    //     ],
     ranges: {
         'Hôm nay': [moment(), moment()],
         'Hôm qua': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
@@ -70,6 +70,7 @@ $('#reportrange').daterangepicker({
     //fdt_without_datatable($startDate ,$endDate);
 });
 function fetch_data(start_date = '', end_date = ''){
+    // should not destroy???
     $table.DataTable().destroy();
 
     // load data source for datatable
@@ -201,6 +202,13 @@ function fetch_data(start_date = '', end_date = ''){
     $table.on('click','.btn_invoice_print', function(){
         alert('hi');
     });
+
+
+    // document.querySelector('#button').addEventListener('click', function () {
+    //     $rowId = $dataTable.rows('.selected').data('id');
+    //     alert($rowId);
+        // alert($dataTable.rows('.selected').data().length + ' row(s) selected');
+    // });
 
 }
 

@@ -10,6 +10,7 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TenantController;
 use App\Models\Invoice;
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Route;
 use Mccarlosen\LaravelMpdf\Facades\LaravelMpdf;
 use Stancl\Tenancy\Middleware\InitializeTenancyByDomain;
@@ -83,15 +84,18 @@ Route::middleware([
         // Route::post('admin/ajax-restore', 'ajaxRestore')->name('admin.invoices.ajaxrestore');
         // Route::post('admin/ajax-delete-permanently', 'ajaxDestroyPermanently');
 
-        Route::get('/in', function(){
-            // $invoice = Invoice::findOrFail(11);
-            // $customer = $invoice->customer;
-            // $invoiceDetails = $invoice->invoiceDetails;
-            $invoices = Invoice::latest()->with('products','customer','invoiceDetails')->get();
+        Route::get('in/{id}', [InvoiceController::class,'printMultipleInvoices']);
 
-            $pdf = LaravelMpdf::loadView('app.invoice.print_multiple_invoices', compact('invoices'));
-            return $pdf->stream('invoices.pdf');
-        });
+        // Route::get('/in/{id}', function(Request $request){
+        //     // $invoice = Invoice::findOrFail(11);
+        //     // $customer = $invoice->customer;
+        //     // $invoiceDetails = $invoice->invoiceDetails;
+        //     dd($request->all());
+        //     $invoices = Invoice::latest()->with('products','customer','invoiceDetails')->get();
+
+        //     $pdf = LaravelMpdf::loadView('app.invoice.print_multiple_invoices', compact('invoices'));
+        //     return $pdf->stream('invoices.pdf');
+        // });
 
 
 

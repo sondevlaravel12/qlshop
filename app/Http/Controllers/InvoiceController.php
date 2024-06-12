@@ -271,6 +271,29 @@ class InvoiceController extends Controller
         return $pdf->stream('document.pdf');
         // return view('app.invoice.print', compact(['invoice','customer','invoiceDetails']));
     }
+    public function printMultipleInvoices(Request $request){
+        $invoice = Invoice::findOrFail(11);
+            // $customer = $invoice->customer;
+            // $invoiceDetails = $invoice->invoiceDetails;
+            // dd($request->all());
+            // $invoices = Invoice::whereIn('id',$request->id)->with('products','customer','invoiceDetails')->get();
+            // $invoices = Invoice::whereIn('id',$request->id);
+            // dd($request->id);
+            // Object.entries($request->id);
+            // $ids = explode(',',$request->id);
+            $ids = trim($request->id,'{}');
+            $ids = explode(',',$ids);
+            // dd($ids);
+            $invoices = Invoice::whereIn('id',$ids)->with('products','customer','invoiceDetails')->get();
+            // $invoices = Invoice::whereIn('id',$ids)->get()->count();
+
+
+            // dd($invoices);
+
+            $pdf = LaravelMpdf::loadView('app.invoice.print_multiple_invoices', compact('invoices'));
+            return $pdf->stream('invoices.pdf');
+        // dd($request->id);
+    }
 
 
     public function ajaxDelete(Request $request){

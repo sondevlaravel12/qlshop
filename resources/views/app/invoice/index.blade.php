@@ -4,7 +4,11 @@
 {{-- daterangepicker --}}
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 {{-- end daterangepicker --}}
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.13.1/b-2.3.3/b-colvis-2.3.3/b-html5-2.3.3/b-print-2.3.3/r-2.4.0/datatables.min.css"/>
+
+<link href="https://cdn.datatables.net/v/bs/jszip-3.10.1/dt-2.0.8/b-3.0.2/b-colvis-3.0.2/b-html5-3.0.2/r-3.0.2/sl-2.0.3/datatables.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
 <style>
     table#example td {
   font-size: 1em;
@@ -17,6 +21,12 @@ div.dt-button-collection button.dt-button:active:not(.disabled), div.dt-button-c
     font-family: 'Trebuchet MS',sans-serif;
     font-size: 12px;
 }
+
+
+.dt-search{
+    float: right;
+}
+
 </style>
 @endpush
 
@@ -51,12 +61,12 @@ div.dt-button-collection button.dt-button:active:not(.disabled), div.dt-button-c
 
                 </div>
                 <br><br>
-
                 <table id="datatable_with_daterange" class="table table-bordered dt-responsive" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                     <thead>
                     <tr>
-
-
+                        <th class="text-center"><button style="border: none; background: transparent; font-size: 14px;" id="MyTableCheckAllButton">
+                            <i class="far fa-square"></i>
+                            </button></th>
                         <th>Ngày</th>
                         <th>Mã HD</th>
                         <th>Tên Khách hàng</th>
@@ -89,55 +99,21 @@ div.dt-button-collection button.dt-button:active:not(.disabled), div.dt-button-c
 @endsection
 @push('scripts')
 
-<script>
-
-// $(document).ready( function () {
-//     $('#datatable').DataTable({
-
-//         });
-// } );
-
-
-
-</script>
 {{-- daterangepicker --}}
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 {{-- end daterangepicker --}}
-<script src="{{ global_asset('backend/assets/js/custom/invoice_page_index.js') }}"></script>
+{{-- <script src="{{ global_asset('backend/assets/js/custom/invoice_page_index.js?123') }}"></script> --}}
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.13.1/b-2.3.3/b-colvis-2.3.3/b-html5-2.3.3/b-print-2.3.3/r-2.4.0/datatables.min.js"></script>
+
+<script src="https://cdn.datatables.net/v/bs/jszip-3.10.1/dt-2.0.8/b-3.0.2/b-colvis-3.0.2/b-html5-3.0.2/r-3.0.2/sl-2.0.3/datatables.min.js"></script>
+
 {{-- for sorting date format dd/mm/yyyy  --}}
 <script type="text/javascript" src="https://cdn.datatables.net/plug-ins/2.0.8/sorting/date-euro.js"></script>
 
 <script>
-    $(document).ready( function () {
-
-        $('#example').DataTable( {
-            "order": [0,'desc'],
-            dom: 'Bfrtip',
-        buttons: [
-
-            {
-            extend: 'colvis',
-            text: "Ẩn / Hiện cột"
-            },
-            {
-            extend: 'excel',
-            text: "Xuất excel"
-            }
-        ],
-        "columnDefs": [
-            { "visible": false, "targets": [4,5] }
-        ],
-        responsive: true,
-        } );
-
-
-    } );
-</script>
-<script>
+    // show invoice
     $('table').on('click','.btn_show_invoice', function(){
         // event.preventDefault();
         // get product id
@@ -219,43 +195,260 @@ div.dt-button-collection button.dt-button:active:not(.disabled), div.dt-button-c
 
     });
     function getInvoiceInfo(invoice){
-    return $.ajax({
-            type: "get",
-            url: '/invoices/' + invoice,
-            data: {invoice:invoice},
+        return $.ajax({
+                type: "get",
+                url: '/invoices/' + invoice,
+                data: {invoice:invoice},
+                dataType: "json",
+            });
+    }
+    // delete invoice
+    $table.on('click','.btn_invoice_delete', function(){
+        // event.preventDefault();
+        Swal.fire({
+            title: 'Bạn có chắc muốn?',
+            text: "Xóa hóa đơn này không?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Vâng, xóa hóa đơn!'
+            }).then((result) => {
+            if (result.isConfirmed) {
+                // console.log('xoa');
+                var $row = $dataTable.row($(this).parents('tr'));
+                var $invoiceId = $(this).attr('data-orderid');
+                deleteInvoice($invoiceId, $row)
+            }
+
+        })
+
+    });
+    function deleteInvoice($invoiceId, $row){
+        // $.ajaxSetup({
+        //     headers: {
+        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //     }
+        // });
+        $.ajax({
+            type: "DELETE",
+            url: "/api/invoices/destroy",
+            data: {invoiceID:$invoiceId},
             dataType: "json",
+            success: function (response) {
+                if(response.message){
+                $row.remove().draw(false);
+                toastr.success(response.message);
+                return true;
+                };
+            }
         });
-}
-    // $('.btn_show_invoice').on('click', function(e){
-    // e.preventDefault();
-    // get product id
-    // var $productId = $(this).siblings("input[name='product_id']").val();
-    // call ajax to load data and show modal
-    // getProductInfo($productId).done(function(data){
-    // console.log($productId);
-    // $modal_show_invoice = $('#modal_show_invoice');
-    // $modal_show_product.find("#sale_unit_holder").hide();
-
-    // // fill in modal data
-    // $modal_show_product.find(".modal-title").html(data.name);
-    // $modal_show_product.find("input[name='price']").val(data.price);
-    // $modal_show_product.find("input[name='original_price']").val(data.original_price);
-    // $modal_show_product.find("input[name='sale_unit']").val(data.sale_unit);
-    // $modal_show_product.find("input[name='created_at']").val(data.created_at);
-    // $modal_show_product.find("input[name='SKU']").val(data.SKU);
-
-
-    // // $modal_show_product.find("#sale_unit_holder").hide();
-
-    // // $modal_show_product.find("#imagePreview").attr('scr','hihi');
-
-    // // disabled input field
-    // $modal_show_invoice.find('input').attr('disabled','disabled');
-
-    // $modal_show_invoice.modal('show');
-    // console.log('hi');
-    // });
+    };
+    // print invoice
 </script>
+<script>
+    // -------------- datarangepicker with datatable --------------------------//
+    //https://www.daterangepicker.com/
+    // global variables
+    var $start = moment().subtract(6, 'days');
+    var $end = moment();
+    var $table = $('#datatable_with_daterange');
+    var $dataTable;
+
+    // initial and config datatabes when loading page and when selecting daterangepicker
+    function initial_and_config_datatabes(response){
+        if(response.data){
+            $dataTable = $table.DataTable({
+                        'data':response.data,
+                        "order": [1,'desc'],
+                        buttons: [
+                            {
+                                extend: 'colvis',
+                                titleAttr: "Ẩn / Hiện cột",
+                                text: '<i class="fas fa-columns"></i>',
+                                className: 'btn btn-info w-sm waves-effect waves-light',
+                            },
+                            {
+                                extend: 'excelHtml5',
+                                title:'Hạt Giông Lam Sơn - đơn hàng',
+                                titleAttr: "Xuất excel",
+                                text: '<i class="fa fa-file-excel-o"></i>',
+                                className: 'btn btn-light w-sm waves-effect waves-light',
+                                exportOptions: {
+                                    columns: [ 0, 1, 2, 3, 4, 5 ,6 ],
+                                    // https://datatables.net/extensions/buttons/examples/html5/outputFormat-orthogonal.html
+                                    orthogonal: 'export'
+                                },
+                                customize: function( xlsx, row ) {
+                                        var sheet = xlsx.xl.worksheets['sheet1.xml'];
+                                        $('row c[r^="G"], row c[r^="F"]', sheet).attr( 's', 63);
+                                },
+                                filename: function() {
+                                $today = moment().format('D_M_YYYY');
+                                filename = 'hgls_' + $today ;
+                                return filename;
+                                }
+                            },
+                            {
+                                text: '<i class="fa fa-print"></i>',
+                                titleAttr: 'In hàng loạt',
+                                className: 'btn btn-success w-sm waves-effect waves-light',
+                                action: function () {
+                                    let rowsSelected = $dataTable.rows({ selected: true });
+                                    if(rowsSelected.data().length>0){
+                                        let ids =[];
+                                        for (var i = 0; i < rowsSelected.data().length; i++) {
+                                            ids.push(rowsSelected.data()[i].id);
+                                        }
+                                        window.open('/in/{'+ ids +'}','_blank');
+                                    }
+                                }
+                            },
+
+                        ],
+                        layout: {
+                            topStart: 'buttons'
+                        },
+                        "columns":[
+                            {"defaultContent": ""},
+                            // {data: 'id'},
+                            {data: 'date'},
+                            {data: 'invoice_no'},
+                            {data: 'customer_name'},
+                            {data: 'customer_phone'},
+                            {data: 'customer_address'},
+                            {
+                                data: 'total',
+                                render: function (data, type, row) {
+                                    return type === 'export' ? data.replace(/[.]/g, '') : data;
+                                }
+                            },
+                            {data: 'note'},
+                            {data: 'id'},
+                        ],
+                        "columnDefs":[
+
+                            {
+                                orderable: false,
+                                className: 'select-checkbox',
+                                targets: 0
+
+                            },
+                            {
+                                "targets":[8],
+                                'searchable':false,
+                                "orderable":false,
+                                "width": "10%",
+                                'render': function(data){
+                                    return `<input type="hidden" name="invoice_id" value="invoiceId">
+                                    <button href="#" class="btn btn-sm btn-link btn_show_invoice"><i class="fas fa-eye"></i></button>
+                                    <a href="invoices/invoiceId/edit" class="btn btn-sm btn-link"><i class="far fa-edit"></i></a>
+                                    <a target="_blank" href="/invoices/invoiceId/print" class="btn btn-sm btn-success waves-effect waves-light"><i class="fa fa-print"></i></a>
+                                    <button type="submit" class="btn btn-sm btn-danger btn_invoice_delete" data-orderid="invoiceId" ><i class="far fa-trash-alt"></i></button>
+                                    `
+                                    .replace(/invoiceId/g,data);
+                                }
+                            },
+                            {
+                                'targets': 1,
+                                type: 'date-euro',
+                            },
+                            {
+                                // "visible": false, "targets": [2,7]
+                                target: [2,7],
+                                visible: false
+                            }
+                        ],
+                        select: {
+                            style: 'multi',
+                            selector: 'td:first-child'
+                            // selector: 'td:not(:last-child)' // no row selection on last column
+                        },
+                        stateSave: true,
+                    });
+        };
+
+        $dataTable.on("click", "th.select-checkbox", function() {
+            if ($("th.select-checkbox").hasClass("selected")) {
+                $dataTable.rows().deselect();
+                $("th.select-checkbox").removeClass("selected");
+                $('#MyTableCheckAllButton i').attr('class', 'far fa-square');
+            } else {
+                $dataTable.rows().select();
+                $("th.select-checkbox").addClass("selected");
+                $('#MyTableCheckAllButton i').attr('class', 'far fa-check-square');
+
+            }
+        }).on("select deselect", function() {
+            if ($dataTable.rows({
+                    selected: true
+                }).count() !== $dataTable.rows().count()) {
+                $("th.select-checkbox").removeClass("selected");
+                $('#MyTableCheckAllButton i').attr('class', 'far fa-square');
+            } else {
+                $('#MyTableCheckAllButton i').attr('class', 'far fa-check-square');
+                $("th.select-checkbox").addClass("selected");
+
+
+            }
+        });
+
+    };
+    // fill date in input or div place holder
+    function cb(start, end) {
+        $('#reportrange span').html(start.format('D/M/YYYY') + ' - ' + end.format('D/M/YYYY'));
+    }
+    // call when load the page in the first time
+    cb($start, $end);
+    // attach a date range picker to div
+    $('#reportrange').daterangepicker({
+        startDate: $start,
+        endDate: $end,
+        ranges: {
+        'Hôm nay': [moment(), moment()],
+        'Hôm qua': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+        '7 ngày gần nhất': [moment().subtract(6, 'days'), moment()],
+        '30 ngày gần nhất': [moment().subtract(29, 'days'), moment()],
+        'Tháng này': [moment().startOf('month'), moment().endOf('month')],
+        'Tháng trước': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+    }
+    }, cb);
+    // triggered when the apply button is clicked, or when a predefined range is clicked
+    $('#reportrange').on('apply.daterangepicker', function(ev, picker) {
+
+        $dataTable.clear().draw();
+        call_ajax_and_fetch_data(picker.startDate, picker.endDate);
+        // call_ajax_and_fetch_data($start, $end);
+        // console.log(picker.startDate);
+    });
+
+    // fetch data when loading page the first time and when selected daterangepicker
+    function ajax_get_invoices (start, end){
+        return $.ajax({
+                type: "GET",
+                url: "/api/invoices/filter-invoices",
+                data:{start_date:start.format('YYYY-MM-DD'), end_date:end.format('YYYY-MM-DD')},
+                dataType: "json",
+            });
+    };
+    function call_ajax_and_fetch_data(start, end){
+                ajax_get_invoices(start, end).done(function(response){
+                if ($.fn.dataTable.isDataTable('#datatable_with_daterange')) {
+                    $dataTable.clear();
+                    if(response.data){
+                        $dataTable.rows.add(response.data).draw();
+                    }
+                }
+                else {
+                // innitial datatabels
+                initial_and_config_datatabes(response);
+                }
+        });
+    };
+    call_ajax_and_fetch_data($start, $end);
+    // -------------- datarangepicker with datatable --------------------------//
+</script>
+
 
 @endpush
 
