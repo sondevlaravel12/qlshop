@@ -136,7 +136,7 @@
                                 <td class="no-line text-center">
                                     <strong class="">Chiết khấu</strong>
                                 </td>
-                                <td class="no-line text-end bold">{{ $invoice->amount_off }}</td>
+                                <td class="no-line text-end ">{{ $invoice->amount_off }}</td>
                             </tr>
                             @endif
 
