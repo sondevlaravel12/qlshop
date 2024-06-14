@@ -53,10 +53,11 @@ class InvoiceController extends Controller
             );
             return redirect()->back()->with($notification);
         }
-        // dd($request->invoice_date_holder);
+        // $test = date('Y-m-d H:i:s',strtotime($request->invoice_date_holder));
+        // dd($test);
         // dd($request->invoice_date);
         $invoice = new Invoice();
-        $invoice->date = $request->invoice_date_holder;
+        $invoice->date = $request->invoice_date_holder?date('Y-m-d', strtotime($request->invoice_date_holder)):date('Y-m-d');
         $invoice->invoice_no = $request->invoice_no_holder;
         $invoice->customer_id = $request->customer_id;
         $invoice->subtotal = $request->invoice_subtotal;
@@ -71,6 +72,7 @@ class InvoiceController extends Controller
         $invoice->total = $request->product_total;
         $invoice->status ='0';
         $invoice->note = $request->note;
+        // dd($invoice->date);
 
         DB::transaction(function() use($request,$invoice){
             if ($invoice->save()) {
@@ -78,7 +80,9 @@ class InvoiceController extends Controller
                for ($i=0; $i < $productCount ; $i++) {
 
                   $invoiceDetail = new InvoiceDetail();
-                  $invoiceDetail->date = date('Y-m-d H:i:s',strtotime($request->invoice_date_holder));
+                  $invoiceDetail->date = $invoice->date?$invoice->getRawOriginal("date"):date('d-m-Y');
+                //   dd($invoiceDetail->date);
+                //   dd($invoiceDetail->date);
                 //   $invoiceDetail->date = date('Y-m-d H:i:s',strtotime($request->invoice_date_holder));
                   $invoiceDetail->invoice_id = $invoice->id;
 

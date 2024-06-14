@@ -14,6 +14,13 @@ class InvoiceDetail extends Model
     protected $guarded =[];
 
     ////  ------------------ Accessor and multator--------------------------------- ////
+    protected function date(): Attribute
+     {
+         return Attribute::make(
+             get: fn ($value) => date("d/m/Y",strtotime($value)),
+             set: fn ($value) => date('Y-m-d',strtotime($value))// make it the same format with created_at, updated_at..
+         );
+     }
     protected function amountOff(): Attribute
     {
         return Attribute::make(
