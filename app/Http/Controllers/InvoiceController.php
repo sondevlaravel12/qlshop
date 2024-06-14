@@ -54,6 +54,7 @@ class InvoiceController extends Controller
             return redirect()->back()->with($notification);
         }
         // dd($request->invoice_date_holder);
+        // dd($request->invoice_date);
         $invoice = new Invoice();
         $invoice->date = $request->invoice_date_holder;
         $invoice->invoice_no = $request->invoice_no_holder;
@@ -78,6 +79,7 @@ class InvoiceController extends Controller
 
                   $invoiceDetail = new InvoiceDetail();
                   $invoiceDetail->date = date('Y-m-d H:i:s',strtotime($request->invoice_date_holder));
+                //   $invoiceDetail->date = date('Y-m-d H:i:s',strtotime($request->invoice_date_holder));
                   $invoiceDetail->invoice_id = $invoice->id;
 
                   // each product
@@ -86,7 +88,7 @@ class InvoiceController extends Controller
                   if($request->product_amount_off[$i]){
                     $invoiceDetail->amount_off = $request->product_amount_off[$i];// does it need?
                   }
-                  $invoiceDetail->selling_price = $request->selling_price[$i];
+                  $invoiceDetail->selling_price = $request->selling_price[$i]?$request->selling_price[$i]:0;
                   $invoiceDetail->line_total = $request->product_line_total[$i];
 
                   $invoiceDetail->status = '1';

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\TenantController;
+use App\Models\Province;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Stancl\Tenancy\Middleware\InitializeTenancyByDomain;
@@ -20,6 +21,7 @@ Route::get('tenants/remove-permanently',[TenantController::class, 'ajaxRemovePer
 Route::get('tenants/restore',[TenantController::class, 'ajaxRestore']);
 Route::get('tenants/change-status',[TenantController::class, 'ajaxChangeStatus']);
 
+
 // for tenant api
 Route::middleware([
     // 'web',
@@ -29,4 +31,8 @@ Route::middleware([
 
 ])->group(function () {
     // Route::get('/invoices/filter-invoices', [InvoiceController::class,'ajaxFilterInvoicesByDateRange' ] );
+    Route::get('my/get_provinces', function(){
+        $provinces = Province::all();
+        return response()->json($provinces);
+    })->name('api.getProvinces');
 });

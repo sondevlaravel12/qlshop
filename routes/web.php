@@ -39,6 +39,10 @@ Route::middleware('centerAuth')->group(function () {
         Route::get('tenants/offf', [TenantController::class,'offTenant'])->name('tenants.off');
         // Route::get('tenants/{tenants}', [TenantController::class,'show'])->name('tenants.show');
         Route::get('tenants/{tenant}', [TenantController::class,'gotoTenant'])->name('gototenant');
+        // Route::get('my/get_provinces', function(){
+        //     return response()->json(['message'=>'ji']);
+        //     // dd('hi');
+        // })->name('api.getProvinces');
 
     });
 // }
