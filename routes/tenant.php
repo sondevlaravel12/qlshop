@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Http\Controllers\App\ProfileController;
+use App\Http\Controllers\App\ReportController;
 use App\Http\Controllers\App\UserController;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\InvoiceController;
@@ -45,9 +46,8 @@ Route::middleware([
     // for login user
     Route::middleware('auth')->group(function () {
 
-        Route::get('/',function(){
-            return view('app.index');
-        })->name('app.index');
+        Route::get('/',[ReportController::class,'index'])->name('app.index');
+
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         // Route::get('/profile', function(){dd('hi');})->name('profile.edit');
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -81,6 +81,11 @@ Route::middleware([
         Route::get('api/invoices/filter-deleted-ivoices',[InvoiceController::class,'ajaxFilterDeletedInvoicesByDateRange']);
         Route::post('api/invoices/restore', [InvoiceController::class,'ajaxRestore']);
         Route::post('api/invoices/delete-permanently', [InvoiceController::class,'ajaxDestroyPermanently']);
+
+        Route::get('api/report/revenue/monthly', [ReportController::class,'ajaxReportByYear']);
+        Route::get('api/report/revenue/daily-in-month', [ReportController::class,'ajaxReportRevenueByMonth']);
+        Route::get('api/report/revenue/daily-in-week', [ReportController::class,'ajaxReportRevenueByWeek']);
+
         // Route::post('admin/ajax-restore', 'ajaxRestore')->name('admin.invoices.ajaxrestore');
         // Route::post('admin/ajax-delete-permanently', 'ajaxDestroyPermanently');
 
