@@ -73,57 +73,19 @@ input:-webkit-autofill{
                         </div>
                     </div>
                 </div><br>
+                {{-- <div class="row" >
+                    <label for="customer_address" class="col-sm-2 col-form-label">Khu vực</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" type="text"  id="zones" name="zones">
+                        <ul style="list-style-type: none; margin-top:10px" id="zones-holder"></ul>
+                    </div>
+                </div> --}}
 
                 <div class="row">
                     <div class="col-md-12 mb-3">
                         <div class="InputAddOn">
                             <button class="InputAddOn-item" data-bs-toggle="modal" data-bs-target="#modal_insert_customer">Thêm</button>
                             <input class="InputAddOn-field " id="customer_search" placeholder="Tìm khách hàng">
-                            <div id="modal_insert_customer" class="modal fade bs-example-modal-center" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-                                {{-- modal form create customer --}}
-                                <form action="" id="customerForm">
-                                    <div class="modal-dialog modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title">Khách hàng</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="card">
-                                                    <div class="card-body">
-                                                        <div class="row mb-3">
-                                                            <label for="customer_name" class="col-sm-2 col-form-label">Tên khách hàng</label>
-                                                            <div class="col-sm-10">
-                                                                <input class="form-control" type="text" id="customer_name" name="customer_name">
-                                                            </div>
-                                                        </div>
-
-                                                    <!-- end row -->
-
-                                                        <div class="row mb-3">
-                                                            <label for="customer_phone" class="col-sm-2 col-form-label">Số điện thoại</label>
-                                                            <div class="col-sm-10">
-                                                                <input class="form-control" type="tel"  id="customer_phone" name="customer_phone">
-                                                            </div>
-                                                        </div>
-                                                        <!-- end row -->
-                                                        <div class="row">
-                                                            <label for="customer_address" class="col-sm-2 col-form-label">địa chỉ</label>
-                                                            <div class="col-sm-10">
-                                                                <textarea class="form-control"  name="customer_address" id="customer_address" cols="30" rows="2"></textarea>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-light waves-effect" data-bs-dismiss="modal">Bỏ qua</button>
-                                                <button type="submit" class="btn btn-primary waves-effect waves-light">Lưu khách hàng</button>
-                                            </div>
-                                        </div><!-- /.modal-content -->
-                                    </div><!-- /.modal-dialog -->
-                                </form>
-                            </div><!-- /.modal -->
                         </div>
                     </div>
                 </div>
@@ -144,128 +106,6 @@ input:-webkit-autofill{
                         <div class="InputAddOn">
                             <button class="InputAddOn-item" data-bs-toggle="modal" data-bs-target="#modal_insert_product">Thêm</button>
                             <input class="InputAddOn-field " id="product_search" placeholder="Tìm sản phẩm">
-                            {{-- modal create product  --}}
-                            <div id="modal_insert_product" class="modal fade bs-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
-                                <form enctype="multipart/form-data" id="productForm">
-                                    <div class="modal-dialog modal-xl">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title">Sản phẩm</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="card">
-                                                    <div class="card-body">
-                                                            <div class="row mb-3">
-                                                                <label for="example-text-input" class="col-sm-2 col-form-label">Tên</label>
-                                                                <div class="col-sm-10">
-                                                                    <input class="form-control" type="text" name="name" value="{{old('name')}}"  >
-                                                                    @error('name')
-                                                                        <div class="alert alert-danger">{{ $message }}</div>
-                                                                    @enderror
-                                                                </div>
-                                                            </div>
-                                                            <div class="row mb-3">
-                                                                <label for="example-text-input" class="col-sm-2 col-form-label">Giá bán</label>
-                                                                <div class="col-sm-10">
-                                                                    <input class="form-control auto_formatting_input_value" type="text" name="price" value="{{old('price')}}"  >
-                                                                    @error('price')
-                                                                        <div class="alert alert-danger">{{ $message }}</div>
-                                                                    @enderror
-                                                                </div>
-                                                            </div>
-                                                            <div class="row mb-3">
-                                                                <label for="example-text-input" class="col-sm-2 col-form-label">Giá vốn</label>
-                                                                <div class="col-sm-10">
-                                                                    <input class="form-control auto_formatting_input_value" type="text" name="original_price" value="{{old('original_price')}}"  >
-                                                                    @error('original_price')
-                                                                        <div class="alert alert-danger">{{ $message }}</div>
-                                                                    @enderror
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="row mb-3">
-                                                                <label class="col-sm-2 col-form-label" >Hình ảnh</label>
-                                                                <div class="col-sm-10">
-                                                                    <div class="input-images-1" style="padding-top: .5rem;"></div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row mb-3">
-                                                                <label for="example-text-input" class="col-sm-2 col-form-label">Đơn vị tính cơ bản</label>
-                                                                <div class="col-sm-10">
-
-                                                                    <input class="form-control" type="text" value="Gói" name="sale_unit" list="cars">
-                                                                    <datalist id="cars">
-                                                                        <option>Volvo</option>
-                                                                        <option>Saab</option>
-                                                                        <option>Mercedes</option>
-                                                                        <option>Audi</option>
-                                                                    </datalist>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row mb-3">
-                                                                <a href="#collapseOne" class="text-dark collapsed" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapseOne">
-                                                                    <div class="card-header" id="headingOne">
-                                                                        <h6 class="m-0">
-                                                                            Thêm Đơn vị tính
-                                                                            <i class="float-end fas fa-angle-down"></i>
-                                                                        </h6>
-                                                                    </div>
-                                                                </a>
-
-                                                            </div>
-
-                                                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-bs-parent="#accordion" style="">
-                                                                <div class="row ">
-                                                                    <div class="col-lg-12">
-                                                                        <div class="card card-body">
-                                                                            <div class="row">
-                                                                                <div class="col-md-4">
-                                                                                    <label for="validationTooltip01" class="form-label">Tên đơn vị</label>
-                                                                                    <input type="hidden" value="{{ $saleUnits }}" id="sale_unit_lists">
-                                                                                </div>
-                                                                                <div class="col-md-3">
-                                                                                    <label for="validationTooltip02" class="form-label">Giá bán</label>
-                                                                                </div>
-                                                                                <div class="col-md-3">
-                                                                                    <label for="validationTooltipUsername" class="form-label">Giá vốn</label>
-                                                                                </div>
-                                                                                <div class="col-md-2">
-
-                                                                                </div>
-                                                                            </div>
-                                                                            <div id="show_item">
-
-                                                                            </div>
-                                                                            <div class="row">
-                                                                                <div class="col-md-10"></div>
-
-                                                                                <div class="col-md-2 ">
-                                                                                    <div class="mb-3 ">
-                                                                                        <button type="button" class="btn btn-light waves-effect add_item_btn ">
-                                                                                             <i class="fas fa-plus-circle"></i>&nbspThêm
-                                                                                        </button>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-
-                                                                        </div>
-
-                                                                    </div>
-                                                                </div>
-
-                                                            </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-light waves-effect" data-bs-dismiss="modal">Bỏ qua</button>
-                                                <button type="submit" class="btn btn-primary waves-effect waves-light">Lưu sản phẩm</button>
-                                            </div>
-                                        </div><!-- /.modal-content -->
-                                    </div><!-- /.modal-dialog -->
-                                </form>
-                            </div><!-- /.modal -->
                         </div>
                     </div>
                 </div>
@@ -364,26 +204,25 @@ input:-webkit-autofill{
         </div>
     </div> <!-- end col -->
 </div>
+@include('app.invoice.modal.modal_all')
 
 @endsection
 @push('scripts')
 {{-- jquery validate  --}}
-{{-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.12.0/jquery.validate.js"></script> --}}
-{{-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.12.0/additional-methods.js"></script> --}}
 <script type="text/javascript" src="{{ global_asset('asset/js/jquery.validate.js') }}"></script>
 <script type="text/javascript" src="{{ global_asset('asset/js/additional-methods.js') }}"></script>
 
 <script>
     function preview() {
         imagePreview.src=URL.createObjectURL(event.target.files[0]);
-}
+    }
 </script>
 <script src="{{ global_asset('backend/assets/libs/jquery-ui/jquery-ui.js') }}"></script>
 <script type="text/javascript" src="{{global_asset('asset/admin/javascripts/image-uploader.min.js')}}"></script>
 
-<script src="{{ global_asset('backend/assets/js/custom/invoice_page.js') }}"></script>
+<script src="{{ global_asset('backend/assets/js/custom/invoice_page.js?31') }}"></script>
 <script src="{{ global_asset('backend/assets/js/custom/auto_formatting_input_value.js') }}"></script>
-<script>
 
-</script>
+
+
 @endpush

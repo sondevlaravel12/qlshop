@@ -42,7 +42,7 @@ Route::middleware('centerAuth')->group(function () {
         // Route::get('my/get_provinces', function(){
         //     return response()->json(['message'=>'ji']);
         //     // dd('hi');
-        // })->name('api.getProvinces');
+        // });
 
     });
 // }

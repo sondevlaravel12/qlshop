@@ -15,11 +15,15 @@ use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
+
 // for center api
-Route::get('tenants/remove',[TenantController::class, 'ajaxRemove']);
-Route::get('tenants/remove-permanently',[TenantController::class, 'ajaxRemovePermanently']);
-Route::get('tenants/restore',[TenantController::class, 'ajaxRestore']);
-Route::get('tenants/change-status',[TenantController::class, 'ajaxChangeStatus']);
+Route::middleware(['auth:sanctum'])->group(function(){
+    Route::get('tenants/remove',[TenantController::class, 'ajaxRemove']);
+    Route::get('tenants/remove-permanently',[TenantController::class, 'ajaxRemovePermanently']);
+    Route::get('tenants/restore',[TenantController::class, 'ajaxRestore']);
+    Route::get('tenants/change-status',[TenantController::class, 'ajaxChangeStatus']);
+});
+Route::get('my/get_provinces', [InvoiceController::class,'ajaxGetAllProvinces']);
 
 
 // for tenant api
@@ -31,8 +35,5 @@ Route::middleware([
 
 ])->group(function () {
     // Route::get('/invoices/filter-invoices', [InvoiceController::class,'ajaxFilterInvoicesByDateRange' ] );
-    Route::get('my/get_provinces', function(){
-        $provinces = Province::all();
-        return response()->json($provinces);
-    })->name('api.getProvinces');
+
 });

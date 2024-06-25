@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Address;
 use App\Models\Customer;
 use App\Models\Invoice;
 use App\Models\InvoiceDetail;
 use App\Models\Product;
+use App\Models\Province;
 use App\Models\SaleUnit;
+use App\Models\Ward;
+use App\Models\Zone;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Mccarlosen\LaravelMpdf\Facades\LaravelMpdf;
@@ -130,8 +134,11 @@ class InvoiceController extends Controller
     {
         // // $invoice = Invoice::findOrFail($request->invoiceId);
         // dd($invoice->id);
+        // $invoice = $invoice->load('customer.addresses.zone','customer.addresses.ward');
+        $customerId = $invoice->customer->id;
         $saleUnits = SaleUnit::all('title');
-        return view('app.invoice.edit', compact('invoice', 'saleUnits'));
+        // dd($invoice);
+        return view('app.invoice.edit', compact('customerId','invoice', 'saleUnits'));
     }
     public function ajaxCreateProduct(Request $request){
         $validated = $request->validate([
@@ -407,34 +414,21 @@ class InvoiceController extends Controller
 
         $key = $request['term'];
         if(is_numeric($key)){
-            $customers = Customer::where('phone','like','%' .$key .'%')->limit(10)->get();
+            $customers = Customer::where('phone','like','%' .$key .'%')->with('addresses', 'addresses.zone:id,name,short_name,district_code', 'addresses.ward:code,name')->select('id','phone','name','address')->limit(10)->get();
         }else{
-            $customers = Customer::where('name','like','%' .$key .'%')->limit(10)->get();
+            $customers = Customer::where('name','like','%' .$key .'%')->with('addresses', 'addresses.zone:id,name,short_name,district_code', 'addresses.ward:code,name,district_code')->select('id','phone','name','address')->limit(10)->get();
         }
         if( !$customers ){
             exit;
         }
-        // dd($customers);
 
-        foreach($customers as $customer){
-            $result[] =
-                array(
-                    'id' => $customer->id,
-                    'name' => $customer->name,
-                    'email' => $customer->email,
-                    'phone'=>$customer->phone,
-                    'address'=>$customer->address,
-
-
-                );
-        }
-
-        return response()->json($result);
+        return response()->json($customers);
     }
     public function ajaxCreateCustomer(Request $request){
        //$result = $request;
        $validated = $request->validate([
         'customerName' => 'required',
+        'zoneId' => 'required',
         ]);
        $newCustomer = Customer::create([
         'name'=>$request->customerName,
@@ -442,8 +436,16 @@ class InvoiceController extends Controller
         'address'=>$request->customerAddress,
        ]);
        if( $newCustomer){
+        // insert record into addresses table
+        $newAddress = Address::create([
+            'name'=>$request->address,
+            'zone_id'=>$request->zoneId,
+            'ward_code'=>$request->wardCode,
 
-        return response()->json($newCustomer);
+        ]);
+        $newCustomer->addresses()->save($newAddress);
+
+        return response()->json($newCustomer->load('addresses.zone','addresses.ward'));
        }
 
     }
@@ -456,6 +458,23 @@ class InvoiceController extends Controller
          'phone'=>$request->customerPhone,
          'address'=>$request->customerAddress,
         ]);
+        // update relationship
+        if($customer->addresses->count()>0)
+        {
+            $address = $customer->addresses[0];
+            $address->name= $request->address;
+            $address->zone_id= $request->zoneId;
+            $address->ward_code= $request->wardCode;
+            $address->save();
+        }else{// create new address
+            $address = Address::create([
+                'name'=>$request->address,
+                'zone_id'=> $request->zoneId,
+                'ward_code'=>$request->wardCode
+            ]);
+            // add relationship
+            $address->customers()->save($customer);
+        }
         if($updateCustomer){
          return response()->json(['message'=>'Cập nhật khách hàng thành công', 'customer'=>$customer->toArray()]);
         }
@@ -533,4 +552,39 @@ class InvoiceController extends Controller
 
         return response()->json(['message'=>'no invoice']);
      }
+     public function ajaxSearchProvinces(Request $request){
+        if( empty($request['term']) ){
+            return false;
+        }
+        $key = $request['term'];
+
+        $zones = Zone::where('name','like','%' .$key .'%')->limit(10)->get(['id','district_code','name','short_name']);
+        if( !$zones ){
+            exit;
+        }
+        // foreach($zones as $zone){
+        //     $province = $zone->province->short_name;
+        //     $district = $zone->district->short_name;
+        //     $zone['short_name'] = $district .', '.$province;
+        //     $zone->save();
+        // }
+
+        // $provinces = Province::with('districts:name')->get(['code','name']);
+        // create new table zone and insert row like this
+        return response()->json($zones);
+     }
+     public function ajaxGetWardsByZone(Request $request){
+        if( empty($request['term']) ){
+            return false;
+        }
+        $key = $request['term'];
+
+        $wards = Ward::where('district_code','=',$request->districtCode)->where('name','like','%' .$key .'%')->limit(10)->get(['name','code']);
+        if( !$wards ){
+            exit;
+        }
+
+        return response()->json($wards);
+     }
+
 }

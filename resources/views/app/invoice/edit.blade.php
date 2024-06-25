@@ -99,49 +99,8 @@ input:-webkit-autofill{
                             <div class="col-md-1">
                                 <div class="mb-3 position-relative">
 
+                                    {{-- <button class="btn btn-outline-info waves-effect waves-light" type="button" data-bs-toggle="modal" data-bs-target=".bs-example-modal-center-2"><i class="fas fa-edit"></i></button> --}}
                                     <button class="btn btn-outline-info waves-effect waves-light" type="button" data-bs-toggle="modal" data-bs-target=".bs-example-modal-center-2"><i class="fas fa-edit"></i></button>
-                                    <div id="modal_update_customer" class="modal fade bs-example-modal-center-2" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-                                        <form action="" id="updateCutomerForm" >
-                                            <div class="modal-dialog modal-dialog-centered">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title">Khách hàng</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <div class="card">
-                                                                <div class="card-body">
-                                                                    <input name="customer_id" type="hidden" value="{{ $invoice->customer->id }}">
-                                                                    <div class="row mb-3">
-                                                                        <label for="customer_name" class="col-sm-2 col-form-label">Tên khách hàng</label>
-                                                                        <div class="col-sm-10">
-                                                                            <input class="form-control" value="{{ $invoice->customer->name }}" type="text" id="customer_name" name="customer_name">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="row mb-3">
-                                                                        <label for="customer_phone" class="col-sm-2 col-form-label">Số điện thoại</label>
-                                                                        <div class="col-sm-10">
-                                                                            <input class="form-control" type="tel" value="{{ $invoice->customer->phone }}"  id="customer_phone" name="customer_phone">
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="row">
-                                                                        <label for="customer_address" class="col-sm-2 col-form-label">địa chỉ</label>
-                                                                        <div class="col-sm-10">
-                                                                            <textarea class="form-control"  name="customer_address" id="customer_address" cols="30" rows="2">{{ $invoice->customer->address }}</textarea>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-light waves-effect" data-bs-dismiss="modal">Bỏ qua</button>
-                                                            <button type="submit" class="btn btn-primary waves-effect waves-light">Cập nhật khách hàng</button>
-                                                        </div>
-                                                    </div><!-- /.modal-content -->
-                                                </div><!-- /.modal-dialog -->
-                                            </form>
-                                        </div><!-- /.modal -->
                                 </div>
                             </div>
                         </div>
@@ -415,6 +374,7 @@ input:-webkit-autofill{
         </div>
     </div> <!-- end col -->
 </div>
+@include('app.invoice.modal.modal_all')
 
 @endsection
 @push('scripts')
@@ -430,7 +390,7 @@ input:-webkit-autofill{
 </script>
 <script src="{{ global_asset('backend/assets/libs/jquery-ui/jquery-ui.js') }}"></script>
 <script type="text/javascript" src="{{global_asset('asset/admin/javascripts/image-uploader.min.js')}}"></script>
-<script src="{{ global_asset('backend/assets/js/custom/invoice_page.js') }}"></script>
+<script src="{{ global_asset('backend/assets/js/custom/invoice_page.js?11') }}"></script>
 <script src="{{ global_asset('backend/assets/js/custom/auto_formatting_input_value.js') }}"></script>
 <script>
 
@@ -440,74 +400,8 @@ jQuery().ready(function () {
 });
 
 </script>
+
 <script>
-    $("#productForm").submit(function(e) {
 
-        //prevent Default functionality
-        e.preventDefault();
-        //get the action-url of the form
-        var actionurl = e.currentTarget.action;
-        // set up header
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        //do your own request an handle the results
-        $.ajax({
-                url: actionurl,
-                type: 'post',
-                dataType: 'json',
-                data: $("#productForm").serialize(),
-                success: function(response) {
-                    //alert(response.name);
-                    // console.log(response.name);
-                    var $newrow = `<tr style="background-color: #e2f6e7;">
-                                    <td>
-                                        <input  class="form-control"  id="product_id" name="product_id[]"  value="` +  response.id + `" type="hidden">
-                                        <input  class="form-control"  id="product_sku" name="product_sku[]"  value="` +  response.SKU + `" type="hidden">
-                                        `+ response.SKU +`
-                                    </td>
-                                    <td style="width:25%; ">
-                                        `+ response.name +`
-                                    </td>
-                                    <td>
-                                        <input  class="form-control"  type="hidden" id="product_sale_unit[]" name="product_sale_unit[]"  value="` + response.sale_unit + `">
-                                        ` + response.sale_unit + `
-                                    </td>
-                                    <td ><input class="form-control product_quantity" id="" name="product_quantity[]" type="number" value="1" min="1"></td>
-                                    <td>
-                                        <input type="hidden" class="form-control product_price" readonly name="product_price[]"  value="` +  response.price + `">
-                                        ` +  response.price + `
-                                    </td>
-                                    <td ><input style="color:red;" class="form-control product_amount_off auto_formatting_input_value" name="product_amount_off[]" type="text" value=""></td>
-                                    <td >
-                                        <input type="readonly" class="form-control selling_price" readonly name="selling_price[]"  value="` +  response.price + `">
-
-                                    </td>
-                                    <td >
-                                        <input class="form-control product_line_total"  readonly  name="product_line_total[]"  value="  ` + response.price + `" style="width:100%">
-
-                                    </td>
-                                    <td >
-                                        <button type="button" class="btn btn-outline-danger waves-effect waves-light remove_item_btn">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </button>
-                                    </td>
-                                </tr>`;
-                        //alert($newrow);
-                    $('#productItemsHolder').append($newrow);
-                    $('#modal_insert_product').removeData();
-                    $('#modal_insert_product').modal('hide');
-
-                }
-        });
-
-    });
 </script>
 @endpush

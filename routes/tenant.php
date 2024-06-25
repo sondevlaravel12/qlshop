@@ -6,6 +6,7 @@ use App\Http\Controllers\App\ProfileController;
 use App\Http\Controllers\App\ReportController;
 use App\Http\Controllers\App\UserController;
 use App\Http\Controllers\AppController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProductController;
@@ -68,7 +69,12 @@ Route::middleware([
 
 
 
+
+
         // ------------for api route but not set yet----------------//
+        Route::get('api/customer/getCustomerById', [CustomerController::class,'ajaxGetCustomerById']);
+
+
         Route::get('api/invoices/filter-invoices',[InvoiceController::class,'ajaxFilterInvoicesByDateRange' ] );
         Route::post('api/invoices/search-product', [InvoiceController::class,'ajaxSearchProduct']);
         Route::post('api/invoices/search-customer', [InvoiceController::class,'ajaxSearchCustomer']);
@@ -81,6 +87,10 @@ Route::middleware([
         Route::get('api/invoices/filter-deleted-ivoices',[InvoiceController::class,'ajaxFilterDeletedInvoicesByDateRange']);
         Route::post('api/invoices/restore', [InvoiceController::class,'ajaxRestore']);
         Route::post('api/invoices/delete-permanently', [InvoiceController::class,'ajaxDestroyPermanently']);
+
+        // get zones list
+        Route::get('api/invoices/getZones', [InvoiceController::class,'ajaxSearchProvinces']);
+        Route::get('api/invoices/getWardsByZone', [InvoiceController::class,'ajaxGetWardsByZone']);
 
         Route::get('api/report/revenue/monthly', [ReportController::class,'ajaxReportByYear']);
         Route::get('api/report/revenue/daily-in-month', [ReportController::class,'ajaxReportRevenueByMonth']);
@@ -101,6 +111,8 @@ Route::middleware([
         //     $pdf = LaravelMpdf::loadView('app.invoice.print_multiple_invoices', compact('invoices'));
         //     return $pdf->stream('invoices.pdf');
         // });
+
+
 
 
 

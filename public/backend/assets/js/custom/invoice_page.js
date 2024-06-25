@@ -32,7 +32,7 @@ function updateTotal(){
 }
 
 
-$(document).ready(function () {
+// $(document).ready(function () {
 
 // when changing date
 $("input[name='invoice_date']").on('change', function(){
@@ -88,11 +88,29 @@ $(function(){
             customer_name: {
                 required: true
             },
+            customer_phone: {
+                required: true
+            },
+            zones: {
+                required: true
+            },
+            customer_address:{
+                required: true
+            }
         },
         messages: {
             customer_name: {
                 required: "Vui lòng điền tên khách hàng",
             },
+            customer_phone: {
+                required: 'Vui lòng điền sdt'
+            },
+            zones: {
+                required: 'Vui lòng chọn khu vực'
+            },
+            customer_address:{
+                required: 'Vui lòng điền địa chỉ'
+            }
         },
     });
     $("#productForm").validate({
@@ -262,8 +280,31 @@ Autocomplete search customer
                 })
             },
             select: function (event, ui) {
-                    var $newrow = fillHtmlCustomerRow(ui.item.id, ui.item.name, ui.item.phone, ui.item.address );
+                // append new row display customer
+                var $newrow = fillHtmlCustomerRow(ui.item.id, ui.item.name, ui.item.phone, ui.item.address );
                 $('#customerHolder').html($newrow);
+                // fill in customer modal edit/update
+                $zoneName ='';
+                $warName = '';
+                $zoneShortname ='';
+                $zoneId ='';
+                $warCode ='';
+                $districtCode='';
+
+                // if customer has address relationship
+                if(ui.item.addresses.length>0){
+                    $address = ui.item.addresses[0].name;
+                    $zoneName = ui.item.addresses[0].zone.name;
+                    $zoneShortname =ui.item.addresses[0].zone.short_name;
+                    $zoneId =ui.item.addresses[0].zone.id;
+                    $warName = ui.item.addresses[0].ward?ui.item.addresses[0].ward.name:'';
+                    $warCode = ui.item.addresses[0].ward?ui.item.addresses[0].ward.code:'';
+                    $districtCode = ui.item.addresses[0].zone?ui.item.addresses[0].zone.district_code:'';
+
+                }else{
+                    $address = ui.item.address;
+                }
+                fillCustomerEditModal(ui.item.id, ui.item.name, ui.item.phone, $address, $zoneName, $warName, $zoneShortname, $zoneId, $warCode, $districtCode);
                 // append customer id into form
                 appendCutomerId(ui.item.id);
             }
@@ -280,7 +321,7 @@ Autocomplete search customer
 End Autocomplete search customer
 --------------------------------------------- */
 /* ---------------------------------------------
-Append customer id into form
+Append customer id into invoice form
 --------------------------------------------- */
 function appendCutomerId($customer_id){
     $('.customer_id').val($customer_id);
@@ -296,15 +337,28 @@ Create new customer
     $('#customerForm').on('submit', function(e) {
         e.preventDefault();
         var $customerName = $('#customer_name').val();
-        var $customerAddress = $('#customer_address').val();
+        var $zoneShortName = $('#zone-short-name').val();
+        var $zoneId = $('#zone-id').val();
+        var $wardCode = $('#ward-code').val();
+        var $wards = $('#wards').val();
+        var $address = $('#customer_address').val();
+        var $customerAddress;
+        if($wards!=''){
+            $customerAddress = $address +', ' + $wards +', ' + $zoneShortName;
+        }else{
+            $customerAddress = $address + ', ' + $zoneShortName;
+        }
         var $customerPhone = $('#customer_phone').val();
         $.ajax({
             type: "POST",
             url: "/api/invoices/create-customer",
-            data: {_token: CSRF_TOKEN, customerName: $customerName, customerAddress:$customerAddress, customerPhone:$customerPhone},
+            data: {_token: CSRF_TOKEN,wardCode: $wardCode, zoneId:$zoneId, address:$address, customerName: $customerName, customerAddress:$customerAddress, customerPhone:$customerPhone},
             dataType: "json",
             success: function( response ) {
-
+                $zone = response.addresses[0].zone;
+                $ward = response.addresses[0].ward;
+                // fillCustomerEditModal(response.id, response.name, response.phone, response.address, $zoneName, $warName, $zoneShortname, $zoneId, $warCode, $districtCode);
+                fillCustomerEditModal(response.id, response.name, response.phone, response.addresses[0].name, $zone.name, $ward.name, $zone.short_name, $zone.id, $ward.code, $zone.district_code );
                 var $newrow = fillHtmlCustomerRow(response.id,response.name,response.phone, response.address);
                 $('#customerHolder').html($newrow);
                 // append customer id into form
@@ -313,7 +367,10 @@ Create new customer
                 $('#customer_name').val('');
                 $('#customer_address').val('');
                 $('#customer_phone').val('');
+                $('#zones').val('');
+                $('#wards').val('');
                 $('#modal_insert_customer').modal('hide');
+
             }
         });
 
@@ -325,32 +382,147 @@ End Create new customer
 /* ---------------------------------------------
 Edit customer
 --------------------------------------------- */
-$("#customerHolder").on('submit','form#updateCutomerForm', function(e){
+$("#modal_update_customer").on('submit','form#updateCutomerForm', function(e){
     e.preventDefault();
     var $customerID = $(this).find('input[name=customer_id]').val();
     var $customerName =  $(this).find('input[name=customer_name]').val();
-    var $customerAddress = $(this).find('textarea#customer_address').val();
     var $customerPhone = $(this).find('input[name=customer_phone]').val();
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
+    $zoneShortName = $(this).find('#zone-short-name').val();
+    $zoneId = $(this).find('#zone-id').val();
+    $wardCode = $(this).find('#ward-code').val();
+    $wards = $(this).find('#wards').val();
+
+    $address = $(this).find('#customer_address').val();
+    $customerAddress='';
+    if($wards!=''){
+        $customerAddress = $address +', ' + $wards +', ' + $zoneShortName;
+    }else{
+        $customerAddress = $address + ', ' + $zoneShortName;
+    }
+
     $.ajax({
         type: "POST",
         url: "/api/invoices/update-customer",
-        data: {customerID: $customerID, customerName: $customerName, customerAddress:$customerAddress, customerPhone:$customerPhone},
+        data: {wardCode: $wardCode, zoneId:$zoneId, customerID: $customerID, customerName: $customerName, customerAddress:$customerAddress, customerPhone:$customerPhone, address:$address},
         dataType: "json",
         success: function( response ) {
 
             var $newrow = fillHtmlCustomerRow(response.customer.id,response.customer.name,response.customer.phone, response.customer.address);
+            //erase input field and hide modal
+            // $modalForm = $('form#updateCutomerForm');
+            // $modalForm.find('#customer_name').val('');
+            // $modalForm.find('#customer_address').val('');
+            // $modalForm.find('#customer_phone').val('');
+            // $modalForm.find('#zones').val('');
+            // $modalForm.find('#wards').val('');
 
             $('#modal_update_customer').modal('hide');
             $('#customerHolder').html($newrow);
             toastr.success(response.message);
         }
     });
-})
+});
+//load customer
+$customer_id = $('#customerHolder #customer_id').val();
+if($customer_id){
+    $.ajax({
+        type: "get",
+        url: "/api/customer/getCustomerById",
+        data: {customerId:$customer_id},
+        dataType: "json",
+        success: function (response) {
+            // fill in customer modal edit/update
+            $zoneName ='';
+            $warName = '';
+            $zoneShortname ='';
+            $zoneId ='';
+            $warCode ='';
+            $districtCode='';
+
+            // if customer has address relationship
+            if(response.addresses.length>0){
+                $address = response.addresses[0].name;
+                $zoneName = response.addresses[0].zone.name;
+                $zoneShortname =response.addresses[0].zone.short_name;
+                $zoneId =response.addresses[0].zone.id;
+                $warName = response.addresses[0].ward?response.addresses[0].ward.name:'';
+                $warCode = response.addresses[0].ward?response.addresses[0].ward.code:'';
+                $districtCode = response.addresses[0].zone?response.addresses[0].zone.district_code:'';
+
+            }else{
+                $address = response.address;
+            }
+            // $zone = response.addresses[0].zone;
+            // $ward = response.addresses[0].ward;
+            // fillCustomerEditModal(response.id, response.name, response.phone, response.address, $zoneName, $warName, $zoneShortname, $zoneId, $warCode, $districtCode);
+            fillCustomerEditModal(response.id, response.name, response.phone, $address, $zoneName, $warName, $zoneShortname, $zoneId, $warCode, $districtCode );
+        }
+
+    });
+}
+
+// submit invoice form
+$("#productForm").submit(function(e) {
+
+    //prevent Default functionality
+    e.preventDefault();
+    //get the action-url of the form
+    var actionurl = e.currentTarget.action;
+    //do your own request an handle the results
+    $.ajax({
+            url: actionurl,
+            type: 'post',
+            dataType: 'json',
+            data: $("#productForm").serialize(),
+            success: function(response) {
+                //alert(response.name);
+                // console.log(response.name);
+                var $newrow = `<tr style="background-color: #e2f6e7;">
+                                <td>
+                                    <input  class="form-control"  id="product_id" name="product_id[]"  value="` +  response.id + `" type="hidden">
+                                    <input  class="form-control"  id="product_sku" name="product_sku[]"  value="` +  response.SKU + `" type="hidden">
+                                    `+ response.SKU +`
+                                </td>
+                                <td style="width:25%; ">
+                                    `+ response.name +`
+                                </td>
+                                <td>
+                                    <input  class="form-control"  type="hidden" id="product_sale_unit[]" name="product_sale_unit[]"  value="` + response.sale_unit + `">
+                                    ` + response.sale_unit + `
+                                </td>
+                                <td ><input class="form-control product_quantity" id="" name="product_quantity[]" type="number" value="1" min="1"></td>
+                                <td>
+                                    <input type="hidden" class="form-control product_price" readonly name="product_price[]"  value="` +  response.price + `">
+                                    ` +  response.price + `
+                                </td>
+                                <td ><input style="color:red;" class="form-control product_amount_off auto_formatting_input_value" name="product_amount_off[]" type="text" value=""></td>
+                                <td >
+                                    <input type="readonly" class="form-control selling_price" readonly name="selling_price[]"  value="` +  response.price + `">
+
+                                </td>
+                                <td >
+                                    <input class="form-control product_line_total"  readonly  name="product_line_total[]"  value="  ` + response.price + `" style="width:100%">
+
+                                </td>
+                                <td >
+                                    <button type="button" class="btn btn-outline-danger waves-effect waves-light remove_item_btn">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </td>
+                            </tr>`;
+                    //alert($newrow);
+                $('#productItemsHolder').append($newrow);
+                $('#modal_insert_product').removeData();
+                $('#modal_insert_product').modal('hide');
+
+            }
+    });
+
+});
+
+/* ---------------------------------------------
+End Edit customer
+--------------------------------------------- */
 
 /* ---------------------------------------------
 Fill html customer row
@@ -384,54 +556,48 @@ Fill html customer row
                 <div class="mb-3 position-relative">
 
                     <button class="btn btn-outline-info waves-effect waves-light" type="button" data-bs-toggle="modal" data-bs-target=".bs-example-modal-center-2"><i class="fas fa-edit"></i></button>
-                    <div id="modal_update_customer" class="modal fade bs-example-modal-center-2" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-                        <form action="" id="updateCutomerForm" >
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">Khách hàng</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <input name="customer_id" type="hidden" value="` + id + `">
-                                                    <div class="row mb-3">
-                                                        <label for="customer_name" class="col-sm-2 col-form-label">Tên khách hàng</label>
-                                                        <div class="col-sm-10">
-                                                            <input class="form-control" value="` + name + `" type="text" id="customer_name" name="customer_name">
-                                                        </div>
-                                                    </div>
-                                                    <div class="row mb-3">
-                                                        <label for="customer_phone" class="col-sm-2 col-form-label">Số điện thoại</label>
-                                                        <div class="col-sm-10">
-                                                            <input class="form-control" type="tel" value="` + phone + `"  id="customer_phone" name="customer_phone">
-                                                        </div>
-                                                    </div>
 
-                                                    <div class="row">
-                                                        <label for="customer_address" class="col-sm-2 col-form-label">địa chỉ</label>
-                                                        <div class="col-sm-10">
-                                                            <textarea class="form-control"  name="customer_address" id="customer_address" cols="30" rows="2">` + address + `</textarea>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-light waves-effect" data-bs-dismiss="modal">Bỏ qua</button>
-                                            <button type="submit" class="btn btn-primary waves-effect waves-light">Cập nhật khách hàng</button>
-                                        </div>
-                                    </div><!-- /.modal-content -->
-                                </div><!-- /.modal-dialog -->
-                            </form>
-                        </div><!-- /.modal -->
                 </div>
             </div>`;
         return $newrow;
     };
 /* ---------------------------------------------
 End Fill html customer row
+--------------------------------------------- */
+
+/* ---------------------------------------------
+Fill customer edit modal
+--------------------------------------------- */
+    function fillCustomerEditModal(id,name, phone, address, zoneName, wardName, zoneShortName, zoneId, warCode, districtCode) {
+
+        $customerEditModal = $('#modal_update_customer');
+        $customerEditModal.find("input[name*='customer_id']").val(id);
+        $customerEditModal.find('#customer_name').val(name);
+        $customerEditModal.find('#customer_phone').val(phone);
+        $customerEditModal.find('#customer_address').val(address);
+        $customerEditModal.find('#zones').val(zoneName);
+        if(wardName==''){
+            $customerEditModal.find('.wards-holder').addClass('invisible');
+            $customerEditModal.find('#wards').val('');
+        }else{
+            $customerEditModal.find('.wards-holder').removeClass('invisible');
+            $customerEditModal.find('#wards').val(wardName);
+        }
+        // fill hidden iput
+        $customerEditModal.find('#zone-short-name').val(zoneShortName);
+        $customerEditModal.find('#zone-id').val(zoneId);
+        $customerEditModal.find('#ward-code').val(warCode);
+        $customerEditModal.find('#district_code').val(districtCode);
+
+        // show wards
+        $wardSelected = $('div#modal_update_customer .wards');
+        $zonesRow = $('div#modal_update_customer .zones').closest('.zones-row')
+        showWards(districtCode, $wardSelected,$zonesRow);
+
+        // $customerEditModal.find('#customer_name').val(name);
+     }
+/* ---------------------------------------------
+End Fill customer edit modal
 --------------------------------------------- */
 
 /* ---------------------------------------------
@@ -666,6 +832,119 @@ $(window).keydown(function(event){
 /* ---------------------------------------------
 End Prevent submit form when enter hitting
 --------------------------------------------- */
+// });
+
+$("div#modal_insert_customer .zones").autocomplete({
+    source: function( request, response ) {
+        searchZones(request, response);
+    },
+    minLength: 3,
+    select: function( event, ui ) {
+            event.preventDefault();
+            // var $selectedZone = ui.item.name;
+            $(this).val(ui.item.name);
+            // fill hidden iput, for what?
+            // $('#zone-short-name').val(ui.item.short_name);
+            $(this).siblings('#zone-short-name').val(ui.item.short_name); // for display short address
+            $(this).siblings('#zone-id').val(ui.item.id); // for saving relationship with customer
+            $(this).siblings('#district_code').val(ui.item.district_code);// for fillter ward
+            // fill modal edit with this customer information
+
+    }
+}).data("ui-autocomplete")._renderItem = function (ul, item) {
+        var n = '<p>'+item.name+'</p>';
+        return $("<li></li>").data("ui-autocomplete-item", item).append(n).appendTo($(ul))
+};
+
+$("div#modal_update_customer .zones").autocomplete({
+    source: function( request, response ) {
+        searchZones(request, response);
+    },
+    minLength: 1,
+    select: function( event, ui ) {
+            event.preventDefault();
+            // var $selectedZone = ui.item.name;
+            $(this).val(ui.item.name);
+            // fill hidden iput
+            $(this).siblings('#zone-short-name').val(ui.item.short_name);
+            $(this).siblings('#zone-id').val(ui.item.id);
+            $(this).siblings('#district_code').val(ui.item.district_code);
+    }
+}).data("ui-autocomplete")._renderItem = function (ul, item) {
+        var n = '<p>'+item.name+'</p>';
+        return $("<li></li>").data("ui-autocomplete-item", item).append(n).appendTo($(ul))
+};
+
+function searchZones(request, response){
+    $.ajax( {
+        url: "/api/invoices/getZones",
+        data: {_token: CSRF_TOKEN, term: request.term, maxResults: 10},
+        dataType: "json",
+        success: function (request) {
+            response($.map(request, function (request) {
+                return request
+            }))
+        }
+      } );
+}
+
+// show or hide wards input
+$(document).on('change',"div#modal_insert_customer .zones, div#modal_update_customer .zones", function(){
+    $wardsRow = $(this).closest('.zones-row').siblings('.wards-holder');
+    $zonesRow = $(this).closest('.zones-row');
+    $wardSelected = $wardsRow.find('.wards');
+
+    // hidden field
+    $districtCodeHidField = $(this).siblings('#district_code');
+    $zoneShortNameHidField = $(this).siblings('#zone-short-name');
+    $zoneIdHidField = $(this).siblings('#zone-id');
+    $wardCodeHidField = $(this).siblings('#ward-code');
+
+    if($(this).val().length < 3){// type in not enough zone or remove zone
+        $wardsRow.addClass('invisible');
+        $wardSelected.val('');
+        $districtCodeHidField.val('');
+        // console.log($zoneShortNameHidField.val());
+        $zoneShortNameHidField.val('');
+        $zoneIdHidField.val('');
+        $wardCodeHidField.val('');
+    }else{
+        $wardsRow.removeClass('invisible');
+        if($districtCodeHidField.val()){
+            showWards($districtCodeHidField.val(), $wardSelected,$zonesRow);
+        }
+    }
+});
+function showWards(districtCode, wardSelected, zonesRow){
+    wardSelected.autocomplete({
+    source: function( request, response ) {
+        $.ajax( {
+        url: "/api/invoices/getWardsByZone",
+        data: {_token: CSRF_TOKEN, term: request.term, districtCode: districtCode},
+        dataType: "json",
+        success: function (request) {
+            response($.map(request, function (request) {
+                return request
+            }))
+        }
+        } );
+    },
+    minLength: 1,
+    select: function( event, ui ) {
+            event.preventDefault();
+            zonesRow.find('#ward-code').val(ui.item.code);
+            $(this).val(ui.item.name);
+    }
+    }).data("ui-autocomplete")._renderItem = function (ul, item) {
+        var n = '<p>'+item.name+'</p>';
+        return $("<li></li>").data("ui-autocomplete-item", item).append(n).appendTo($(ul))
+    };
+}
+// remove hidden field ward-code when input wards has been clear
+$(document).on('keyup',"div#modal_insert_customer .wards, div#modal_update_customer .wards", function(){
+    if($(this).val().length < 1){
+        $(this).closest('.wards-holder').siblings('.zones-row').find('#ward-code').val('');
+    }
 });
 
 
