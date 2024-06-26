@@ -14,7 +14,7 @@
             font-weight:bold;
         }
         table {
-           border-collapse: separate;
+           border-collapse: collapse;
            border-spacing: 3px;
         }
         .size1{
@@ -33,6 +33,7 @@
             font-size: 10px
         }
 
+
     </style>
   </head>
   <body>
@@ -49,7 +50,8 @@
         {{-- <htmlpagefooter name="page-footer">
             <p class="text-end" style="font-size: 6px">trang: {PAGENO} / {nbpg}</p>
         </htmlpagefooter> --}}
-        @include('app.invoice.invoice_sample')
+        @include('app.invoice.print_sample2')
+
         @if (!$loop->last)
         <pagebreak />
         @endif

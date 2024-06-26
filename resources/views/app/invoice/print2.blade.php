@@ -14,9 +14,10 @@
             font-weight:bold;
         }
         table {
-           border-collapse: separate;
+           border-collapse: collapse;
            border-spacing: 3px;
         }
+
         .size1{
             font-size: 6px
         }
@@ -43,7 +44,7 @@
     <htmlpagefooter name="page-footer">
         <p class="text-end size1" >trang: {PAGENO} / {nbpg}</p>
     </htmlpagefooter>
-    @include('app.invoice.invoice_sample')
+    @include('app.invoice.print_sample2')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
 </html>
