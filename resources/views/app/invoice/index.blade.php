@@ -270,18 +270,20 @@ div.dt-button-collection button.dt-button:active:not(.disabled), div.dt-button-c
                             },
                             {
                                 extend: 'excelHtml5',
-                                title:'Hạt Giông Lam Sơn - đơn hàng',
+                                // title:'Hạt Giông Lam Sơn - đơn hàng',
+                                title:'',
                                 titleAttr: "Xuất excel",
                                 text: '<i class="fa fa-file-excel-o"></i>',
                                 className: 'btn btn-light w-sm waves-effect waves-light',
                                 exportOptions: {
-                                    columns: [ 0, 1, 2, 3, 4, 5 ,6 ],
+                                    // columns: [ 0, 1, 2, 3, 4, 5 ,6 ],
+                                    columns: [ 1, 3, 4, 5 ,6 ],
                                     // https://datatables.net/extensions/buttons/examples/html5/outputFormat-orthogonal.html
                                     orthogonal: 'export'
                                 },
                                 customize: function( xlsx, row ) {
                                         var sheet = xlsx.xl.worksheets['sheet1.xml'];
-                                        $('row c[r^="G"], row c[r^="F"]', sheet).attr( 's', 63);
+                                        $('row c[r^="E"]', sheet).attr( 's', 63);
                                 },
                                 filename: function() {
                                 $today = moment().format('D_M_YYYY');
