@@ -39,7 +39,7 @@ div.dt-button-collection button.dt-button:active:not(.disabled), div.dt-button-c
 
             <div class="page-title-right">
                 <div >
-                    <a href="{{route('invoices.create')}}" class="btn btn-primary waves-effect waves-light" ><i class="fas fa-plus"></i>Thêm mới</a>
+                    <a href="{{route('invoices.create')}}" class="btn btn-primary waves-effect waves-light" ><i class="fas fa-plus"></i> Lên đơn</a>
                 </div>
             </div>
 
