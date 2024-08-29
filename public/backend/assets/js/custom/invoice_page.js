@@ -241,8 +241,13 @@ Autocomplete search product
                 $product_amount_off = $price-$selling_price;
                 $row.find("input.product_amount_off").val($product_amount_off.toLocaleString( "es-AR" ));
             }
-        }
+        }else if($class.indexOf('product_quantity')>=0){
+            // changed on quantity
+            $selling_price = $('input.selling_price').val()!=''?parseInt($('input.selling_price').val().replace(/\./g,'')) : 0;
+            $product_amount_off = $('input.product_amount_off').val()!=''?parseInt($('input.product_amount_off').val().replace(/\./g,'')) : 0;
+            console.log($product_amount_off);
 
+        }
         $product_line_total = $selling_price*$quantity;
         // fill in line total
         $row.find("input.product_line_total").val($product_line_total.toLocaleString( "es-AR" ));
@@ -251,7 +256,7 @@ Autocomplete search product
         updateTotal();
     })
     // shipping, invoice amount off changed
-    $('table#productTable .invoice_amount_off, table#productTable shipping_fee').on('keyup change', function(){
+    $('table#productTable .invoice_amount_off, table#productTable .shipping_fee').on('keyup change', function(){
         updateTotal();
     })
 

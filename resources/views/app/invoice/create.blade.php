@@ -224,7 +224,7 @@ input:-webkit-autofill{
 <script src="{{ global_asset('backend/assets/libs/jquery-ui/jquery-ui.js') }}"></script>
 <script type="text/javascript" src="{{global_asset('asset/admin/javascripts/image-uploader.min.js')}}"></script>
 
-<script src="{{ global_asset('backend/assets/js/custom/invoice_page.js?31') }}"></script>
+<script src="{{ global_asset('backend/assets/js/custom/invoice_page.js?1') }}"></script>
 <script src="{{ global_asset('backend/assets/js/custom/auto_formatting_input_value.js') }}"></script>
 
 
