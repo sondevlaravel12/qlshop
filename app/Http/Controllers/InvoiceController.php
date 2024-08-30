@@ -136,6 +136,7 @@ class InvoiceController extends Controller
         // dd($invoice->id);
         // $invoice = $invoice->load('customer.addresses.zone','customer.addresses.ward');
         $customerId = $invoice->customer->id;
+        // dd($invoice);
         $saleUnits = SaleUnit::all('title');
         // dd($invoice);
         return view('app.invoice.edit', compact('customerId','invoice', 'saleUnits'));
@@ -217,7 +218,11 @@ class InvoiceController extends Controller
         // $invoice->amount_off = $request->invoice_amount_off;
         if($request->invoice_amount_off){
             $invoice->amount_off = $request->invoice_amount_off;
+        }else{
+            $invoice->amount_off =0;
         }
+        // dd($invoice);
+
         $invoice->total = $request->product_total;
         $invoice->status ='0';
         $invoice->note = $request->note;
