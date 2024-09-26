@@ -1,26 +1,32 @@
 <div class="invoice">
 
-    <div class="row" style="display:none">
+    <div class="row" style="">
         <div class="col-12 size5" >
 
                 <div class="col-8">
+                    @if ($settings['show_logo']->value === 'true')
                     <img src="{{  App\Models\Webinfo::first()?App\Models\Webinfo::first()->getFirstMediaUrl('logo'):'noimage' }}" alt="logo" height="20"/>
                     <br>
-
-
+                    @endif
+                    @if ($settings['show_address']->value === 'true')
                     <div >
                         <span >Địa chỉ:</span>
                         {{ App\Models\Webinfo::first()?App\Models\Webinfo::first()->address:'' }}
                     </div>
+                    @endif
+                    @if ($settings['show_phone']->value === 'true')
                     <div>
                         <strong >Điện thoại: </strong>
                         {{ App\Models\Webinfo::first()?App\Models\Webinfo::first()->phonebase:'' }}
                     </div>
+                    @endif
+                    @if ($settings['show_website']->value === 'true')
                     <div>
                         <strong >Website: </strong>
                         {{-- {{ Request::getHost(); }} --}}
                         {{ App\Models\Webinfo::first()->website }}
                     </div>
+                    @endif
 
                 </div>
 

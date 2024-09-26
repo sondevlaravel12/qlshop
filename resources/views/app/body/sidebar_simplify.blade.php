@@ -38,7 +38,7 @@
                 @endrole
                 <li>
                     <a href="#" class="has-arrow waves-effect">
-                        <i class="ri-mail-send-line"></i>
+                        <i class="fab fa-product-hunt"></i>
                         <span>Sản phẩm </span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -49,7 +49,7 @@
                 </li>
                 <li>
                     <a href="#" class="has-arrow waves-effect">
-                        <i class="ri-mail-send-line"></i>
+                        <i class="fas fa-file-invoice-dollar"></i>
                         <span>Hóa đơn</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -58,6 +58,21 @@
                         <li><a href="{{route('invoices.deleted')}}">Hóa đơn đã xóa</a></li>
 
                     </ul>
+                </li>
+                <li>
+                    <a href="#" class=" waves-effect">
+                        <i class="fas fa-cog"></i>
+                        <span>Cài đặt</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('tenant.settings.edit') }}">Hóa đơn</a></li>
+                    @role('superadmin')
+                        <li><a href="#">Giao diện</a></li>
+
+                    @endrole
+                    </ul>
+
+
                 </li>
 
             </ul>

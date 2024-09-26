@@ -11,6 +11,7 @@ use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TenantController;
+use App\Http\Controllers\TenantSettingController;
 use App\Models\Invoice;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Route;
@@ -111,6 +112,13 @@ Route::middleware([
         //     $pdf = LaravelMpdf::loadView('app.invoice.print_multiple_invoices', compact('invoices'));
         //     return $pdf->stream('invoices.pdf');
         // });
+        //---------------------------- seetting ----------------------------//
+        // Route để hiển thị form chỉnh sửa tùy chỉnh
+        Route::get('/settings/edit', [TenantSettingController::class, 'edit'])->name('tenant.settings.edit');
+        // Route để xử lý yêu cầu cập nhật tùy chỉnh
+        Route::post('/settings', [TenantSettingController::class, 'update'])->name('tenant.settings.update');
+        //----------------------------end seetting ----------------------------//
+
 
 
 

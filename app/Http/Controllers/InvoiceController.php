@@ -9,6 +9,7 @@ use App\Models\InvoiceDetail;
 use App\Models\Product;
 use App\Models\Province;
 use App\Models\SaleUnit;
+use App\Models\TenantSetting;
 use App\Models\Ward;
 use App\Models\Zone;
 use Illuminate\Http\Request;
@@ -39,7 +40,8 @@ class InvoiceController extends Controller
         $now = date('d-m-Y H:i:s');
         $saleUnits = SaleUnit::all('title');
         $invoiceNumber = 'HD-'.strtoupper(uniqid());
-        return view('app.invoice.create', compact('invoiceNumber','saleUnits','now'));
+        $settings = TenantSetting::all()->keyBy('key');
+        return view('app.invoice.create', compact('invoiceNumber','saleUnits','now','settings'));
     }
 
     /**
@@ -285,10 +287,11 @@ class InvoiceController extends Controller
         echo ($invoice->id);
     }
     public function print(Request $request){
+        $settings = TenantSetting::all()->keyBy('key');
         $invoice = Invoice::findOrFail($request->invoiceId);
         $customer = $invoice->customer;
         $invoiceDetails = $invoice->invoiceDetails;
-        $pdf = LaravelMpdf::loadView('app.invoice.print2', compact(['invoice','customer','invoiceDetails']));
+        $pdf = LaravelMpdf::loadView('app.invoice.print2', compact(['invoice','customer','invoiceDetails','settings']));
         // use this package: https://github.com/mccarlosen/laravel-mpdf
         return $pdf->stream('document.pdf');
         // return view('app.invoice.print', compact(['invoice','customer','invoiceDetails']));

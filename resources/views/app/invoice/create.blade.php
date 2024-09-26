@@ -163,7 +163,7 @@ input:-webkit-autofill{
                                     <td colspan="7"><b>Phí vận chuyển:</b></td>
 
                                     <td colspan="3">
-                                        <input value="30.000" type="text" name="shipping_fee" value="" id="shipping_fee" class="form-control shipping_fee auto_formatting_input_value" style="background-color: #ddd; font-weight:bold;" >
+                                        <input value="{{ number_format($settings['shipping_fee']->value ?? 0, 0, '.', '.') }}" type="text" name="shipping_fee" value="" id="shipping_fee" class="form-control shipping_fee auto_formatting_input_value" style="background-color: #ddd; font-weight:bold;" >
                                     </td>
 
                                 </tr>
