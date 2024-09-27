@@ -6,6 +6,7 @@
                 <div class="col-8">
                     @if ($settings['show_logo']->value === 'true')
                     <img src="{{  App\Models\Webinfo::first()?App\Models\Webinfo::first()->getFirstMediaUrl('logo'):'noimage' }}" alt="logo" height="20"/>
+                    {{-- <img src="{{ asset('App\Models\Webinfo::first()->logo') }}" alt="logo" height="20"/> --}}
                     <br>
                     @endif
                     @if ($settings['show_address']->value === 'true')

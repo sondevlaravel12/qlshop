@@ -297,6 +297,8 @@ class InvoiceController extends Controller
         // return view('app.invoice.print', compact(['invoice','customer','invoiceDetails']));
     }
     public function printMultipleInvoices(Request $request){
+        $settings = TenantSetting::all()->keyBy('key');
+
         $invoice = Invoice::findOrFail(11);
             // $customer = $invoice->customer;
             // $invoiceDetails = $invoice->invoiceDetails;
@@ -315,7 +317,7 @@ class InvoiceController extends Controller
 
             // dd($invoices);
 
-            $pdf = LaravelMpdf::loadView('app.invoice.print_multiple_invoices', compact('invoices'));
+            $pdf = LaravelMpdf::loadView('app.invoice.print_multiple_invoices', compact('invoices', 'settings'));
             return $pdf->stream('invoices.pdf');
         // dd($request->id);
     }
