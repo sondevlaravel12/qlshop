@@ -6,7 +6,7 @@
         <div class="alert alert-success">{{ session('success') }}</div>
     @endif
 
-    <form action="{{ route('tenant.settings.update') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('tenant.settings.display.update') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <label for="shipping_fee">Phí Giao Hàng</label>

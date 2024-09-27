@@ -65,8 +65,9 @@
                         <span>Cài đặt</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('tenant.settings.edit') }}">Hóa đơn</a></li>
+                        <li><a href="{{ route('tenant.settings.display.edit') }}">Hóa đơn</a></li>
                     @role('superadmin')
+                        <li><a href="{{ route('tenant.settings.info.edit') }}">Thông tin cửa hàng</a></li>
                         <li><a href="#">Giao diện</a></li>
 
                     @endrole

@@ -24,7 +24,7 @@ class Webinfo extends Model implements HasMedia
         $this
             ->addMediaCollection('logo')
             ->acceptsMimeTypes(['image/jpeg','image/png','image/svg'])
-            ->onlyKeepLatest(3)
+            ->onlyKeepLatest(1)
             ->registerMediaConversions(function (Media $media) {
                 $this
                     ->addMediaConversion('medium')

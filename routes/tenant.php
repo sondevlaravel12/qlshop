@@ -114,9 +114,14 @@ Route::middleware([
         // });
         //---------------------------- seetting ----------------------------//
         // Route để hiển thị form chỉnh sửa tùy chỉnh
-        Route::get('/settings/edit', [TenantSettingController::class, 'edit'])->name('tenant.settings.edit');
+        Route::get('/settings/display/edit', [TenantSettingController::class, 'editDisplaySettings'])->name('tenant.settings.display.edit');
         // Route để xử lý yêu cầu cập nhật tùy chỉnh
-        Route::post('/settings', [TenantSettingController::class, 'update'])->name('tenant.settings.update');
+        Route::post('/settings/display/update', [TenantSettingController::class, 'updateDisplaySettings'])->name('tenant.settings.display.update');
+
+        // ternant information
+        Route::get('/setting/info/edit', [TenantSettingController::class, 'editInfo'])->name('tenant.settings.info.edit');
+        Route::post('/settings/info/update', [TenantSettingController::class, 'updateInfo'])->name('tenant.settings.info.update');
+
         //----------------------------end seetting ----------------------------//
 
 
