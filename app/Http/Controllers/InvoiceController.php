@@ -298,27 +298,18 @@ class InvoiceController extends Controller
     }
     public function printMultipleInvoices(Request $request){
         $settings = TenantSetting::all()->keyBy('key');
-
-        $invoice = Invoice::findOrFail(11);
-            // $customer = $invoice->customer;
-            // $invoiceDetails = $invoice->invoiceDetails;
-            // dd($request->all());
-            // $invoices = Invoice::whereIn('id',$request->id)->with('products','customer','invoiceDetails')->get();
-            // $invoices = Invoice::whereIn('id',$request->id);
-            // dd($request->id);
-            // Object.entries($request->id);
-            // $ids = explode(',',$request->id);
-            $ids = trim($request->id,'{}');
-            $ids = explode(',',$ids);
-            // dd($ids);
-            $invoices = Invoice::whereIn('id',$ids)->with('products','customer','invoiceDetails')->get();
-            // $invoices = Invoice::whereIn('id',$ids)->get()->count();
+        // $ids = trim($request->id,'{}');
+        // $ids = explode(',',$ids);
+        $ids = explode(',', $request->query('ids'));
+        // dd($request->id);
+        $invoices = Invoice::whereIn('id',$ids)->with('products','customer','invoiceDetails')->get();
+        // $invoices = Invoice::whereIn('id',$ids)->get()->count();
 
 
-            // dd($invoices);
+        // dd($invoices);
 
-            $pdf = LaravelMpdf::loadView('app.invoice.print_multiple_invoices', compact('invoices', 'settings'));
-            return $pdf->stream('invoices.pdf');
+        $pdf = LaravelMpdf::loadView('app.invoice.print_multiple_invoices', compact('invoices', 'settings'));
+        return $pdf->stream('invoices.pdf');
         // dd($request->id);
     }
 

@@ -298,12 +298,21 @@ div.dt-button-collection button.dt-button:active:not(.disabled), div.dt-button-c
                                 action: function () {
                                     let rowsSelected = $dataTable.rows({ selected: true });
                                     if(rowsSelected.data().length>0){
-                                        let ids =[];
-                                        for (var i = 0; i < rowsSelected.data().length; i++) {
-                                            ids.push(rowsSelected.data()[i].id);
-                                        }
-                                        window.open('/in/{'+ ids +'}','_blank');
+                                        let ids = rowsSelected.data().map(row => row.id).join(',');
+                                        // let ids =[];
+                                        // for (var i = 0; i < rowsSelected.data().length; i++) {
+                                        //     ids.push(rowsSelected.data()[i].id);
+                                        // }
+                                        // window.open('/in/{'+ ids +'}','_blank');
+                                        // if (ids.length > 0) {
+                                        //     let idString = ids.join(',');
+                                        //     let url = '{{ route("invoices.multiplePrint") }}' + '?ids=' + ids;
+                                        //     window.open(url, '_blank');
+                                        // }
+                                        let url = '{{ route("invoices.multiplePrint") }}' + '?ids=' + ids;
+                                        window.open(url, '_blank');
                                     }
+
                                 }
                             },
 

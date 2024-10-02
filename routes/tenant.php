@@ -100,7 +100,9 @@ Route::middleware([
         // Route::post('admin/ajax-restore', 'ajaxRestore')->name('admin.invoices.ajaxrestore');
         // Route::post('admin/ajax-delete-permanently', 'ajaxDestroyPermanently');
 
-        Route::get('in/{id}', [InvoiceController::class,'printMultipleInvoices']);
+        // Route::get('in/{id}', [InvoiceController::class,'printMultipleInvoices']);
+        Route::get('/hd/print', [InvoiceController::class, 'printMultipleInvoices'])->name('invoices.multiplePrint');
+
 
         // Route::get('/in/{id}', function(Request $request){
         //     // $invoice = Invoice::findOrFail(11);
